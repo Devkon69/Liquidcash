@@ -1,6 +1,6 @@
 // Copyright (c) 2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 /* $Id: sph_types.h 260 2011-07-21 01:02:38Z tp $ */

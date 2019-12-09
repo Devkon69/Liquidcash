@@ -1,12 +1,12 @@
 // Copyright (c) 2017-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_CRYPTO_CHACHA20_H
-#define TTN_CRYPTO_CHACHA20_H
+#ifndef LCASH_CRYPTO_CHACHA20_H
+#define LCASH_CRYPTO_CHACHA20_H
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -26,4 +26,4 @@ public:
     void Output(unsigned char* output, size_t bytes);
 };
 
-#endif // TTN_CRYPTO_CHACHA20_H
+#endif // LCASH_CRYPTO_CHACHA20_H

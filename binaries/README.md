@@ -1,3 +1,3 @@
 Releases have been moved to:
 
-https://github.com/titancoinproject/Titan/releases/latest
+https://github.com/liquidcashproject/Titan/releases/latest

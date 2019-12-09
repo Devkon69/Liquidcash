@@ -1,6 +1,6 @@
 // Copyright (c) 2016-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,7 +13,7 @@
 #include "rpc/register.h"
 #include "rpc/server.h"
 #include "rpcconsole.h"
-#include "test/test_titancoin.h"
+#include "test/test_liquidcash.h"
 #include "univalue.h"
 #include "util.h"
 

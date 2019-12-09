@@ -1,11 +1,11 @@
 // Copyright (c) 2015-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_QT_PLATFORMSTYLE_H
-#define TTN_QT_PLATFORMSTYLE_H
+#ifndef LCASH_QT_PLATFORMSTYLE_H
+#define LCASH_QT_PLATFORMSTYLE_H
 
 #include <QIcon>
 #include <QPixmap>
@@ -79,5 +79,5 @@ private:
     /* ... more to come later */
 };
 
-#endif // TTN_QT_PLATFORMSTYLE_H
+#endif // LCASH_QT_PLATFORMSTYLE_H
 

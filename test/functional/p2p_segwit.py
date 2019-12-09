@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # Copyright (c) 2018 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test segwit transactions and blocks on P2P network."""
 
 from test_framework.mininode import *
-from test_framework.test_framework import TitancoinTestFramework
+from test_framework.test_framework import LiquidcashTestFramework
 from test_framework.util import *
 from test_framework.script import *
 from test_framework.blocktools import create_block, create_coinbase, add_witness_commitment, get_witness_script, WITNESS_COMMITMENT_HEADER
@@ -109,7 +109,7 @@ def sign_P2PK_witness_input(script, txTo, inIdx, hashtype, value, key):
     txTo.rehash()
 
 
-class SegWitTest(TitancoinTestFramework):
+class SegWitTest(LiquidcashTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 3
@@ -203,7 +203,7 @@ class SegWitTest(TitancoinTestFramework):
         # rule).
         self.test_node.test_witness_block(block, accepted=False)
         # TODO: fix synchronization so we can test reject reason
-        # Right now, titancoind delays sending reject messages for blocks
+        # Right now, liquidcashd delays sending reject messages for blocks
         # until the future, making synchronization here difficult.
         #assert_equal(self.test_node.last_message["reject"].reason, "unexpected-witness")
 
@@ -527,7 +527,7 @@ class SegWitTest(TitancoinTestFramework):
         self.nodes[0].submitblock(bytes_to_hex_str(block.serialize(True)))
         assert(self.nodes[0].getbestblockhash() != block.hash)
 
-        # Now redo commitment with the standard nonce, but let titancoind fill it in.
+        # Now redo commitment with the standard nonce, but let liquidcashd fill it in.
         add_witness_commitment(block, nonce=0)
         block.vtx[0].wit = CTxWitness()
         block.solve()
@@ -1447,7 +1447,7 @@ class SegWitTest(TitancoinTestFramework):
         # This transaction should not be accepted into the mempool pre- or
         # post-segwit.  Mempool acceptance will use SCRIPT_VERIFY_WITNESS which
         # will require a witness to spend a witness program regardless of
-        # segwit activation.  Note that older titancoind's that are not
+        # segwit activation.  Note that older liquidcashd's that are not
         # segwit-aware would also reject this for failing CLEANSTACK.
         self.test_node.test_transaction_acceptance(spend_tx, with_witness=False, accepted=False)
 
@@ -1483,12 +1483,12 @@ class SegWitTest(TitancoinTestFramework):
     # Test the behavior of starting up a segwit-aware node after the softfork
     # has activated.  As segwit requires different block data than pre-segwit
     # nodes would have stored, this requires special handling.
-    # To enable this test, pass --oldbinary=<path-to-pre-segwit-titancoind> to
+    # To enable this test, pass --oldbinary=<path-to-pre-segwit-liquidcashd> to
     # the test.
     def test_upgrade_after_activation(self, node_id):
         self.log.info("Testing software upgrade after softfork activation")
 
-        assert(node_id != 0) # node0 is assumed to be a segwit-active titancoind
+        assert(node_id != 0) # node0 is assumed to be a segwit-active liquidcashd
 
         # Make sure the nodes are all up
         sync_blocks(self.nodes)

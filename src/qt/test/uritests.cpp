@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -15,54 +15,54 @@ void URITests::uriTests()
 {
     SendCoinsRecipient rv;
     QUrl uri;
-    uri.setUrl(QString("titancoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?req-dontexist="));
-    QVERIFY(!GUIUtil::parseTitancoinURI(uri, &rv));
+    uri.setUrl(QString("liquidcash:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?req-dontexist="));
+    QVERIFY(!GUIUtil::parseLiquidcashURI(uri, &rv));
 
-    uri.setUrl(QString("titancoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?dontexist="));
-    QVERIFY(GUIUtil::parseTitancoinURI(uri, &rv));
+    uri.setUrl(QString("liquidcash:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?dontexist="));
+    QVERIFY(GUIUtil::parseLiquidcashURI(uri, &rv));
     QVERIFY(rv.address == QString("175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W"));
     QVERIFY(rv.label == QString());
     QVERIFY(rv.amount == 0);
 
-    uri.setUrl(QString("titancoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?label=Wikipedia Example Address"));
-    QVERIFY(GUIUtil::parseTitancoinURI(uri, &rv));
+    uri.setUrl(QString("liquidcash:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?label=Wikipedia Example Address"));
+    QVERIFY(GUIUtil::parseLiquidcashURI(uri, &rv));
     QVERIFY(rv.address == QString("175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W"));
     QVERIFY(rv.label == QString("Wikipedia Example Address"));
     QVERIFY(rv.amount == 0);
 
-    uri.setUrl(QString("titancoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=0.001"));
-    QVERIFY(GUIUtil::parseTitancoinURI(uri, &rv));
+    uri.setUrl(QString("liquidcash:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=0.001"));
+    QVERIFY(GUIUtil::parseLiquidcashURI(uri, &rv));
     QVERIFY(rv.address == QString("175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W"));
     QVERIFY(rv.label == QString());
     QVERIFY(rv.amount == 100000);
 
-    uri.setUrl(QString("titancoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=1.001"));
-    QVERIFY(GUIUtil::parseTitancoinURI(uri, &rv));
+    uri.setUrl(QString("liquidcash:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=1.001"));
+    QVERIFY(GUIUtil::parseLiquidcashURI(uri, &rv));
     QVERIFY(rv.address == QString("175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W"));
     QVERIFY(rv.label == QString());
     QVERIFY(rv.amount == 100100000);
 
-    uri.setUrl(QString("titancoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=100&label=Wikipedia Example"));
-    QVERIFY(GUIUtil::parseTitancoinURI(uri, &rv));
+    uri.setUrl(QString("liquidcash:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=100&label=Wikipedia Example"));
+    QVERIFY(GUIUtil::parseLiquidcashURI(uri, &rv));
     QVERIFY(rv.address == QString("175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W"));
     QVERIFY(rv.amount == 10000000000LL);
     QVERIFY(rv.label == QString("Wikipedia Example"));
 
-    uri.setUrl(QString("titancoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?message=Wikipedia Example Address"));
-    QVERIFY(GUIUtil::parseTitancoinURI(uri, &rv));
+    uri.setUrl(QString("liquidcash:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?message=Wikipedia Example Address"));
+    QVERIFY(GUIUtil::parseLiquidcashURI(uri, &rv));
     QVERIFY(rv.address == QString("175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W"));
     QVERIFY(rv.label == QString());
 
-    QVERIFY(GUIUtil::parseTitancoinURI("titancoin://175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?message=Wikipedia Example Address", &rv));
+    QVERIFY(GUIUtil::parseLiquidcashURI("liquidcash://175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?message=Wikipedia Example Address", &rv));
     QVERIFY(rv.address == QString("175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W"));
     QVERIFY(rv.label == QString());
 
-    uri.setUrl(QString("titancoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?req-message=Wikipedia Example Address"));
-    QVERIFY(GUIUtil::parseTitancoinURI(uri, &rv));
+    uri.setUrl(QString("liquidcash:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?req-message=Wikipedia Example Address"));
+    QVERIFY(GUIUtil::parseLiquidcashURI(uri, &rv));
 
-    uri.setUrl(QString("titancoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=1,000&label=Wikipedia Example"));
-    QVERIFY(!GUIUtil::parseTitancoinURI(uri, &rv));
+    uri.setUrl(QString("liquidcash:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=1,000&label=Wikipedia Example"));
+    QVERIFY(!GUIUtil::parseLiquidcashURI(uri, &rv));
 
-    uri.setUrl(QString("titancoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=1,000.0&label=Wikipedia Example"));
-    QVERIFY(!GUIUtil::parseTitancoinURI(uri, &rv));
+    uri.setUrl(QString("liquidcash:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=1,000.0&label=Wikipedia Example"));
+    QVERIFY(!GUIUtil::parseLiquidcashURI(uri, &rv));
 }

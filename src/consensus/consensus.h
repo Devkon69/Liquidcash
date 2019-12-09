@@ -1,12 +1,12 @@
 // Copyright (c) 2014-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_CONSENSUS_CONSENSUS_H
-#define TTN_CONSENSUS_CONSENSUS_H
+#ifndef LCASH_CONSENSUS_CONSENSUS_H
+#define LCASH_CONSENSUS_CONSENSUS_H
 
 #include <stdlib.h>
 #include <stdint.h>
@@ -25,7 +25,7 @@ static const unsigned int MAX_BLOCK_SERIALIZED_SIZE_RIP2 = 8000000;
 /** The maximum allowed number of signature check operations in a block (network rule) */
 static const int64_t MAX_BLOCK_SIGOPS_COST = 80000;
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
-static const int COINBASE_MATURITY = 100;
+static const int COINBASE_MATURITY = 30;
 
 static const int WITNESS_SCALE_FACTOR = 4;
 
@@ -50,4 +50,4 @@ enum {
     LOCKTIME_MEDIAN_TIME_PAST = (1 << 1),
 };
 
-#endif // TTN_CONSENSUS_CONSENSUS_H
+#endif // LCASH_CONSENSUS_CONSENSUS_H

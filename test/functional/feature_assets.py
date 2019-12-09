@@ -1,26 +1,26 @@
 #!/usr/bin/env python3
 # Copyright (c) 2018-2019 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Testing asset use cases
 
 """
-from test_framework.test_framework import TitancoinTestFramework
+from test_framework.test_framework import LiquidcashTestFramework
 from test_framework.util import *
 
 
 import string
 
-class AssetTest(TitancoinTestFramework):
+class AssetTest(LiquidcashTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 3
         self.extra_args = [['-assetindex'], ['-assetindex'], ['-assetindex']]
 
     def activate_assets(self):
-        self.log.info("Generating TTN for node[0] and activating assets...")
+        self.log.info("Generating LCASH for node[0] and activating assets...")
         n0, n1, n2 = self.nodes[0], self.nodes[1], self.nodes[2]
 
         n0.generate(1)
@@ -139,13 +139,13 @@ class AssetTest(TitancoinTestFramework):
         assert_equal(n0.listassetbalancesbyaddress(address0)["MY_ASSET"], 2000)
 
         self.log.info("Checking listassets()...")
-        n0.issue("TTN1", 1000)
-        n0.issue("TTN2", 1000)
-        n0.issue("TTN3", 1000)
+        n0.issue("LCASH1", 1000)
+        n0.issue("LCASH2", 1000)
+        n0.issue("LCASH3", 1000)
         n0.generate(1)
         self.sync_all()
 
-        n0.listassets(asset="TTN*", verbose=False, count=2, start=-2)
+        n0.listassets(asset="LCASH*", verbose=False, count=2, start=-2)
 
         self.log.info("Creating some sub-assets...")
         n0.issue(asset_name="MY_ASSET/SUB1", qty=1000, to_address=address0, change_address=address0,\
@@ -165,10 +165,10 @@ class AssetTest(TitancoinTestFramework):
         assert_equal(assetdata["has_ipfs"], 1)
         assert_equal(assetdata["ipfs_hash"], ipfs_hash)
 
-        titancoin_assets = n0.listassets(asset="TTN*", verbose=False, count=2, start=-2)
-        assert_equal(len(titancoin_assets), 2)
-        assert_equal(titancoin_assets[0], "TTN2")
-        assert_equal(titancoin_assets[1], "TTN3")
+        liquidcash_assets = n0.listassets(asset="LCASH*", verbose=False, count=2, start=-2)
+        assert_equal(len(liquidcash_assets), 2)
+        assert_equal(liquidcash_assets[0], "LCASH2")
+        assert_equal(liquidcash_assets[1], "LCASH3")
         self.sync_all()
 
     def issue_param_checks(self):

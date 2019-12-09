@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Copyright (c) 2018 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test RPC calls related to net.
@@ -11,7 +11,7 @@ Tests correspond to code in rpc/net.cpp.
 
 import time
 
-from test_framework.test_framework import TitancoinTestFramework
+from test_framework.test_framework import LiquidcashTestFramework
 from test_framework.util import (
     assert_equal,
     assert_raises_rpc_error,
@@ -19,7 +19,7 @@ from test_framework.util import (
     p2p_port,
 )
 
-class NetTest(TitancoinTestFramework):
+class NetTest(LiquidcashTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

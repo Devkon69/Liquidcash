@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Copyright (c) 2018 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the rawtransaction RPCs.
@@ -14,11 +14,11 @@ Test the following RPCs:
    - getrawtransaction
 """
 
-from test_framework.test_framework import TitancoinTestFramework
+from test_framework.test_framework import LiquidcashTestFramework
 from test_framework.util import *
 
 # Create one-input, one-output, no-fee transaction:
-class RawTransactionsTest(TitancoinTestFramework):
+class RawTransactionsTest(LiquidcashTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 3
@@ -67,7 +67,7 @@ class RawTransactionsTest(TitancoinTestFramework):
         #use balance deltas instead of absolute values
         bal = self.nodes[2].getbalance()
 
-        # send 1.2 TTN to msig adr
+        # send 1.2 LCASH to msig adr
         txId = self.nodes[0].sendtoaddress(mSigObj, 1.2)
         self.sync_all()
         self.nodes[0].generate(1)

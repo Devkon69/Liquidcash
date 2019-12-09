@@ -1,13 +1,13 @@
 // Copyright (c) 2017-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 // Taken from https://gist.github.com/arvidsson/7231973
 
-#ifndef TTN_REVERSE_ITERATOR_H
-#define TTN_REVERSE_ITERATOR_H
+#ifndef LCASH_REVERSE_ITERATOR_H
+#define LCASH_REVERSE_ITERATOR_H
 
 /**
  * Template used for reverse iteration in C++11 range-based for loops.
@@ -42,4 +42,4 @@ reverse_range<T> reverse_iterate(T &x)
     return reverse_range<T>(x);
 }
 
-#endif // TTN_REVERSE_ITERATOR_H
+#endif // LCASH_REVERSE_ITERATOR_H

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Copyright (c) 2018-2019 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Testing unique asset use cases
@@ -9,7 +9,7 @@
 """
 import random
 
-from test_framework.test_framework import TitancoinTestFramework
+from test_framework.test_framework import LiquidcashTestFramework
 from test_framework.util import (
     assert_contains,
     assert_does_not_contain_key,
@@ -35,14 +35,14 @@ def gen_unique_asset_name(root):
         name += tag_c
     return name
 
-class UniqueAssetTest(TitancoinTestFramework):
+class UniqueAssetTest(LiquidcashTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 3
         self.extra_args = [['-assetindex'], ['-assetindex'], ['-assetindex']]
 
     def activate_assets(self):
-        self.log.info("Generating TTN for node[0] and activating assets...")
+        self.log.info("Generating LCASH for node[0] and activating assets...")
         n0 = self.nodes[0]
         n0.generate(432)
         self.sync_all()

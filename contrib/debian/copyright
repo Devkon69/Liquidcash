@@ -1,13 +1,13 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: Titancoin
+Upstream-Name: Liquidcash
 Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
- irc://#titancoin@freenode.net
-Source: https://github.com/titancoinproject/Titan
+ irc://#liquidcash@freenode.net
+Source: https://github.com/liquidcashproject/Titan
 
 Files: *
-Copyright: 2009-2017, Titancoin Core Developers
+Copyright: 2009-2017, Liquidcash Core Developers
 License: Expat
-Comment: The Titancoin Core Developers encompasses the current developers listed on titanprojects.co,
+Comment: The Liquidcash Core Developers encompasses the current developers listed on titanprojects.co,
          as well as the numerous contributors to the project.
 
 Files: debian/*
@@ -78,12 +78,12 @@ License: Expat
 Comment: Modifications of Stephan Hutchings Typicons
 
 Files: src/qt/res/icons/about.png
-       src/qt/res/icons/titancoin.*
-       share/pixmaps/titancoin*
-       src/qt/res/src/titancoin.svg
+       src/qt/res/icons/liquidcash.*
+       share/pixmaps/liquidcash*
+       src/qt/res/src/liquidcash.svg
 Copyright: Bitboy, Jonas Schnelli
 License: public-domain
-Comment: Site: https://titancointalk.org/?topic=1756.0
+Comment: Site: https://liquidcashtalk.org/?topic=1756.0
 
 
 License: Expat

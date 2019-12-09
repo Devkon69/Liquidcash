@@ -1,7 +1,7 @@
 // Copyright (c) 2018-2019 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -60,7 +60,7 @@ static const std::regex CHANNEL_INDICATOR(R"(^[^^~#!]+~[^~#!\/]+$)");
 static const std::regex OWNER_INDICATOR(R"(^[^^~#!]+!$)");
 static const std::regex VOTE_INDICATOR(R"(^[^^~#!]+\^[^~#!\/]+$)");
 
-static const std::regex TTN_NAMES("^TTN$|^TTNCOIN$|^RVN$|^RAVEN$|^RVNCOIN$");
+static const std::regex LCASH_NAMES("^LCASH$|^LCASHCOIN$|^RVN$|^RAVEN$|^RVNCOIN$");
 
 bool IsRootNameValid(const std::string& name)
 {
@@ -68,7 +68,7 @@ bool IsRootNameValid(const std::string& name)
         && !std::regex_match(name, DOUBLE_PUNCTUATION)
         && !std::regex_match(name, LEADING_PUNCTUATION)
         && !std::regex_match(name, TRAILING_PUNCTUATION)
-        && !std::regex_match(name, TTN_NAMES);
+        && !std::regex_match(name, LCASH_NAMES);
 }
 
 bool IsSubNameValid(const std::string& name)
@@ -441,13 +441,13 @@ void CNewAsset::ConstructTransaction(CScript& script) const
     ssAsset << *this;
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(TTN_R); // r
-    vchMessage.push_back(TTN_V); // v
-    vchMessage.push_back(TTN_N); // n
-    vchMessage.push_back(TTN_Q); // q
+    vchMessage.push_back(LCASH_R); // r
+    vchMessage.push_back(LCASH_V); // v
+    vchMessage.push_back(LCASH_N); // n
+    vchMessage.push_back(LCASH_Q); // q
 
     vchMessage.insert(vchMessage.end(), ssAsset.begin(), ssAsset.end());
-    script << OP_TTN_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_LCASH_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 void CNewAsset::ConstructOwnerTransaction(CScript& script) const
@@ -456,13 +456,13 @@ void CNewAsset::ConstructOwnerTransaction(CScript& script) const
     ssOwner << std::string(this->strName + OWNER_TAG);
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(TTN_R); // r
-    vchMessage.push_back(TTN_V); // v
-    vchMessage.push_back(TTN_N); // n
-    vchMessage.push_back(TTN_O); // o
+    vchMessage.push_back(LCASH_R); // r
+    vchMessage.push_back(LCASH_V); // v
+    vchMessage.push_back(LCASH_N); // n
+    vchMessage.push_back(LCASH_O); // o
 
     vchMessage.insert(vchMessage.end(), ssOwner.begin(), ssOwner.end());
-    script << OP_TTN_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_LCASH_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 bool AssetFromTransaction(const CTransaction& tx, CNewAsset& asset, std::string& strAddress)
@@ -664,7 +664,7 @@ bool CTransaction::IsNewAsset() const
 //! To be called on CTransactions where IsNewAsset returns true
 bool CTransaction::VerifyNewAsset(std::string& strError) const
 {
-    // Issuing an Asset must contain at least 3 CTxOut( Titancoin Burn Tx, Any Number of other Outputs ..., Owner Asset Tx, New Asset Tx)
+    // Issuing an Asset must contain at least 3 CTxOut( Liquidcash Burn Tx, Any Number of other Outputs ..., Owner Asset Tx, New Asset Tx)
     if (vout.size() < 3) {
         strError  = "bad-txns-issue-vout-size-to-small";
         return false;
@@ -771,7 +771,7 @@ bool CTransaction::IsNewUniqueAsset() const
 //! Call this function after IsNewUniqueAsset
 bool CTransaction::VerifyNewUniqueAsset(std::string& strError) const
 {
-    // Must contain at least 3 outpoints (TTN burn, owner change and one or more new unique assets that share a root (should be in trailing position))
+    // Must contain at least 3 outpoints (LCASH burn, owner change and one or more new unique assets that share a root (should be in trailing position))
     if (vout.size() < 3) {
         strError  = "bad-txns-unique-vout-size-to-small";
         return false;
@@ -873,7 +873,7 @@ bool CTransaction::IsReissueAsset() const
 //! To be called on CTransactions where IsReissueAsset returns true
 bool CTransaction::VerifyReissueAsset(std::string& strError) const
 {
-    // Reissuing an Asset must contain at least 3 CTxOut ( Titancoin Burn Tx, Any Number of other Outputs ..., Reissue Asset Tx, Owner Asset Change Tx)
+    // Reissuing an Asset must contain at least 3 CTxOut ( Liquidcash Burn Tx, Any Number of other Outputs ..., Reissue Asset Tx, Owner Asset Change Tx)
     if (vout.size() < 3) {
         strError  = "bad-txns-vout-size-to-small";
         return false;
@@ -964,13 +964,13 @@ void CAssetTransfer::ConstructTransaction(CScript& script) const
     ssTransfer << *this;
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(TTN_R); // r
-    vchMessage.push_back(TTN_V); // v
-    vchMessage.push_back(TTN_N); // n
-    vchMessage.push_back(TTN_T); // t
+    vchMessage.push_back(LCASH_R); // r
+    vchMessage.push_back(LCASH_V); // v
+    vchMessage.push_back(LCASH_N); // n
+    vchMessage.push_back(LCASH_T); // t
 
     vchMessage.insert(vchMessage.end(), ssTransfer.begin(), ssTransfer.end());
-    script << OP_TTN_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_LCASH_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 CReissueAsset::CReissueAsset(const std::string &strAssetName, const CAmount &nAmount, const int &nUnits, const int &nReissuable,
@@ -1046,13 +1046,13 @@ void CReissueAsset::ConstructTransaction(CScript& script) const
     ssReissue << *this;
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(TTN_R); // r
-    vchMessage.push_back(TTN_V); // v
-    vchMessage.push_back(TTN_N); // n
-    vchMessage.push_back(TTN_R); // r
+    vchMessage.push_back(LCASH_R); // r
+    vchMessage.push_back(LCASH_V); // v
+    vchMessage.push_back(LCASH_N); // n
+    vchMessage.push_back(LCASH_R); // r
 
     vchMessage.insert(vchMessage.end(), ssReissue.begin(), ssReissue.end());
-    script << OP_TTN_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_LCASH_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 bool CReissueAsset::IsNull() const
@@ -2017,7 +2017,7 @@ bool CheckIssueBurnTx(const CTxOut& txOut, const AssetType& type)
 
 bool CheckReissueBurnTx(const CTxOut& txOut)
 {
-    // Check the first transaction and verify that the correct TTN Amount
+    // Check the first transaction and verify that the correct LCASH Amount
     if (txOut.nValue != GetReissueAssetBurnAmount())
         return false;
 
@@ -2580,7 +2580,7 @@ bool CreateAssetTransaction(CWallet* pwallet, CCoinControl& coinControl, const s
     if (!change_address.empty()) {
         CTxDestination destination = DecodeDestination(change_address);
         if (!IsValidDestination(destination)) {
-            error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid Titancoin address: ") + change_address);
+            error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid Liquidcash address: ") + change_address);
             return false;
         }
     } else {
@@ -2622,7 +2622,7 @@ bool CreateAssetTransaction(CWallet* pwallet, CCoinControl& coinControl, const s
 
     CAmount curBalance = pwallet->GetBalance();
 
-    // Check to make sure the wallet has the TTN required by the burnAmount
+    // Check to make sure the wallet has the LCASH required by the burnAmount
     if (curBalance < burnAmount) {
         error = std::make_pair(RPC_WALLET_INSUFFICIENT_FUNDS, "Insufficient funds");
         return false;
@@ -2681,14 +2681,14 @@ bool CreateReissueAssetTransaction(CWallet* pwallet, CCoinControl& coinControl, 
 
     // Check that validitity of the address
     if (!IsValidDestinationString(address)) {
-        error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid Titancoin address: ") + address);
+        error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid Liquidcash address: ") + address);
         return false;
     }
 
     if (!change_address.empty()) {
         CTxDestination destination = DecodeDestination(change_address);
         if (!IsValidDestination(destination)) {
-            error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid Titancoin address: ") + change_address);
+            error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid Liquidcash address: ") + change_address);
             return false;
         }
     } else {
@@ -2745,7 +2745,7 @@ bool CreateReissueAssetTransaction(CWallet* pwallet, CCoinControl& coinControl, 
     // Get the current burn amount for issuing an asset
     CAmount burnAmount = GetReissueAssetBurnAmount();
 
-    // Check to make sure the wallet has the TTN required by the burnAmount
+    // Check to make sure the wallet has the LCASH required by the burnAmount
     if (curBalance < burnAmount) {
         error = std::make_pair(RPC_WALLET_INSUFFICIENT_FUNDS, "Insufficient funds");
         return false;
@@ -2794,7 +2794,7 @@ bool CreateTransferAssetTransaction(CWallet* pwallet, const CCoinControl& coinCo
     // Check for a balance before processing transfers
     CAmount curBalance = pwallet->GetBalance();
     if (curBalance == 0) {
-        error = std::make_pair(RPC_WALLET_INSUFFICIENT_FUNDS, std::string("This wallet doesn't contain any TTN, transfering an asset requires a network fee"));
+        error = std::make_pair(RPC_WALLET_INSUFFICIENT_FUNDS, std::string("This wallet doesn't contain any LCASH, transfering an asset requires a network fee"));
         return false;
     }
 
@@ -2811,7 +2811,7 @@ bool CreateTransferAssetTransaction(CWallet* pwallet, const CCoinControl& coinCo
         CAmount nAmount = transfer.first.nAmount;
 
         if (!IsValidDestinationString(address)) {
-            error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid Titancoin address: ") + address);
+            error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid Liquidcash address: ") + address);
             return false;
         }
         auto currentActiveAssetCache = GetCurrentAssetCache();

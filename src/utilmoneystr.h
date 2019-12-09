@@ -1,15 +1,15 @@
 // Copyright (c) 2014-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 /**
  * Money parsing/formatting utilities.
  */
-#ifndef TTN_UTILMONEYSTR_H
-#define TTN_UTILMONEYSTR_H
+#ifndef LCASH_UTILMONEYSTR_H
+#define LCASH_UTILMONEYSTR_H
 
 #include <stdint.h>
 #include <string>
@@ -23,4 +23,4 @@ std::string FormatMoney(const CAmount& n);
 bool ParseMoney(const std::string& str, CAmount& nRet);
 bool ParseMoney(const char* pszIn, CAmount& nRet);
 
-#endif // TTN_UTILMONEYSTR_H
+#endif // LCASH_UTILMONEYSTR_H

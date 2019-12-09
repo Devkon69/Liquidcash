@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # Copyright (c) 2018 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-# Script to issue assets on the Titancoin platform
+# Script to issue assets on the Liquidcash platform
 # Reads from a csv file
 # Template Google Spreadsheet at:  
 #   https://docs.google.com/spreadsheets/d/1Ym88-ggbw8yiMgVxOtVYDsCXJGNGZqlpOfgdbVK8iYU
 # In Google Sheets: File->Download As->.csv
-# Prerequisite: titancoind daemon to be running
+# Prerequisite: liquidcashd daemon to be running
 # In order to use metadata, you must install be running IPFS
 # Steps:
 #   1. Get IPFS - https://ipfs.io/
@@ -28,15 +28,15 @@ import json
 import hashlib
 
 
-#Set this to your titancoin-cli program
-cli = "titancoin-cli"
+#Set this to your liquidcash-cli program
+cli = "liquidcash-cli"
 
 mode =  "-testnet"
 rpc_port = 18501
 #mode =  "-regtest"
 #rpc_port = 18443
-csv_file = "Titancoin Assets - Sheet1.csv"
-#Set this information in your titancoin.conf file (in datadir, not testnet3)
+csv_file = "Liquidcash Assets - Sheet1.csv"
+#Set this information in your liquidcash.conf file (in datadir, not testnet3)
 rpc_user = 'rpcuser'
 rpc_pass = 'rpcpass555'
 

@@ -1,12 +1,12 @@
 // Copyright (c) 2012-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_TXMEMPOOL_H
-#define TTN_TXMEMPOOL_H
+#ifndef LCASH_TXMEMPOOL_H
+#define LCASH_TXMEMPOOL_H
 
 #include <memory>
 #include <set>
@@ -806,4 +806,4 @@ struct DisconnectedBlockTransactions {
     }
 };
 
-#endif // TTN_TXMEMPOOL_H
+#endif // LCASH_TXMEMPOOL_H

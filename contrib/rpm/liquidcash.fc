@@ -1,0 +1,8 @@
+/usr/bin/liquidcash-cli		--	gen_context(system_u:object_r:liquidcash_exec_t,s0)
+/usr/sbin/liquidcashd		--	gen_context(system_u:object_r:liquidcash_exec_t,s0)
+/usr/lib(64)?/liquidcash/liquidcashd		--	gen_context(system_u:object_r:liquidcash_exec_t,s0)
+
+/etc/liquidcash(/.*)?		gen_context(system_u:object_r:liquidcash_conf_t,s0)
+/var/lib/liquidcash(/.*)?		gen_context(system_u:object_r:liquidcash_var_lib_t,s0)
+
+(/var)?/run/liquidcashd(/.*)?   gen_context(system_u:object_r:liquidcash_var_run_t,s0)

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Liquidcash Core
+Comment=Connect to the Liquidcash P2P Network
+Comment[de]=Verbinde mit dem Liquidcash peer-to-peer Netzwerk
+Comment[fr]=Liquidcash, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Liquidcash, eşten eşe kriptografik sanal para birimi
+Exec=liquidcash-qt %u
+Terminal=false
+Type=Application
+Icon=liquidcash128
+MimeType=x-scheme-handler/liquidcash;
+Categories=Office;Finance;

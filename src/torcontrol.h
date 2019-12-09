@@ -1,15 +1,15 @@
 // Copyright (c) 2015-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 /**
  * Functionality for communicating with Tor.
  */
-#ifndef TTN_TORCONTROL_H
-#define TTN_TORCONTROL_H
+#ifndef LCASH_TORCONTROL_H
+#define LCASH_TORCONTROL_H
 
 #include "scheduler.h"
 
@@ -20,4 +20,4 @@ void StartTorControl(boost::thread_group& threadGroup, CScheduler& scheduler);
 void InterruptTorControl();
 void StopTorControl();
 
-#endif /* TTN_TORCONTROL_H */
+#endif /* LCASH_TORCONTROL_H */

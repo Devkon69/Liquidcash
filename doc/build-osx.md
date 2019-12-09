@@ -26,7 +26,7 @@ If you want to build the disk image with `make deploy` (.dmg / optional), you ne
 
 NOTE: Building with Qt4 is still supported, however, could result in a broken UI. Building with Qt5 is recommended.
 
-NOTE: At this time it is highly recommended that developers wishing to compile the Titancoin Core binaries **DO NOT** upgrade to 
+NOTE: At this time it is highly recommended that developers wishing to compile the Liquidcash Core binaries **DO NOT** upgrade to 
 OS X Mojave Beta 10.14.  Currently there is a compatibility issue with OS X Mojave, Command-Line-Tools 10.0.0 (clang), and 
 Berkeley-db version 4.8.3.  Binaries compiled using this combination will crash with a segmentation-fault during initialization. 
 Binaries compiled by previous versions will run on OS X Mojave with no-known issues.  It is possible to work-around this issue by 
@@ -35,8 +35,8 @@ newer versions of Berkeley-db it is recommended that Berkeley-db 4.8.3 be uninst
 unknown wallet compatability ramifications to this solution so it is highly recommended that any local wallets be backed-up before
 opening them using binaries compiled with this solution.
 
-Use the following commands to compile a working version of Titancoin Core on Mojave (assuming that the instructions in the section "Build 
-Titancoin Core" has already been followed).  Uninstall Berkeley-db 4.8.3, install the latest version, and _configure_ with the 
+Use the following commands to compile a working version of Liquidcash Core on Mojave (assuming that the instructions in the section "Build 
+Liquidcash Core" has already been followed).  Uninstall Berkeley-db 4.8.3, install the latest version, and _configure_ with the 
 incompatible-bdb flag:
 
     brew remove berkeley-db@4
@@ -46,17 +46,17 @@ incompatible-bdb flag:
     make
 
 
-Build Titancoin Core
+Build Liquidcash Core
 ------------------------
 
-1. Clone the titancoin source code and cd into `titancoin`
+1. Clone the liquidcash source code and cd into `liquidcash`
 
-        git clone https://github.com/titancoinproject/Titan
-        cd Titancoin
+        git clone https://github.com/liquidcashproject/Titan
+        cd Liquidcash
 
-2.  Build titancoin-core:
+2.  Build liquidcash-core:
 
-    Configure and build the headless titancoin binaries as well as the GUI (if Qt is found).
+    Configure and build the headless liquidcash binaries as well as the GUI (if Qt is found).
 
     You can disable the GUI build by passing `--without-gui` to configure.
 
@@ -75,37 +75,37 @@ Build Titancoin Core
 Running
 -------
 
-Titancoin Core is now available at `./src/titancoind`
+Liquidcash Core is now available at `./src/liquidcashd`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=titancoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Titancoin/titancoin.conf"
+    echo -e "rpcuser=liquidcashrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Liquidcash/liquidcash.conf"
 
-    chmod 600 "/Users/${USER}/Library/Application Support/Titancoin/titancoin.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/Liquidcash/liquidcash.conf"
 
-The first time you run titancoind, it will start downloading the blockchain. This process could take several hours.
+The first time you run liquidcashd, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
 
-    tail -f $HOME/Library/Application\ Support/Titancoin/debug.log
+    tail -f $HOME/Library/Application\ Support/Liquidcash/debug.log
 
 Other commands:
 -------
 
-    ./src/titancoind -daemon # Starts the titancoin daemon.
-    ./src/titancoin-cli --help # Outputs a list of command-line options.
-    ./src/titancoin-cli help # Outputs a list of RPC commands when the daemon is running.
+    ./src/liquidcashd -daemon # Starts the liquidcash daemon.
+    ./src/liquidcash-cli --help # Outputs a list of command-line options.
+    ./src/liquidcash-cli help # Outputs a list of RPC commands when the daemon is running.
 
 Using Qt Creator as IDE
 ------------------------
-You can use Qt Creator as an IDE, for titancoin development.
+You can use Qt Creator as an IDE, for liquidcash development.
 Download and install the community edition of [Qt Creator](https://www.qt.io/download/).
 Uncheck everything except Qt Creator during the installation process.
 
 1. Make sure you installed everything through Homebrew mentioned above
 2. Do a proper ./configure --enable-debug
 3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "titancoin-qt" as project name, enter src/qt as location
+4. Enter "liquidcash-qt" as project name, enter src/qt as location
 5. Leave the file selection as it is
 6. Confirm the "summary page"
 7. In the "Projects" tab select "Manage Kits..."

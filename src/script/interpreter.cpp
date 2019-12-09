@@ -1,6 +1,6 @@
 // Copyright (c) 2014-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -115,7 +115,7 @@ bool static IsCompressedPubKey(const valtype &vchPubKey)
  * excessively padded (do not start with a 0 byte, unless an otherwise negative number follows,
  * in which case a single 0 byte is necessary and even required).
  * 
- * See https://titancointalk.org/index.php?topic=8392.msg127623#msg127623
+ * See https://liquidcashtalk.org/index.php?topic=8392.msg127623#msg127623
  *
  * This function is consensus-critical since BIP66.
  */
@@ -1114,10 +1114,10 @@ bool EvalScript(std::vector<std::vector<unsigned char> > &stack, const CScript &
                     }
                         break;
 
-                        /** TTN START */
-                    case OP_TTN_ASSET:
+                        /** LCASH START */
+                    case OP_LCASH_ASSET:
                         break;
-                        /** TTN END */
+                        /** LCASH END */
 
 
                     default:

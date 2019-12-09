@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_QT_OPTIONSDIALOG_H
-#define TTN_QT_OPTIONSDIALOG_H
+#ifndef LCASH_QT_OPTIONSDIALOG_H
+#define LCASH_QT_OPTIONSDIALOG_H
 
 #include <QDialog>
 #include <QValidator>
@@ -49,7 +49,7 @@ private Q_SLOTS:
     /* set OK button state (enabled / disabled) */
     void setOkButtonState(bool fState);
     void on_resetButton_clicked();
-    void on_openTitancoinConfButton_clicked();
+    void on_openLiquidcashConfButton_clicked();
     void on_okButton_clicked();
     void on_cancelButton_clicked();
     
@@ -70,4 +70,4 @@ private:
     QDataWidgetMapper *mapper;
 };
 
-#endif // TTN_QT_OPTIONSDIALOG_H
+#endif // LCASH_QT_OPTIONSDIALOG_H

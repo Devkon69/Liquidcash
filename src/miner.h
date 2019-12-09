@@ -1,12 +1,12 @@
 // Copyright (c) 2013-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_MINER_H
-#define TTN_MINER_H
+#ifndef LCASH_MINER_H
+#define LCASH_MINER_H
 
 #include "primitives/block.h"
 #include "txmempool.h"
@@ -207,5 +207,5 @@ private:
 void IncrementExtraNonce(CBlock* pblock, const CBlockIndex* pindexPrev, unsigned int& nExtraNonce);
 int64_t UpdateTime(CBlockHeader* pblock, const Consensus::Params& consensusParams, const CBlockIndex* pindexPrev);
 
-int GenerateTitancoins(bool fGenerate, int nThreads, const CChainParams& chainparams);
-#endif // TTN_MINER_H
+int GenerateLiquidcashs(bool fGenerate, int nThreads, const CChainParams& chainparams);
+#endif // LCASH_MINER_H

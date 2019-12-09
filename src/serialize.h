@@ -1,12 +1,12 @@
 // Copyright (c) 2011-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_SERIALIZE_H
-#define TTN_SERIALIZE_H
+#ifndef LCASH_SERIALIZE_H
+#define LCASH_SERIALIZE_H
 
 #include "compat/endian.h"
 
@@ -976,4 +976,4 @@ size_t GetSerializeSize(const S& s, const T& t)
     return (CSizeComputer(s.GetType(), s.GetVersion()) << t).size();
 }
 
-#endif // TTN_SERIALIZE_H
+#endif // LCASH_SERIALIZE_H

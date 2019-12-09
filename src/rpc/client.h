@@ -1,11 +1,11 @@
 // Copyright (c) 2016-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_RPCCLIENT_H
-#define TTN_RPCCLIENT_H
+#ifndef LCASH_RPCCLIENT_H
+#define LCASH_RPCCLIENT_H
 
 #include <univalue.h>
 
@@ -20,4 +20,4 @@ UniValue RPCConvertNamedValues(const std::string& strMethod, const std::vector<s
  */
 UniValue ParseNonRFCJSONValue(const std::string& strVal);
 
-#endif // TTN_RPCCLIENT_H
+#endif // LCASH_RPCCLIENT_H

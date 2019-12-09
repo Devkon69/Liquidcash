@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # Copyright (c) 2018 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the listsincelast RPC."""
 
-from test_framework.test_framework import TitancoinTestFramework
+from test_framework.test_framework import LiquidcashTestFramework
 from test_framework.util import assert_equal
 
-class ListSinceBlockTest (TitancoinTestFramework):
+class ListSinceBlockTest (LiquidcashTestFramework):
     def set_test_params(self):
         self.num_nodes = 4
         self.setup_clean_chain = True
@@ -93,8 +93,8 @@ class ListSinceBlockTest (TitancoinTestFramework):
 
         Problematic case:
 
-        1. User 1 receives TTN in tx1 from utxo1 in block aa1.
-        2. User 2 receives TTN in tx2 from utxo1 (same) in block bb1
+        1. User 1 receives LCASH in tx1 from utxo1 in block aa1.
+        2. User 2 receives LCASH in tx2 from utxo1 (same) in block bb1
         3. User 1 sees 2 confirmations at block aa3.
         4. Reorg into bb chain.
         5. User 1 asks `listsinceblock aa3` and does not see that tx1 is now

@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-SystemD: titancoind.service
-Upstart: titancoind.conf
-OpenRC:  titancoind.openrc
-         titancoind.openrcconf
-CentOS:  titancoind.init
-OS X:    org.titancoin.titancoind.plist
+SystemD: liquidcashd.service
+Upstart: liquidcashd.conf
+OpenRC:  liquidcashd.openrc
+         liquidcashd.openrcconf
+CentOS:  liquidcashd.init
+OS X:    org.liquidcash.liquidcashd.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

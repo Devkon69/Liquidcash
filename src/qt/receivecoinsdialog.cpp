@@ -1,6 +1,6 @@
 // Copyright (c) 2013-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,7 +9,7 @@
 
 #include "addressbookpage.h"
 #include "addresstablemodel.h"
-#include "titancoinunits.h"
+#include "liquidcashunits.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
 #include "platformstyle.h"
@@ -334,7 +334,7 @@ void ReceiveCoinsDialog::copyURI()
     }
 
     const RecentRequestsTableModel * const submodel = model->getRecentRequestsTableModel();
-    const QString uri = GUIUtil::formatTitancoinURI(submodel->entry(sel.row()).recipient);
+    const QString uri = GUIUtil::formatLiquidcashURI(submodel->entry(sel.row()).recipient);
     GUIUtil::setClipboard(uri);
 }
 

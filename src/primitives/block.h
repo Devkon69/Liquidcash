@@ -1,11 +1,11 @@
 // Copyright (c) 2014-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_PRIMITIVES_BLOCK_H
-#define TTN_PRIMITIVES_BLOCK_H
+#ifndef LCASH_PRIMITIVES_BLOCK_H
+#define LCASH_PRIMITIVES_BLOCK_H
 
 #include "primitives/transaction.h"
 #include "serialize.h"
@@ -158,4 +158,4 @@ struct CBlockLocator
     }
 };
 
-#endif // TTN_PRIMITIVES_BLOCK_H
+#endif // LCASH_PRIMITIVES_BLOCK_H

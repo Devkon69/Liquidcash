@@ -1,6 +1,6 @@
 RASBERRY PI BUILD NOTES
 ====================
-Origin: traysi.org/titancoin_rpi.php
+Origin: traysi.org/liquidcash_rpi.php
 
 # Install necessary packages:
 ```
@@ -33,11 +33,11 @@ make -j4 # If error, remove the -j4
 sudo make install
 ```
 
-# Build Titancoin
+# Build Liquidcash
 ```
 cd ~/build/
-git clone https://github.com/titancoinproject/Titan
-cd Titancoin/
+git clone https://github.com/liquidcashproject/Titan
+cd Liquidcash/
 ./autogen.sh
 ./configure --disable-tests --with-gui=no CPPFLAGS="-I/usr/local/BerkeleyDB.4.8/include -O2" LDFLAGS="-L/usr/local/BerkeleyDB.4.8/lib"
 make

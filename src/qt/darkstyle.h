@@ -1,6 +1,6 @@
 // Copyright (c) 2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 /*
@@ -15,8 +15,8 @@
 ###############################################################################
 */
 
-#ifndef TTNCOIN_DARKSTYLE_H
-#define TTNCOIN_DARKSTYLE_H
+#ifndef LCASHCOIN_DARKSTYLE_H
+#define LCASHCOIN_DARKSTYLE_H
 
 #include <QApplication>
 #include <QProxyStyle>
@@ -41,4 +41,4 @@ private:
     QStyle *styleBase(QStyle *style = Q_NULLPTR) const;
 };
 
-#endif //TTNCOIN_DARKSTYLE_H
+#endif //LCASHCOIN_DARKSTYLE_H

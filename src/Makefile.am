@@ -15,28 +15,28 @@ else
 LIBUNIVALUE = $(UNIVALUE_LIBS)
 endif
 
-TTN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
+LCASH_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
 
-TTN_INCLUDES += -I$(srcdir)/secp256k1/include
-TTN_INCLUDES += $(UNIVALUE_CFLAGS)
+LCASH_INCLUDES += -I$(srcdir)/secp256k1/include
+LCASH_INCLUDES += $(UNIVALUE_CFLAGS)
 
-LIBTTN_SERVER=libtitancoin_server.a
-LIBTTN_COMMON=libtitancoin_common.a
-LIBTTN_CONSENSUS=libtitancoin_consensus.a
-LIBTTN_CLI=libtitancoin_cli.a
-LIBTTN_UTIL=libtitancoin_util.a
-LIBTTN_CRYPTO=crypto/libtitancoin_crypto.a
-LIBTTNQT=qt/libtitancoinqt.a
+LIBLCASH_SERVER=libliquidcash_server.a
+LIBLCASH_COMMON=libliquidcash_common.a
+LIBLCASH_CONSENSUS=libliquidcash_consensus.a
+LIBLCASH_CLI=libliquidcash_cli.a
+LIBLCASH_UTIL=libliquidcash_util.a
+LIBLCASH_CRYPTO=crypto/libliquidcash_crypto.a
+LIBLCASHQT=qt/libliquidcashqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
-LIBTTN_ZMQ=libtitancoin_zmq.a
+LIBLCASH_ZMQ=libliquidcash_zmq.a
 endif
-if BUILD_TTN_LIBS
-LIBTTNCONSENSUS=libtitancoinconsensus.la
+if BUILD_LCASH_LIBS
+LIBLCASHCONSENSUS=libliquidcashconsensus.la
 endif
 if ENABLE_WALLET
-LIBTTN_WALLET=libtitancoin_wallet.a
+LIBLCASH_WALLET=libliquidcash_wallet.a
 endif
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
@@ -45,37 +45,37 @@ $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
 # Make is not made aware of per-object dependencies to avoid limiting building parallelization
 # But to build the less dependent modules first, we manually select their order here:
 EXTRA_LIBRARIES += \
-  $(LIBTTN_CRYPTO) \
-  $(LIBTTN_UTIL) \
-  $(LIBTTN_COMMON) \
-  $(LIBTTN_CONSENSUS) \
-  $(LIBTTN_SERVER) \
-  $(LIBTTN_CLI) \
-  $(LIBTTN_WALLET) \
-  $(LIBTTN_ZMQ)
+  $(LIBLCASH_CRYPTO) \
+  $(LIBLCASH_UTIL) \
+  $(LIBLCASH_COMMON) \
+  $(LIBLCASH_CONSENSUS) \
+  $(LIBLCASH_SERVER) \
+  $(LIBLCASH_CLI) \
+  $(LIBLCASH_WALLET) \
+  $(LIBLCASH_ZMQ)
 
-lib_LTLIBRARIES = $(LIBTTNCONSENSUS)
+lib_LTLIBRARIES = $(LIBLCASHCONSENSUS)
 
 bin_PROGRAMS =
 noinst_PROGRAMS =
 TESTS =
 BENCHMARKS =
 
-if BUILD_TTND
-  bin_PROGRAMS += titancoind
+if BUILD_LCASHD
+  bin_PROGRAMS += liquidcashd
 endif
 
-if BUILD_TTN_CLI
-  bin_PROGRAMS += titancoin-cli
+if BUILD_LCASH_CLI
+  bin_PROGRAMS += liquidcash-cli
 endif
 
-if BUILD_TTN_TX
-  bin_PROGRAMS += titancoin-tx
+if BUILD_LCASH_TX
+  bin_PROGRAMS += liquidcash-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# titancoin core #
-TTN_CORE_H = \
+# liquidcash core #
+LCASH_CORE_H = \
   addrdb.h \
   addressindex.h \
   spentindex.h \
@@ -228,12 +228,12 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh "$(abs_top_builddir)/src/obj/build.h" \
 	  "$(abs_top_srcdir)"
-libtitancoin_util_a-clientversion.$(OBJEXT): obj/build.h
+libliquidcash_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between titancoind and titancoin-qt
-libtitancoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(TTN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
-libtitancoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libtitancoin_server_a_SOURCES = \
+# server: shared between liquidcashd and liquidcash-qt
+libliquidcash_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(LCASH_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libliquidcash_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libliquidcash_server_a_SOURCES = \
   addrdb.cpp \
   addrman.cpp \
   bloom.cpp \
@@ -277,23 +277,23 @@ libtitancoin_server_a_SOURCES = \
   validation.cpp \
   validationinterface.cpp \
   versionbits.cpp \
-  $(TTN_CORE_H)
+  $(LCASH_CORE_H)
 
 if ENABLE_ZMQ
-libtitancoin_zmq_a_CPPFLAGS = $(TTN_INCLUDES) $(ZMQ_CFLAGS)
-libtitancoin_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libtitancoin_zmq_a_SOURCES = \
+libliquidcash_zmq_a_CPPFLAGS = $(LCASH_INCLUDES) $(ZMQ_CFLAGS)
+libliquidcash_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libliquidcash_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
   zmq/zmqnotificationinterface.cpp \
   zmq/zmqpublishnotifier.cpp
 endif
 
 
-# wallet: shared between titancoind and titancoin-qt, but only linked
+# wallet: shared between liquidcashd and liquidcash-qt, but only linked
 # when wallet enabled
-libtitancoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(TTN_INCLUDES)
-libtitancoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libtitancoin_wallet_a_SOURCES = \
+libliquidcash_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(LCASH_INCLUDES)
+libliquidcash_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libliquidcash_wallet_a_SOURCES = \
   wallet/crypter.cpp \
   wallet/db.cpp \
   wallet/feebumper.cpp \
@@ -303,12 +303,12 @@ libtitancoin_wallet_a_SOURCES = \
   wallet/rpcwallet.cpp \
   wallet/wallet.cpp \
   wallet/walletdb.cpp \
-  $(TTN_CORE_H)
+  $(LCASH_CORE_H)
 
 # crypto primitives library
-crypto_libtitancoin_crypto_a_CPPFLAGS = $(AM_CPPFLAGS)
-crypto_libtitancoin_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-crypto_libtitancoin_crypto_a_SOURCES = \
+crypto_libliquidcash_crypto_a_CPPFLAGS = $(AM_CPPFLAGS)
+crypto_libliquidcash_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+crypto_libliquidcash_crypto_a_SOURCES = \
   crypto/aes.cpp \
   crypto/aes.h \
   crypto/chacha20.cpp \
@@ -330,13 +330,13 @@ crypto_libtitancoin_crypto_a_SOURCES = \
   crypto/sph_types.h
 
 if USE_ASM
-crypto_libtitancoin_crypto_a_SOURCES += crypto/sha256_sse4.cpp
+crypto_libliquidcash_crypto_a_SOURCES += crypto/sha256_sse4.cpp
 endif
 
 # consensus: shared between all executables that validate any consensus rules.
-libtitancoin_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(TTN_INCLUDES)
-libtitancoin_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libtitancoin_consensus_a_SOURCES = \
+libliquidcash_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(LCASH_INCLUDES)
+libliquidcash_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libliquidcash_consensus_a_SOURCES = \
   amount.h \
   arith_uint256.cpp \
   arith_uint256.h \
@@ -354,7 +354,7 @@ libtitancoin_consensus_a_SOURCES = \
   primitives/transaction.h \
   pubkey.cpp \
   pubkey.h \
-  script/titancoinconsensus.cpp \
+  script/liquidcashconsensus.cpp \
   script/interpreter.cpp \
   script/interpreter.h \
   script/script.cpp \
@@ -370,12 +370,12 @@ libtitancoin_consensus_a_SOURCES = \
   utilstrencodings.cpp \
   utilstrencodings.h \
   version.h \
-  $(TTN_CORE_H)
+  $(LCASH_CORE_H)
 
-# common: shared between titancoind, and titancoin-qt and non-server tools
-libtitancoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(TTN_INCLUDES)
-libtitancoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libtitancoin_common_a_SOURCES = \
+# common: shared between liquidcashd, and liquidcash-qt and non-server tools
+libliquidcash_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(LCASH_INCLUDES)
+libliquidcash_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libliquidcash_common_a_SOURCES = \
   base58.cpp \
   chainparams.cpp \
   coins.cpp \
@@ -392,14 +392,14 @@ libtitancoin_common_a_SOURCES = \
   script/sign.cpp \
   script/standard.cpp \
   warnings.cpp \
-  $(TTN_CORE_H)
+  $(LCASH_CORE_H)
 
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libtitancoin_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(TTN_INCLUDES)
-libtitancoin_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libtitancoin_util_a_SOURCES = \
+libliquidcash_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(LCASH_INCLUDES)
+libliquidcash_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libliquidcash_util_a_SOURCES = \
   support/lockedpool.cpp \
   chainparamsbase.cpp \
   clientversion.cpp \
@@ -416,102 +416,102 @@ libtitancoin_util_a_SOURCES = \
   utilmoneystr.cpp \
   utilstrencodings.cpp \
   utiltime.cpp \
-  $(TTN_CORE_H)
+  $(LCASH_CORE_H)
 
 if GLIBC_BACK_COMPAT
-libtitancoin_util_a_SOURCES += compat/glibc_compat.cpp
+libliquidcash_util_a_SOURCES += compat/glibc_compat.cpp
 AM_LDFLAGS += $(COMPAT_LDFLAGS)
 endif
 
-# cli: shared between titancoin-cli and titancoin-qt
-libtitancoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(TTN_INCLUDES)
-libtitancoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libtitancoin_cli_a_SOURCES = \
+# cli: shared between liquidcash-cli and liquidcash-qt
+libliquidcash_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(LCASH_INCLUDES)
+libliquidcash_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libliquidcash_cli_a_SOURCES = \
   rpc/client.cpp \
-  $(TTN_CORE_H)
+  $(LCASH_CORE_H)
 
-nodist_libtitancoin_util_a_SOURCES = $(srcdir)/obj/build.h
+nodist_libliquidcash_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# titancoind binary #
-titancoind_SOURCES = titancoind.cpp
-titancoind_CPPFLAGS = $(AM_CPPFLAGS) $(TTN_INCLUDES)
-titancoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-titancoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# liquidcashd binary #
+liquidcashd_SOURCES = liquidcashd.cpp
+liquidcashd_CPPFLAGS = $(AM_CPPFLAGS) $(LCASH_INCLUDES)
+liquidcashd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+liquidcashd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-titancoind_SOURCES += titancoind-res.rc
+liquidcashd_SOURCES += liquidcashd-res.rc
 endif
 
-titancoind_LDADD = \
-  $(LIBTTN_SERVER) \
-  $(LIBTTN_COMMON) \
+liquidcashd_LDADD = \
+  $(LIBLCASH_SERVER) \
+  $(LIBLCASH_COMMON) \
   $(LIBUNIVALUE) \
-  $(LIBTTN_UTIL) \
-  $(LIBTTN_WALLET) \
-  $(LIBTTN_ZMQ) \
-  $(LIBTTN_CONSENSUS) \
-  $(LIBTTN_CRYPTO) \
+  $(LIBLCASH_UTIL) \
+  $(LIBLCASH_WALLET) \
+  $(LIBLCASH_ZMQ) \
+  $(LIBLCASH_CONSENSUS) \
+  $(LIBLCASH_CRYPTO) \
   $(LIBLEVELDB) \
   $(LIBLEVELDB_SSE42) \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-titancoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+liquidcashd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
-# titancoin-cli binary #
-titancoin_cli_SOURCES = titancoin-cli.cpp
-titancoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(TTN_INCLUDES) $(EVENT_CFLAGS)
-titancoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-titancoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# liquidcash-cli binary #
+liquidcash_cli_SOURCES = liquidcash-cli.cpp
+liquidcash_cli_CPPFLAGS = $(AM_CPPFLAGS) $(LCASH_INCLUDES) $(EVENT_CFLAGS)
+liquidcash_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+liquidcash_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-titancoin_cli_SOURCES += titancoin-cli-res.rc
+liquidcash_cli_SOURCES += liquidcash-cli-res.rc
 endif
 
-titancoin_cli_LDADD = \
-  $(LIBTTN_CLI) \
+liquidcash_cli_LDADD = \
+  $(LIBLCASH_CLI) \
   $(LIBUNIVALUE) \
-  $(LIBTTN_UTIL) \
-  $(LIBTTN_CRYPTO)
+  $(LIBLCASH_UTIL) \
+  $(LIBLCASH_CRYPTO)
 
-titancoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+liquidcash_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# titancoin-tx binary #
-titancoin_tx_SOURCES = titancoin-tx.cpp
-titancoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(TTN_INCLUDES)
-titancoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-titancoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# liquidcash-tx binary #
+liquidcash_tx_SOURCES = liquidcash-tx.cpp
+liquidcash_tx_CPPFLAGS = $(AM_CPPFLAGS) $(LCASH_INCLUDES)
+liquidcash_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+liquidcash_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-titancoin_tx_SOURCES += titancoin-tx-res.rc
+liquidcash_tx_SOURCES += liquidcash-tx-res.rc
 endif
 
-titancoin_tx_LDADD = \
+liquidcash_tx_LDADD = \
   $(LIBUNIVALUE) \
-  $(LIBTTN_COMMON) \
-  $(LIBTTN_UTIL) \
-  $(LIBTTN_CONSENSUS) \
-  $(LIBTTN_CRYPTO) \
+  $(LIBLCASH_COMMON) \
+  $(LIBLCASH_UTIL) \
+  $(LIBLCASH_CONSENSUS) \
+  $(LIBLCASH_CRYPTO) \
   $(LIBSECP256K1)
 
-titancoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+liquidcash_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
-# titancoinconsensus library #
-if BUILD_TTN_LIBS
-include_HEADERS = script/titancoinconsensus.h
-libtitancoinconsensus_la_SOURCES = $(crypto_libtitancoin_crypto_a_SOURCES) $(libtitancoin_consensus_a_SOURCES)
+# liquidcashconsensus library #
+if BUILD_LCASH_LIBS
+include_HEADERS = script/liquidcashconsensus.h
+libliquidcashconsensus_la_SOURCES = $(crypto_libliquidcash_crypto_a_SOURCES) $(libliquidcash_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
-  libtitancoinconsensus_la_SOURCES += compat/glibc_compat.cpp
+  libliquidcashconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libtitancoinconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-libtitancoinconsensus_la_LIBADD = $(LIBSECP256K1)
-libtitancoinconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_TTN_INTERNAL
-libtitancoinconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libliquidcashconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
+libliquidcashconsensus_la_LIBADD = $(LIBSECP256K1)
+libliquidcashconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_LCASH_INTERNAL
+libliquidcashconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #
@@ -541,12 +541,12 @@ CLEANFILES += obj/build.h
 EXTRA_DIST = $(CTAES_DIST)
 
 
-config/titancoin-config.h: config/stamp-h1
+config/liquidcash-config.h: config/stamp-h1
 	@$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-config/stamp-h1: $(top_srcdir)/$(subdir)/config/titancoin-config.h.in $(top_builddir)/config.status
+config/stamp-h1: $(top_srcdir)/$(subdir)/config/liquidcash-config.h.in $(top_builddir)/config.status
 	$(AM_V_at)$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-$(top_srcdir)/$(subdir)/config/titancoin-config.h.in:  $(am__configure_deps)
-	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/titancoin-config.h.in
+$(top_srcdir)/$(subdir)/config/liquidcash-config.h.in:  $(am__configure_deps)
+	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/liquidcash-config.h.in
 
 clean-local:
 	-$(MAKE) -C secp256k1 clean

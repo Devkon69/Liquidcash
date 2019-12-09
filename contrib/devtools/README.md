@@ -23,7 +23,7 @@ git diff -U0 HEAD~1.. | ./contrib/devtools/clang-format-diff.py -p1 -i -v
 copyright\_header.py
 ====================
 
-Provides utilities for managing copyright headers of `The Titancoin Core
+Provides utilities for managing copyright headers of `The Liquidcash Core
 developers` in repository source files. It has three subcommands:
 
 ```
@@ -42,7 +42,7 @@ Specifying `verbose` will list the full filenames of files of each category.
 
 copyright\_header.py update \<base\_directory\> [verbose]
 ---------------------------------------------------------
-Updates all the copyright headers of `The Titancoin Core developers` which were
+Updates all the copyright headers of `The Liquidcash Core developers` which were
 changed in a year more recent than is listed. For example:
 ```
 ```
@@ -62,7 +62,7 @@ where the update is appropriate.
 
 copyright\_header.py insert \<file\>
 ------------------------------------
-Inserts a copyright header for `The Titancoin Core developers` at the top of the
+Inserts a copyright header for `The Liquidcash Core developers` at the top of the
 file in either Python or C++ style as determined by the file extension. If the
 file is a Python file and it has  `#!` starting the first line, the header is
 inserted in the line below it.
@@ -72,7 +72,7 @@ The copyright dates will be set to be `<year_introduced>-<current_year>` where
 `<year_introduced>` is equal to `<current_year>`, it will be set as a single
 year rather than two hyphenated years.
 
-If the file already has a copyright for `The Titancoin Core developers`, the
+If the file already has a copyright for `The Liquidcash Core developers`, the
 script will exit.
 
 gen-manpages.sh
@@ -89,10 +89,10 @@ the commit it claims to have been updated to.
 
 To use, make sure that you have fetched the upstream repository branch in which the subtree is
 maintained:
-* for `src/secp256k1`: https://github.com/titancoin-core/secp256k1.git (branch master)
-* for `src/leveldb`: https://github.com/titancoin-core/leveldb.git (branch titancoin-fork)
-* for `src/univalue`: https://github.com/titancoin-core/univalue.git (branch master)
-* for `src/crypto/ctaes`: https://github.com/titancoin-core/ctaes.git (branch master)
+* for `src/secp256k1`: https://github.com/liquidcash-core/secp256k1.git (branch master)
+* for `src/leveldb`: https://github.com/liquidcash-core/leveldb.git (branch liquidcash-fork)
+* for `src/univalue`: https://github.com/liquidcash-core/univalue.git (branch master)
+* for `src/crypto/ctaes`: https://github.com/liquidcash-core/ctaes.git (branch master)
 
 Usage: `git-subtree-check.sh DIR (COMMIT)`
 
@@ -108,7 +108,7 @@ For example:
   ./github-merge.py 3077
 
 (in any git repository) will help you merge pull request #3077 for the
-titancoin/titancoin repository.
+liquidcash/liquidcash repository.
 
 What it does:
 * Fetch master and the pull request.
@@ -126,16 +126,16 @@ couldn't mess with the sources.
 
 Setup
 ---------
-Configuring the github-merge tool for the titancoin repository is done in the following way:
+Configuring the github-merge tool for the liquidcash repository is done in the following way:
 
-    git config githubmerge.repository titancoin/titancoin
+    git config githubmerge.repository liquidcash/liquidcash
     git config githubmerge.testcmd "make -j4 check" (adapt to whatever you want to use for testing)
     git config --global user.signingkey mykeyid (if you want to GPG sign)
 
 optimize-pngs.py
 ================
 
-A script to optimize png files in the titancoin
+A script to optimize png files in the liquidcash
 repository (requires pngcrush).
 
 security-check.py and test-security-check.py
@@ -158,10 +158,10 @@ If only supported symbols are used the return value will be 0 and the output wil
 
 If there are 'unsupported' symbols, the return value will be 1 a list like this will be printed:
 
-    .../64/test_titancoin: symbol memcpy from unsupported version GLIBC_2.14
-    .../64/test_titancoin: symbol __fdelt_chk from unsupported version GLIBC_2.15
-    .../64/test_titancoin: symbol std::out_of_range::~out_of_range() from unsupported version GLIBCXX_3.4.15
-    .../64/test_titancoin: symbol _ZNSt8__detail15_List_nod from unsupported version GLIBCXX_3.4.15
+    .../64/test_liquidcash: symbol memcpy from unsupported version GLIBC_2.14
+    .../64/test_liquidcash: symbol __fdelt_chk from unsupported version GLIBC_2.15
+    .../64/test_liquidcash: symbol std::out_of_range::~out_of_range() from unsupported version GLIBCXX_3.4.15
+    .../64/test_liquidcash: symbol _ZNSt8__detail15_List_nod from unsupported version GLIBCXX_3.4.15
 
 update-translations.py
 ======================

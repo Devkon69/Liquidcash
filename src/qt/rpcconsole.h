@@ -1,11 +1,11 @@
 // Copyright (c) 2012-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_QT_RPCCONSOLE_H
-#define TTN_QT_RPCCONSOLE_H
+#ifndef LCASH_QT_RPCCONSOLE_H
+#define LCASH_QT_RPCCONSOLE_H
 
 #include "guiutil.h"
 #include "peertablemodel.h"
@@ -29,7 +29,7 @@ class QMenu;
 class QItemSelection;
 QT_END_NAMESPACE
 
-/** Local Titancoin RPC console. */
+/** Local Liquidcash RPC console. */
 class RPCConsole: public QWidget
 {
     Q_OBJECT
@@ -158,4 +158,4 @@ private:
     void updateNetworkState();
 };
 
-#endif // TTN_QT_RPCCONSOLE_H
+#endif // LCASH_QT_RPCCONSOLE_H

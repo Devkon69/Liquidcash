@@ -1,11 +1,11 @@
 // Copyright (c) 2017-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_WALLET_FEES_H
-#define TTN_WALLET_FEES_H
+#ifndef LCASH_WALLET_FEES_H
+#define LCASH_WALLET_FEES_H
 
 #include "amount.h"
 
@@ -32,4 +32,4 @@ CAmount GetMinimumFee(unsigned int nTxBytes, const CCoinControl& coin_control, c
  */
 CFeeRate GetDiscardRate(const CBlockPolicyEstimator& estimator);
 
-#endif // TTN_WALLET_FEES_H
+#endif // LCASH_WALLET_FEES_H

@@ -1,12 +1,12 @@
 // Copyright (c) 2015-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_CORE_MEMUSAGE_H
-#define TTN_CORE_MEMUSAGE_H
+#ifndef LCASH_CORE_MEMUSAGE_H
+#define LCASH_CORE_MEMUSAGE_H
 
 #include "primitives/transaction.h"
 #include "primitives/block.h"
@@ -71,4 +71,4 @@ static inline size_t RecursiveDynamicUsage(const std::shared_ptr<X>& p) {
     return p ? memusage::DynamicUsage(p) + RecursiveDynamicUsage(*p) : 0;
 }
 
-#endif // TTN_CORE_MEMUSAGE_H
+#endif // LCASH_CORE_MEMUSAGE_H

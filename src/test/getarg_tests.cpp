@@ -1,11 +1,11 @@
 // Copyright (c) 2012-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "util.h"
-#include "test/test_titancoin.h"
+#include "test/test_liquidcash.h"
 
 #include <string>
 #include <vector>
@@ -22,7 +22,7 @@ BOOST_FIXTURE_TEST_SUITE(getarg_tests, BasicTestingSetup)
             boost::split(vecArg, strArg, boost::is_space(), boost::token_compress_on);
 
         // Insert dummy executable name:
-        vecArg.insert(vecArg.begin(), "testtitancoin");
+        vecArg.insert(vecArg.begin(), "testliquidcash");
 
         // Convert to char*:
         std::vector<const char *> vecChar;

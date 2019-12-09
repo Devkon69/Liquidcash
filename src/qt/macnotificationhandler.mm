@@ -10,7 +10,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"org.titancoinfoundation.Titancoin-Qt";
+        return @"org.liquidcashfoundation.Liquidcash-Qt";
     } else {
         return [self __bundleIdentifier];
     }

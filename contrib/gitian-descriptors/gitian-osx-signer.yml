@@ -1,5 +1,5 @@
 ---
-name: "titancoin-dmg-signer"
+name: "liquidcash-dmg-signer"
 suites:
 - "trusty"
 architectures:
@@ -7,10 +7,10 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/titancoin-core/titancoin-detached-sigs.git"
+- "url": "https://github.com/liquidcash-core/liquidcash-detached-sigs.git"
   "dir": "signature"
 files:
-- "titancoin-osx-unsigned.tar.gz"
+- "liquidcash-osx-unsigned.tar.gz"
 script: |
   WRAP_DIR=$HOME/wrapped
   mkdir -p ${WRAP_DIR}
@@ -27,8 +27,8 @@ script: |
     chmod +x ${WRAP_DIR}/${prog}
   done
 
-  UNSIGNED=titancoin-osx-unsigned.tar.gz
-  SIGNED=titancoin-osx-signed.dmg
+  UNSIGNED=liquidcash-osx-unsigned.tar.gz
+  SIGNED=liquidcash-osx-signed.dmg
 
   tar -xf ${UNSIGNED}
   OSX_VOLNAME="$(cat osx_volname)"

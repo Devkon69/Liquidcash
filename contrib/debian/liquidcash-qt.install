@@ -1,0 +1,6 @@
+usr/local/bin/liquidcash-qt usr/bin
+share/pixmaps/liquidcash32.xpm usr/share/pixmaps
+share/pixmaps/liquidcash16.xpm usr/share/pixmaps
+share/pixmaps/liquidcash128.png usr/share/pixmaps
+debian/liquidcash-qt.desktop usr/share/applications
+debian/liquidcash-qt.protocol usr/share/kde4/services/

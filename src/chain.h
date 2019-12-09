@@ -1,12 +1,12 @@
 // Copyright (c) 2014-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_CHAIN_H
-#define TTN_CHAIN_H
+#ifndef LCASH_CHAIN_H
+#define LCASH_CHAIN_H
 
 #include "arith_uint256.h"
 #include "primitives/block.h"
@@ -494,4 +494,4 @@ public:
     CBlockIndex* FindEarliestAtLeast(int64_t nTime) const;
 };
 
-#endif // TTN_CHAIN_H
+#endif // LCASH_CHAIN_H

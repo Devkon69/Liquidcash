@@ -1,11 +1,11 @@
 // Copyright (c) 2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_QT_REISSUEASSETDIALOG_H
-#define TTN_QT_REISSUEASSETDIALOG_H
+#ifndef LCASH_QT_REISSUEASSETDIALOG_H
+#define LCASH_QT_REISSUEASSETDIALOG_H
 
 #include "walletmodel.h"
 
@@ -131,4 +131,4 @@ Q_SIGNALS:
     void message(const QString &title, const QString &message, unsigned int style);
 };
 
-#endif // TTN_QT_REISSUEASSETDIALOG_H
+#endif // LCASH_QT_REISSUEASSETDIALOG_H

@@ -1,11 +1,11 @@
 // Copyright (c) 2017-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_SCRIPT_SCRIPT_H
-#define TTN_SCRIPT_SCRIPT_H
+#ifndef LCASH_SCRIPT_SCRIPT_H
+#define LCASH_SCRIPT_SCRIPT_H
 
 #include "crypto/common.h"
 #include "prevector.h"
@@ -184,9 +184,9 @@ enum opcodetype
     OP_NOP9 = 0xb8,
     OP_NOP10 = 0xb9,
 
-    /** TTN START */
-    OP_TTN_ASSET = 0xc0,
-    /** TTN END */
+    /** LCASH START */
+    OP_LCASH_ASSET = 0xc0,
+    /** LCASH END */
 
 
     // template matching params
@@ -633,7 +633,7 @@ public:
     }
 
     /**
-     * Pre-version-0.6, Titancoin always counted CHECKMULTISIGs
+     * Pre-version-0.6, Liquidcash always counted CHECKMULTISIGs
      * as 20 sigops. With pay-to-script-hash, that changed:
      * CHECKMULTISIGs serialized in scriptSigs are
      * counted more accurately, assuming they are of the form
@@ -653,7 +653,7 @@ public:
     bool IsPayToWitnessScriptHash() const;
     bool IsWitnessProgram(int& version, std::vector<unsigned char>& program) const;
 
-    /** TTN START */
+    /** LCASH START */
     enum class txnouttype;
     bool IsAssetScript(int& nType, bool& fIsOwner, int& nStartingIndex) const;
     bool IsAssetScript(int& nType, bool& fIsOwner) const;
@@ -663,7 +663,7 @@ public:
     bool IsReissueAsset() const;
     bool IsTransferAsset() const;
     bool IsAsset() const;
-    /** TTN END */
+    /** LCASH END */
 
     /** Used for obsolete pay-to-pubkey addresses indexing. */
     bool IsPayToPublicKey() const;
@@ -726,4 +726,4 @@ bool ScriptNewAsset(const CScript& scriptPubKey, int& nStartingIndex);
 bool ScriptTransferAsset(const CScript& scriptPubKey, int& nStartingIndex);
 bool ScriptReissueAsset(const CScript& scriptPubKey, int& nStartingIndex);
 
-#endif // TTN_SCRIPT_SCRIPT_H
+#endif // LCASH_SCRIPT_SCRIPT_H

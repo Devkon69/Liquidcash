@@ -1,13 +1,13 @@
 // Copyright (c) 2011-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_QT_TRANSACTIONTABLEMODEL_H
-#define TTN_QT_TRANSACTIONTABLEMODEL_H
+#ifndef LCASH_QT_TRANSACTIONTABLEMODEL_H
+#define LCASH_QT_TRANSACTIONTABLEMODEL_H
 
-#include "titancoinunits.h"
+#include "liquidcashunits.h"
 
 #include <QAbstractTableModel>
 #include <QStringList>
@@ -75,7 +75,7 @@ public:
         StatusRole,
         /** Unprocessed icon */
         RawDecorationRole,
-        /** TTN or name of an asset */
+        /** LCASH or name of an asset */
         AssetNameRole,
     };
 
@@ -103,7 +103,7 @@ private:
     QString formatTxDate(const TransactionRecord *wtx) const;
     QString formatTxType(const TransactionRecord *wtx) const;
     QString formatTxToAddress(const TransactionRecord *wtx, bool tooltip) const;
-    QString formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed=true, TitancoinUnits::SeparatorStyle separators=TitancoinUnits::separatorStandard) const;
+    QString formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed=true, LiquidcashUnits::SeparatorStyle separators=LiquidcashUnits::separatorStandard) const;
     QString formatTooltip(const TransactionRecord *rec) const;
     QVariant txStatusDecoration(const TransactionRecord *wtx) const;
     QVariant txWatchonlyDecoration(const TransactionRecord *wtx) const;
@@ -122,4 +122,4 @@ public Q_SLOTS:
     friend class TransactionTablePriv;
 };
 
-#endif // TTN_QT_TRANSACTIONTABLEMODEL_H
+#endif // LCASH_QT_TRANSACTIONTABLEMODEL_H

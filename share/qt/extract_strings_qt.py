@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # Copyright (c) 2012-2018 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 '''
@@ -14,7 +14,7 @@ import operator
 import os
 import sys
 
-OUT_CPP="qt/titancoinstrings.cpp"
+OUT_CPP="qt/liquidcashstrings.cpp"
 EMPTY=['""']
 
 def parse_po(text):
@@ -78,14 +78,14 @@ f.write("""
 #define UNUSED
 #endif
 """)
-f.write('static const char UNUSED *titancoin_strings[] = {\n')
-f.write('QT_TRANSLATE_NOOP("titancoin-core", "%s"),\n' % (os.getenv('PACKAGE_NAME'),))
-f.write('QT_TRANSLATE_NOOP("titancoin-core", "%s"),\n' % (os.getenv('COPYRIGHT_HOLDERS'),))
+f.write('static const char UNUSED *liquidcash_strings[] = {\n')
+f.write('QT_TRANSLATE_NOOP("liquidcash-core", "%s"),\n' % (os.getenv('PACKAGE_NAME'),))
+f.write('QT_TRANSLATE_NOOP("liquidcash-core", "%s"),\n' % (os.getenv('COPYRIGHT_HOLDERS'),))
 if os.getenv('COPYRIGHT_HOLDERS_SUBSTITUTION') != os.getenv('PACKAGE_NAME'):
-    f.write('QT_TRANSLATE_NOOP("titancoin-core", "%s"),\n' % (os.getenv('COPYRIGHT_HOLDERS_SUBSTITUTION'),))
+    f.write('QT_TRANSLATE_NOOP("liquidcash-core", "%s"),\n' % (os.getenv('COPYRIGHT_HOLDERS_SUBSTITUTION'),))
 messages.sort(key=operator.itemgetter(0))
 for (msgid, msgstr) in messages:
     if msgid != EMPTY:
-        f.write('QT_TRANSLATE_NOOP("titancoin-core", %s),\n' % ('\n'.join(msgid)))
+        f.write('QT_TRANSLATE_NOOP("liquidcash-core", %s),\n' % ('\n'.join(msgid)))
 f.write('};\n')
 f.close()

@@ -1,11 +1,11 @@
 // Copyright (c) 2018-2019 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_QT_ASSETSDIALOG_H
-#define TTN_QT_ASSETSDIALOG_H
+#ifndef LCASH_QT_ASSETSDIALOG_H
+#define LCASH_QT_ASSETSDIALOG_H
 
 #include "walletmodel.h"
 
@@ -27,7 +27,7 @@ QT_BEGIN_NAMESPACE
 class QUrl;
 QT_END_NAMESPACE
 
-/** Dialog for sending titancoins */
+/** Dialog for sending liquidcashs */
 class AssetsDialog : public QDialog
 {
     Q_OBJECT
@@ -109,14 +109,14 @@ private Q_SLOTS:
 
     void customFeeFeatureChanged(bool);
 
-    /** TTN START */
+    /** LCASH START */
     void assetControlUpdateSendCoinsDialog();
     void focusAsset(const QModelIndex& index);
-    /** TTN END */
+    /** LCASH END */
 
     Q_SIGNALS:
             // Fired when a message should be reported to the user
             void message(const QString &title, const QString &message, unsigned int style);
 };
 
-#endif // TTN_QT_ASSETSSDIALOG_H
+#endif // LCASH_QT_ASSETSSDIALOG_H

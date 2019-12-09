@@ -1,7 +1,7 @@
 // Copyright (c) 2014-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -216,13 +216,13 @@ int CBase58Data::CompareTo(const CBase58Data& b58) const
 namespace
 {
 
-class CTitancoinAddressVisitor : public boost::static_visitor<bool>
+class CLiquidcashAddressVisitor : public boost::static_visitor<bool>
 {
 private:
-    CTitancoinAddress* addr;
+    CLiquidcashAddress* addr;
 
 public:
-    explicit CTitancoinAddressVisitor(CTitancoinAddress* addrIn) : addr(addrIn) {}
+    explicit CLiquidcashAddressVisitor(CLiquidcashAddress* addrIn) : addr(addrIn) {}
 
     bool operator()(const CKeyID& id) const { return addr->Set(id); }
     bool operator()(const CScriptID& id) const { return addr->Set(id); }
@@ -231,29 +231,29 @@ public:
 
 } // namespace
 
-bool CTitancoinAddress::Set(const CKeyID& id)
+bool CLiquidcashAddress::Set(const CKeyID& id)
 {
     SetData(Params().Base58Prefix(CChainParams::PUBKEY_ADDRESS), &id, 20);
     return true;
 }
 
-bool CTitancoinAddress::Set(const CScriptID& id)
+bool CLiquidcashAddress::Set(const CScriptID& id)
 {
     SetData(Params().Base58Prefix(CChainParams::SCRIPT_ADDRESS), &id, 20);
     return true;
 }
 
-bool CTitancoinAddress::Set(const CTxDestination& dest)
+bool CLiquidcashAddress::Set(const CTxDestination& dest)
 {
-    return boost::apply_visitor(CTitancoinAddressVisitor(this), dest);
+    return boost::apply_visitor(CLiquidcashAddressVisitor(this), dest);
 }
 
-bool CTitancoinAddress::IsValid() const
+bool CLiquidcashAddress::IsValid() const
 {
     return IsValid(Params());
 }
 
-bool CTitancoinAddress::IsValid(const CChainParams& params) const
+bool CLiquidcashAddress::IsValid(const CChainParams& params) const
 {
     bool fCorrectSize = vchData.size() == 20;
     bool fKnownVersion = vchVersion == params.Base58Prefix(CChainParams::PUBKEY_ADDRESS) ||
@@ -261,7 +261,7 @@ bool CTitancoinAddress::IsValid(const CChainParams& params) const
     return fCorrectSize && fKnownVersion;
 }
 
-CTxDestination CTitancoinAddress::Get() const
+CTxDestination CLiquidcashAddress::Get() const
 {
     if (!IsValid())
         return CNoDestination();
@@ -275,7 +275,7 @@ CTxDestination CTitancoinAddress::Get() const
         return CNoDestination();
 }
 
-bool CTitancoinAddress::GetIndexKey(uint160& hashBytes, int& type) const
+bool CLiquidcashAddress::GetIndexKey(uint160& hashBytes, int& type) const
 {
     if (!IsValid()) {
         return false;
@@ -292,7 +292,7 @@ bool CTitancoinAddress::GetIndexKey(uint160& hashBytes, int& type) const
     return false;
 }
 
-void CTitancoinSecret::SetKey(const CKey& vchSecret)
+void CLiquidcashSecret::SetKey(const CKey& vchSecret)
 {
     assert(vchSecret.IsValid());
     SetData(Params().Base58Prefix(CChainParams::SECRET_KEY), vchSecret.begin(), vchSecret.size());
@@ -300,7 +300,7 @@ void CTitancoinSecret::SetKey(const CKey& vchSecret)
         vchData.push_back(1);
 }
 
-CKey CTitancoinSecret::GetKey()
+CKey CLiquidcashSecret::GetKey()
 {
     CKey ret;
     assert(vchData.size() >= 32);
@@ -308,41 +308,41 @@ CKey CTitancoinSecret::GetKey()
     return ret;
 }
 
-bool CTitancoinSecret::IsValid() const
+bool CLiquidcashSecret::IsValid() const
 {
     bool fExpectedFormat = vchData.size() == 32 || (vchData.size() == 33 && vchData[32] == 1);
     bool fCorrectVersion = vchVersion == Params().Base58Prefix(CChainParams::SECRET_KEY);
     return fExpectedFormat && fCorrectVersion;
 }
 
-bool CTitancoinSecret::SetString(const char* pszSecret)
+bool CLiquidcashSecret::SetString(const char* pszSecret)
 {
     return CBase58Data::SetString(pszSecret) && IsValid();
 }
 
-bool CTitancoinSecret::SetString(const std::string& strSecret)
+bool CLiquidcashSecret::SetString(const std::string& strSecret)
 {
     return SetString(strSecret.c_str());
 }
 
 std::string EncodeDestination(const CTxDestination& dest)
 {
-    CTitancoinAddress addr(dest);
+    CLiquidcashAddress addr(dest);
     if (!addr.IsValid()) return "";
     return addr.ToString();
 }
 
 CTxDestination DecodeDestination(const std::string& str)
 {
-    return CTitancoinAddress(str).Get();
+    return CLiquidcashAddress(str).Get();
 }
 
 bool IsValidDestinationString(const std::string& str, const CChainParams& params)
 {
-    return CTitancoinAddress(str).IsValid(params);
+    return CLiquidcashAddress(str).IsValid(params);
 }
 
 bool IsValidDestinationString(const std::string& str)
 {
-    return CTitancoinAddress(str).IsValid();
+    return CLiquidcashAddress(str).IsValid();
 }

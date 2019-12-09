@@ -1,6 +1,6 @@
 // Copyright (c) 2017-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include "streams.h"
@@ -143,9 +143,9 @@ const char* GetOpName(opcodetype opcode)
     case OP_NOP9                   : return "OP_NOP9";
     case OP_NOP10                  : return "OP_NOP10";
 
-    /** TTN START */
-    case OP_TTN_ASSET              : return "OP_TTN_ASSET";
-    /** TTN END */
+    /** LCASH START */
+    case OP_LCASH_ASSET              : return "OP_LCASH_ASSET";
+    /** LCASH END */
 
     case OP_INVALIDOPCODE          : return "OP_INVALIDOPCODE";
 
@@ -227,7 +227,7 @@ bool CScript::IsPayToScriptHash() const
             (*this)[22] == OP_EQUAL);
 }
 
-/** TTN START */
+/** LCASH START */
 bool CScript::IsAssetScript() const
 {
     int nType = 0;
@@ -245,33 +245,33 @@ bool CScript::IsAssetScript(int& nType, bool& isOwner) const
 bool CScript::IsAssetScript(int& nType, bool& fIsOwner, int& nStartingIndex) const
 {
     if (this->size() > 30) {
-        if ((*this)[25] == OP_TTN_ASSET) { // OP_TTN_ASSET is always in the 25 index of the script if it exists
+        if ((*this)[25] == OP_LCASH_ASSET) { // OP_LCASH_ASSET is always in the 25 index of the script if it exists
             int index = -1;
-            if ((*this)[27] == TTN_R) { // Check to see if TTN starts at 27 ( this->size() < 105)
-                if ((*this)[28] == TTN_V)
-                    if ((*this)[29] == TTN_N)
+            if ((*this)[27] == LCASH_R) { // Check to see if LCASH starts at 27 ( this->size() < 105)
+                if ((*this)[28] == LCASH_V)
+                    if ((*this)[29] == LCASH_N)
                         index = 30;
             } else {
-                if ((*this)[28] == TTN_R) // Check to see if TTN starts at 28 ( this->size() >= 105)
-                    if ((*this)[29] == TTN_V)
-                        if ((*this)[30] == TTN_N)
+                if ((*this)[28] == LCASH_R) // Check to see if LCASH starts at 28 ( this->size() >= 105)
+                    if ((*this)[29] == LCASH_V)
+                        if ((*this)[30] == LCASH_N)
                             index = 31;
             }
 
             if (index > 0) {
                 nStartingIndex = index + 1; // Set the index where the asset data begins. Use to serialize the asset data into asset objects
-                if ((*this)[index] == TTN_T) { // Transfer first anticipating more transfers than other assets operations
+                if ((*this)[index] == LCASH_T) { // Transfer first anticipating more transfers than other assets operations
                     nType = TX_TRANSFER_ASSET;
                     return true;
-                } else if ((*this)[index] == TTN_Q && this->size() > 39) {
+                } else if ((*this)[index] == LCASH_Q && this->size() > 39) {
                     nType = TX_NEW_ASSET;
                     fIsOwner = false;
                     return true;
-                } else if ((*this)[index] == TTN_O) {
+                } else if ((*this)[index] == LCASH_O) {
                     nType = TX_NEW_ASSET;
                     fIsOwner = true;
                     return true;
-                } else if ((*this)[index] == TTN_R) {
+                } else if ((*this)[index] == LCASH_R) {
                     nType = TX_REISSUE_ASSET;
                     return true;
                 }
@@ -322,7 +322,7 @@ bool CScript::IsTransferAsset() const
 
     return false;
 }
-/** TTN END */
+/** LCASH END */
 
 bool CScript::IsPayToWitnessScriptHash() const
 {

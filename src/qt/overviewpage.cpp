@@ -1,13 +1,13 @@
 // Copyright (c) 2011-2019 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "overviewpage.h"
 #include "ui_overviewpage.h"
 
-#include "titancoinunits.h"
+#include "liquidcashunits.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
@@ -38,7 +38,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     explicit TxViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-        QAbstractItemDelegate(parent), unit(TitancoinUnits::TTN),
+        QAbstractItemDelegate(parent), unit(LiquidcashUnits::LCASH),
         platformStyle(_platformStyle)
     {
 
@@ -141,7 +141,7 @@ class AssetViewDelegate : public QAbstractItemDelegate
 Q_OBJECT
 public:
     explicit AssetViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-            QAbstractItemDelegate(parent), unit(TitancoinUnits::TTN),
+            QAbstractItemDelegate(parent), unit(LiquidcashUnits::LCASH),
             platformStyle(_platformStyle)
     {
 
@@ -277,7 +277,7 @@ public:
 
 };
 #include "overviewpage.moc"
-#include "titancoingui.h"
+#include "liquidcashgui.h"
 #include <QFontDatabase>
 
 OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) :
@@ -495,14 +495,14 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     currentWatchOnlyBalance = watchOnlyBalance;
     currentWatchUnconfBalance = watchUnconfBalance;
     currentWatchImmatureBalance = watchImmatureBalance;
-    ui->labelBalance->setText(TitancoinUnits::formatWithUnit(unit, balance, false, TitancoinUnits::separatorAlways));
-    ui->labelUnconfirmed->setText(TitancoinUnits::formatWithUnit(unit, unconfirmedBalance, false, TitancoinUnits::separatorAlways));
-    ui->labelImmature->setText(TitancoinUnits::formatWithUnit(unit, immatureBalance, false, TitancoinUnits::separatorAlways));
-    ui->labelTotal->setText(TitancoinUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance, false, TitancoinUnits::separatorAlways));
-    ui->labelWatchAvailable->setText(TitancoinUnits::formatWithUnit(unit, watchOnlyBalance, false, TitancoinUnits::separatorAlways));
-    ui->labelWatchPending->setText(TitancoinUnits::formatWithUnit(unit, watchUnconfBalance, false, TitancoinUnits::separatorAlways));
-    ui->labelWatchImmature->setText(TitancoinUnits::formatWithUnit(unit, watchImmatureBalance, false, TitancoinUnits::separatorAlways));
-    ui->labelWatchTotal->setText(TitancoinUnits::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance, false, TitancoinUnits::separatorAlways));
+    ui->labelBalance->setText(LiquidcashUnits::formatWithUnit(unit, balance, false, LiquidcashUnits::separatorAlways));
+    ui->labelUnconfirmed->setText(LiquidcashUnits::formatWithUnit(unit, unconfirmedBalance, false, LiquidcashUnits::separatorAlways));
+    ui->labelImmature->setText(LiquidcashUnits::formatWithUnit(unit, immatureBalance, false, LiquidcashUnits::separatorAlways));
+    ui->labelTotal->setText(LiquidcashUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance, false, LiquidcashUnits::separatorAlways));
+    ui->labelWatchAvailable->setText(LiquidcashUnits::formatWithUnit(unit, watchOnlyBalance, false, LiquidcashUnits::separatorAlways));
+    ui->labelWatchPending->setText(LiquidcashUnits::formatWithUnit(unit, watchUnconfBalance, false, LiquidcashUnits::separatorAlways));
+    ui->labelWatchImmature->setText(LiquidcashUnits::formatWithUnit(unit, watchImmatureBalance, false, LiquidcashUnits::separatorAlways));
+    ui->labelWatchTotal->setText(LiquidcashUnits::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance, false, LiquidcashUnits::separatorAlways));
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users
@@ -578,7 +578,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
         connect(model, SIGNAL(notifyWatchonlyChanged(bool)), this, SLOT(updateWatchOnlyLabels(bool)));
     }
 
-    // update the display unit, to not use the default ("TTN")
+    // update the display unit, to not use the default ("LCASH")
     updateDisplayUnit();
 }
 
@@ -627,7 +627,7 @@ void OverviewPage::showAssets()
         ui->assetBalanceLabel->hide();
         ui->labelAssetStatus->hide();
 
-        // This keeps the TTN balance grid from expanding and looking terrible when asset balance is hidden
+        // This keeps the LCASH balance grid from expanding and looking terrible when asset balance is hidden
         ui->assetVerticalSpaceWidget->show();
         ui->assetVerticalSpaceWidget2->show();
     }

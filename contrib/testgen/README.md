@@ -1,6 +1,6 @@
 ### TestGen ###
 
-Utilities to generate test vectors for the data-driven Titancoin tests.
+Utilities to generate test vectors for the data-driven Liquidcash tests.
 
 Usage: 
 

@@ -1,20 +1,20 @@
 // Copyright (c) 2012-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_CLIENTVERSION_H
-#define TTN_CLIENTVERSION_H
+#ifndef LCASH_CLIENTVERSION_H
+#define LCASH_CLIENTVERSION_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/titancoin-config.h"
+#include "config/liquidcash-config.h"
 #endif //HAVE_CONFIG_H
 
 // Check that required client information is defined
 #if !defined(CLIENT_VERSION_MAJOR) || !defined(CLIENT_VERSION_MINOR) || !defined(CLIENT_VERSION_REVISION) || !defined(CLIENT_VERSION_BUILD) || !defined(CLIENT_VERSION_IS_RELEASE) || !defined(COPYRIGHT_YEAR)
-#error Client version information missing: version is not defined by titancoin-config.h or in any other way
+#error Client version information missing: version is not defined by liquidcash-config.h or in any other way
 #endif
 
 /**
@@ -28,7 +28,7 @@
 #define COPYRIGHT_STR "2009-" STRINGIZE(COPYRIGHT_YEAR) " " COPYRIGHT_HOLDERS_FINAL
 
 /**
- * titancoind-res.rc includes this file, but it cannot cope with real c++ code.
+ * liquidcashd-res.rc includes this file, but it cannot cope with real c++ code.
  * WINDRES_PREPROC is defined to indicate that its pre-processor is running.
  * Anything other than a define should be guarded below.
  */
@@ -53,4 +53,4 @@ std::string FormatSubVersion(const std::string& name, int nClientVersion, const 
 
 #endif // WINDRES_PREPROC
 
-#endif // TTN_CLIENTVERSION_H
+#endif // LCASH_CLIENTVERSION_H

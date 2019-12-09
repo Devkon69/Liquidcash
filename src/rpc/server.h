@@ -1,11 +1,11 @@
 // Copyright (c) 2016-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_RPCSERVER_H
-#define TTN_RPCSERVER_H
+#ifndef LCASH_RPCSERVER_H
+#define LCASH_RPCSERVER_H
 
 #include "amount.h"
 #include "rpc/protocol.h"
@@ -138,7 +138,7 @@ public:
 };
 
 /**
- * Titancoin RPC command dispatcher.
+ * Liquidcash RPC command dispatcher.
  */
 class CRPCTable
 {
@@ -197,4 +197,4 @@ std::string JSONRPCExecBatch(const JSONRPCRequest& jreq, const UniValue& vReq);
 // Retrieves any serialization flags requested in command line argument
 int RPCSerializationFlags();
 
-#endif // TTN_RPCSERVER_H
+#endif // LCASH_RPCSERVER_H

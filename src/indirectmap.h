@@ -1,12 +1,12 @@
 // Copyright (c) 2016-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_INDIRECTMAP_H
-#define TTN_INDIRECTMAP_H
+#ifndef LCASH_INDIRECTMAP_H
+#define LCASH_INDIRECTMAP_H
 
 template <class T>
 struct DereferencingComparator { bool operator()(const T a, const T b) const { return *a < *b; } };
@@ -56,4 +56,4 @@ public:
     const_iterator cend() const     { return m.cend(); }
 };
 
-#endif // TTN_INDIRECTMAP_H
+#endif // LCASH_INDIRECTMAP_H

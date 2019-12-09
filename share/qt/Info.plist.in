@@ -11,7 +11,7 @@
   </array>
 
   <key>CFBundleIconFile</key>
-  <string>titancoin.icns</string>
+  <string>liquidcash.icns</string>
 
   <key>CFBundlePackageType</key>
   <string>APPL</string>
@@ -29,16 +29,16 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>Titancoin-Qt</string>
+  <string>Liquidcash-Qt</string>
   
   <key>CFBundleName</key>
-  <string>Titancoin-Qt</string>
+  <string>Liquidcash-Qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>org.titancoinfoundation.Titancoin-Qt</string>
+  <string>org.liquidcashfoundation.Liquidcash-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,10 +46,10 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.titancoin.TitancoinPayment</string>
+      <string>org.liquidcash.LiquidcashPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>titancoin</string>
+        <string>liquidcash</string>
       </array>
     </dict>
   </array>
@@ -58,9 +58,9 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>org.titancoin.paymentrequest</string>
+      <string>org.liquidcash.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>Titancoin payment request</string>
+      <string>Liquidcash payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
@@ -68,10 +68,10 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.mime-type</key>
-        <string>application/x-titancoin-payment-request</string>
+        <string>application/x-liquidcash-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>titancoinpaymentrequest</string>
+          <string>liquidcashpaymentrequest</string>
         </array>
       </dict>
     </dict>
@@ -84,7 +84,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>org.titancoin.paymentrequest</string>
+        <string>org.liquidcash.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

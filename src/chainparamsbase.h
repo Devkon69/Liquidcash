@@ -1,20 +1,20 @@
 // Copyright (c) 2014-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_CHAINPARAMSBASE_H
-#define TTN_CHAINPARAMSBASE_H
+#ifndef LCASH_CHAINPARAMSBASE_H
+#define LCASH_CHAINPARAMSBASE_H
 
 #include <memory>
 #include <string>
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between titancoin-cli and titancoind)
- * of a given instance of the Titancoin system.
+ * CBaseChainParams defines the base parameters (shared between liquidcash-cli and liquidcashd)
+ * of a given instance of the Liquidcash system.
  */
 class CBaseChainParams
 {
@@ -63,4 +63,4 @@ void SelectBaseParams(const std::string& chain);
  */
 std::string ChainNameFromCommandLine();
 
-#endif // TTN_CHAINPARAMSBASE_H
+#endif // LCASH_CHAINPARAMSBASE_H

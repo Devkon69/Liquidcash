@@ -1,12 +1,12 @@
 // Copyright (c) 2016-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_NET_PROCESSING_H
-#define TTN_NET_PROCESSING_H
+#ifndef LCASH_NET_PROCESSING_H
+#define LCASH_NET_PROCESSING_H
 
 #include "net.h"
 #include "validationinterface.h"
@@ -83,4 +83,4 @@ bool GetNodeStateStats(NodeId nodeid, CNodeStateStats &stats);
 /** Increase a node's misbehavior score. */
 void Misbehaving(NodeId nodeid, int howmuch);
 
-#endif // TTN_NET_PROCESSING_H
+#endif // LCASH_NET_PROCESSING_H

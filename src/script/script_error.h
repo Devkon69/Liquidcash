@@ -1,11 +1,11 @@
 // Copyright (c) 2014-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_SCRIPT_SCRIPT_ERROR_H
-#define TTN_SCRIPT_SCRIPT_ERROR_H
+#ifndef LCASH_SCRIPT_SCRIPT_ERROR_H
+#define LCASH_SCRIPT_SCRIPT_ERROR_H
 
 typedef enum ScriptError_t
 {
@@ -72,4 +72,4 @@ typedef enum ScriptError_t
 
 const char* ScriptErrorString(const ScriptError error);
 
-#endif // TTN_SCRIPT_SCRIPT_ERROR_H
+#endif // LCASH_SCRIPT_SCRIPT_ERROR_H

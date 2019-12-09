@@ -1,7 +1,7 @@
 // Copyright (c) 2013-2019 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -97,15 +97,15 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 2100000;  //~ 4 yrs at 1 min block time
+        consensus.nSubsidyHalvingInterval = 5000000;  //~ 4 yrs at 1 min block time
         consensus.nBIP34Enabled = false; // Enable later.
         consensus.nBIP65Enabled = true; // 000000000000000004c2b624ed5d7756c508d90fd0da2c7c679febfa6c4735f0
         consensus.nBIP66Enabled = true;
         consensus.nSegwitEnabled = true;
         consensus.nCSVEnabled = true;
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 2016 * 60; // 1.4 days
-        consensus.nPowTargetSpacing = 1 * 60;
+        consensus.nPowTargetTimespan = 50 * 30; // 1.4 days
+        consensus.nPowTargetSpacing = 1 * 25;
 		consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1814; // Approx 90% of 2016
@@ -126,13 +126,15 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
+        
         consensus.defaultAssumeValid = uint256S("0x000000afe6015422eece3cf085516074d51078992993b626a14607d7e857929d");
+//	consensus.defaultAssumeValid = uint256S("");
 
         pchMessageStart[0] = 0x54; // T
         pchMessageStart[1] = 0x54; // T
         pchMessageStart[2] = 0x4e; // N
         pchMessageStart[3] = 0x43; // C
-        nDefaultPort = 48144;
+        nDefaultPort = 36969;
         nPruneAfterHeight = 100000;
 
         genesis = CreateGenesisBlock(1430624250, 685925, 0x1e00ffff, 2, 5000 * COIN);
@@ -140,11 +142,16 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("000000afe6015422eece3cf085516074d51078992993b626a14607d7e857929d"));
         assert(genesis.hashMerkleRoot == uint256S("e0b8228ac88006fa976b39dcf2699bd186fbfce90ef908e320e7ab3d17e1daf7"));
 
-        vSeeds.emplace_back("138.68.61.199", false);
-        vSeeds.emplace_back("178.62.192.134", false);
-        vSeeds.emplace_back("68.183.184.125", false);
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,65);
+
+
+
+
+        vSeeds.emplace_back("2.225.249.244", false);
+        vSeeds.emplace_back("188.216.97.161", false);
+        //vSeeds.emplace_back("68.183.184.125", false);
+
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,105);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,139);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x05, 0x34, 0xE7, 0xCA};
@@ -159,20 +166,17 @@ public:
 
         // When adding a checkpoint. Update the default assume valid hash above to speed up sync times
         checkpointData = (CCheckpointData) {
-            {
-                    { 0, uint256S("000000afe6015422eece3cf085516074d51078992993b626a14607d7e857929d") },
-            }
         };
 
         chainTxData = ChainTxData{
-            // Update as we know more about the contents of the Titancoin chain
+            // Update as we know more about the contents of the Liquidcash chain
             1430624250, // * UNIX timestamp of last known number of transactions
             1,          // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             3.1         // * estimated number of transactions per second after that timestamp
         };
 
-        /** TTN Start **/
+        /** LCASH Start **/
         // Burn Amounts
         nIssueAssetBurnAmount = 500 * COIN;
         nReissueAssetBurnAmount = 100 * COIN;
@@ -180,13 +184,13 @@ public:
         nIssueUniqueAssetBurnAmount = 5 * COIN;
 
         // Burn Addresses
-        strIssueAssetBurnAddress = "TTNissueMainAssetxxxxxxxxxxxbGuFVF";
-        strReissueAssetBurnAddress = "TTNreissueMainAssetxxxxxxxxxWGEWXQ";
-        strIssueSubAssetBurnAddress = "TTNissueSubAssetxxxxxxxxxxxxygYtLx";
-        strIssueUniqueAssetBurnAddress = "TTNissueUniqueAssetxxxxxxxxxygpRdo";
+        strIssueAssetBurnAddress = "LCASHissueMainAssetxxxxxxxxxxxbGuFVF";
+        strReissueAssetBurnAddress = "LCASHreissueMainAssetxxxxxxxxxWGEWXQ";
+        strIssueSubAssetBurnAddress = "LCASHissueSubAssetxxxxxxxxxxxxygYtLx";
+        strIssueUniqueAssetBurnAddress = "LCASHissueUniqueAssetxxxxxxxxxygpRdo";
 
         //Global Burn Address
-        strGlobalBurnAddress = "TTNcommonBurnAddressxxxxxxxxud6Mwm";
+        strGlobalBurnAddress = "LCASHcommonBurnAddressxxxxxxxxud6Mwm";
 
         // DGW Activation
         nDGWActivationBlock = 1;
@@ -194,7 +198,7 @@ public:
         nMaxReorganizationDepth = 60; // 60 at 1 minute block timespan is +/- 60 minutes.
         nMinReorganizationPeers = 4;
         nMinReorganizationAge = 60 * 60 * 12; // 12 hours
-        /** TTN End **/
+        /** LCASH End **/
 
     }
 
@@ -250,8 +254,8 @@ public:
         genesis = CreateGenesisBlock(nGenesisTime, 6122968, 0x1e00ffff, 2, 500 * COIN);
 
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x00000079e8a7910dc35c8313ed7004bb01d8122a78fa24e42d040ad5c0110544"));
-        assert(genesis.hashMerkleRoot == uint256S("cc149e40270ef3c7ed1ffa880221a174e37c7582a1d3d38d19364e311da80dc5"));
+        //assert(consensus.hashGenesisBlock == uint256S("0x00000079e8a7910dc35c8313ed7004bb01d8122a78fa24e42d040ad5c0110544"));
+        //assert(genesis.hashMerkleRoot == uint256S("cc149e40270ef3c7ed1ffa880221a174e37c7582a1d3d38d19364e311da80dc5"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -279,14 +283,14 @@ public:
         };
 
         chainTxData = ChainTxData{
-            // Update as we know more about the contents of the Titancoin chain
+            // Update as we know more about the contents of the Liquidcash chain
             1430624350, // * UNIX timestamp of last known number of transactions
             1,          // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             3.1         // * estimated number of transactions per second after that timestamp
         };
 
-        /** TTN Start **/
+        /** LCASH Start **/
         // Burn Amounts
         nIssueAssetBurnAmount = 500 * COIN;
         nReissueAssetBurnAmount = 100 * COIN;
@@ -308,7 +312,7 @@ public:
         nMaxReorganizationDepth = 60; // 60 at 1 minute block timespan is +/- 60 minutes.
         nMinReorganizationPeers = 4;
         nMinReorganizationAge = 60 * 60 * 12; // 12 hours
-        /** TTN End **/
+        /** LCASH End **/
  
     }
 };
@@ -390,7 +394,7 @@ public:
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x33, 0x92};
 
 
-        /** TTN Start **/
+        /** LCASH Start **/
         // Burn Amounts
         nIssueAssetBurnAmount = 500 * COIN;
         nReissueAssetBurnAmount = 100 * COIN;
@@ -412,7 +416,7 @@ public:
         nMaxReorganizationDepth = 60; // 60 at 1 minute block timespan is +/- 60 minutes.
         nMinReorganizationPeers = 4;
         nMinReorganizationAge = 60 * 60 * 12; // 12 hours
-        /** TTN End **/
+        /** LCASH End **/
     }
 };
 
@@ -466,21 +470,21 @@ void TurnOffBIP66() {
 }
 
 // Use this code to calculate a new Genesis Blocks:
-    /*
-		uint32_t nGenesisTime = 1430624250;
-        arith_uint256 test;
-        bool fNegative;
-        bool fOverflow;
-        test.SetCompact(0x1e00ffff, &fNegative, &fOverflow);
-        std::cout << "Test threshold: " << test.GetHex() << "\n\n";
-        int genesisNonce = 0;
-        uint256 TempHashHolding = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
-        uint256 BestBlockHash = uint256S("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        for (int i=0;i<40000000;i++) {
-            genesis = CreateGenesisBlock(nGenesisTime, i, 0x1e00ffff, 2, 5000 * COIN);
+  /*  
+	uint32_t nGenesisTime = 1572570054;
+    //    arith_uint256 test;
+    //    bool fNegative;
+    //    bool fOverflow;
+    //    test.SetCompact(0x1e00ffff, &fNegative, &fOverflow);
+    //    std::cout << "Test threshold: " << test.GetHex() << "\n\n";
+    //    int genesisNonce = 0;
+    //    uint256 TempHashHolding = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
+    //    uint256 BestBlockHash = uint256S("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+    //    for (int i=0;i<40000000;i++) {
+      //      genesis = CreateGenesisBlock(nGenesisTime, i, 0x1e00ffff, 2, 5000 * COIN);
             //genesis.hashPrevBlock = TempHashHolding;
-            consensus.hashGenesisBlock = genesis.GetHash();
-            arith_uint256 BestBlockHashArith = UintToArith256(BestBlockHash);
+    //        consensus.hashGenesisBlock = genesis.GetHash();
+          /*  arith_uint256 BestBlockHashArith = UintToArith256(BestBlockHash);
             if (UintToArith256(consensus.hashGenesisBlock) < BestBlockHashArith) {
                 BestBlockHash = consensus.hashGenesisBlock;
                 std::cout << BestBlockHash.GetHex() << " Nonce: " << i << "\n";
@@ -504,4 +508,7 @@ void TurnOffBIP66() {
         std::cout << "Genesis Merkle " << genesis.hashMerkleRoot.GetHex() << std::endl;
         std::cout << "\n";
         return;
+
+
 */
+

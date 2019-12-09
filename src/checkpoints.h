@@ -1,12 +1,12 @@
 // Copyright (c) 2011-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_CHECKPOINTS_H
-#define TTN_CHECKPOINTS_H
+#ifndef LCASH_CHECKPOINTS_H
+#define LCASH_CHECKPOINTS_H
 
 #include "uint256.h"
 
@@ -27,4 +27,4 @@ CBlockIndex* GetLastCheckpoint(const CCheckpointData& data);
 
 } //namespace Checkpoints
 
-#endif // TTN_CHECKPOINTS_H
+#endif // LCASH_CHECKPOINTS_H

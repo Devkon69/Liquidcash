@@ -1,10 +1,10 @@
 // Copyright (c) 2014-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef TTN_POLICYESTIMATOR_H
-#define TTN_POLICYESTIMATOR_H
+#ifndef LCASH_POLICYESTIMATOR_H
+#define LCASH_POLICYESTIMATOR_H
 
 #include "amount.h"
 #include "feerate.h"
@@ -301,4 +301,4 @@ static const std::array<int, 9> confTargets = { {2, 4, 6, 12, 24, 48, 144, 504, 
 int getConfTargetForIndex(int index);
 int getIndexForConfTarget(int target);
 
-#endif /*TTN_POLICYESTIMATOR_H */
+#endif /*LCASH_POLICYESTIMATOR_H */

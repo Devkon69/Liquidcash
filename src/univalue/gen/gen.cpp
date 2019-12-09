@@ -1,6 +1,6 @@
 // Copyright (c) 2015-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -43,8 +43,8 @@ static void initJsonEscape()
 static void outputEscape()
 {
 	printf(	"// Automatically generated file. Do not modify.\n"
-		"#ifndef TTN_UNIVALUE_UNIVALUE_ESCAPES_H\n"
-		"#define TTN_UNIVALUE_UNIVALUE_ESCAPES_H\n"
+		"#ifndef LCASH_UNIVALUE_UNIVALUE_ESCAPES_H\n"
+		"#define LCASH_UNIVALUE_UNIVALUE_ESCAPES_H\n"
 		"static const char *escapes[256] = {\n");
 
 	for (unsigned int i = 0; i < 256; i++) {
@@ -74,7 +74,7 @@ static void outputEscape()
 	}
 
 	printf(	"};\n"
-		"#endif // TTN_UNIVALUE_UNIVALUE_ESCAPES_H\n");
+		"#endif // LCASH_UNIVALUE_UNIVALUE_ESCAPES_H\n");
 }
 
 int main (int argc, char *argv[])

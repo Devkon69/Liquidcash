@@ -1,11 +1,11 @@
 // Copyright (c) 2013-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_QT_RECENTREQUESTSTABLEMODEL_H
-#define TTN_QT_RECENTREQUESTSTABLEMODEL_H
+#ifndef LCASH_QT_RECENTREQUESTSTABLEMODEL_H
+#define LCASH_QT_RECENTREQUESTSTABLEMODEL_H
 
 #include "walletmodel.h"
 
@@ -54,7 +54,7 @@ private:
     Qt::SortOrder order;
 };
 
-/** Model for list of recently generated payment requests / titancoin: URIs.
+/** Model for list of recently generated payment requests / liquidcash: URIs.
  * Part of wallet model.
  */
 class RecentRequestsTableModel: public QAbstractTableModel
@@ -106,4 +106,4 @@ private:
     QString getAmountTitle();
 };
 
-#endif // TTN_QT_RECENTREQUESTSTABLEMODEL_H
+#endif // LCASH_QT_RECENTREQUESTSTABLEMODEL_H

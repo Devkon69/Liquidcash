@@ -1,15 +1,15 @@
 
-bin_PROGRAMS += bench/bench_titancoin
+bin_PROGRAMS += bench/bench_liquidcash
 BENCH_SRCDIR = bench
-BENCH_BINARY = bench/bench_titancoin$(EXEEXT)
+BENCH_BINARY = bench/bench_liquidcash$(EXEEXT)
 
 RAW_BENCH_FILES = \
   bench/data/block413567.raw
 GENERATED_BENCH_FILES = $(RAW_BENCH_FILES:.raw=.raw.h)
 
-bench_bench_titancoin_SOURCES = \
+bench_bench_liquidcash_SOURCES = \
   $(RAW_BENCH_FILES) \
-  bench/bench_titancoin.cpp \
+  bench/bench_liquidcash.cpp \
   bench/bench.cpp \
   bench/bench.h \
   bench/checkblock.cpp \
@@ -26,16 +26,16 @@ bench_bench_titancoin_SOURCES = \
   bench/perf.h \
   bench/prevector_destructor.cpp
 
-nodist_bench_bench_titancoin_SOURCES = $(GENERATED_BENCH_FILES)
+nodist_bench_bench_liquidcash_SOURCES = $(GENERATED_BENCH_FILES)
 
-bench_bench_titancoin_CPPFLAGS = $(AM_CPPFLAGS) $(TTN_INCLUDES) $(EVENT_CLFAGS) $(EVENT_PTHREADS_CFLAGS) -I$(builddir)/bench/
-bench_bench_titancoin_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-bench_bench_titancoin_LDADD = \
-  $(LIBTTN_SERVER) \
-  $(LIBTTN_COMMON) \
-  $(LIBTTN_UTIL) \
-  $(LIBTTN_CONSENSUS) \
-  $(LIBTTN_CRYPTO) \
+bench_bench_liquidcash_CPPFLAGS = $(AM_CPPFLAGS) $(LCASH_INCLUDES) $(EVENT_CLFAGS) $(EVENT_PTHREADS_CFLAGS) -I$(builddir)/bench/
+bench_bench_liquidcash_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+bench_bench_liquidcash_LDADD = \
+  $(LIBLCASH_SERVER) \
+  $(LIBLCASH_COMMON) \
+  $(LIBLCASH_UTIL) \
+  $(LIBLCASH_CONSENSUS) \
+  $(LIBLCASH_CRYPTO) \
   $(LIBLEVELDB) \
   $(LIBLEVELDB_SSE42) \
   $(LIBMEMENV) \
@@ -43,30 +43,30 @@ bench_bench_titancoin_LDADD = \
   $(LIBUNIVALUE)
 
 if ENABLE_ZMQ
-bench_bench_titancoin_LDADD += $(LIBTTN_ZMQ) $(ZMQ_LIBS)
+bench_bench_liquidcash_LDADD += $(LIBLCASH_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-bench_bench_titancoin_SOURCES += bench/coin_selection.cpp
-bench_bench_titancoin_LDADD += $(LIBTTN_WALLET) $(LIBTTN_CRYPTO)
+bench_bench_liquidcash_SOURCES += bench/coin_selection.cpp
+bench_bench_liquidcash_LDADD += $(LIBLCASH_WALLET) $(LIBLCASH_CRYPTO)
 endif
 
-bench_bench_titancoin_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
-bench_bench_titancoin_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+bench_bench_liquidcash_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+bench_bench_liquidcash_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
-CLEAN_TTN_BENCH = bench/*.gcda bench/*.gcno $(GENERATED_BENCH_FILES)
+CLEAN_LCASH_BENCH = bench/*.gcda bench/*.gcno $(GENERATED_BENCH_FILES)
 
-CLEANFILES += $(CLEAN_TTN_BENCH)
+CLEANFILES += $(CLEAN_LCASH_BENCH)
 
 bench/checkblock.cpp: bench/data/block413567.raw.h
 
-titancoin_bench: $(BENCH_BINARY)
+liquidcash_bench: $(BENCH_BINARY)
 
 bench: $(BENCH_BINARY) FORCE
 	$(BENCH_BINARY)
 
-titancoin_bench_clean : FORCE
-	rm -f $(CLEAN_TTN_BENCH) $(bench_bench_titancoin_OBJECTS) $(BENCH_BINARY)
+liquidcash_bench_clean : FORCE
+	rm -f $(CLEAN_LCASH_BENCH) $(bench_bench_liquidcash_OBJECTS) $(BENCH_BINARY)
 
 %.raw.h: %.raw
 	@$(MKDIR_P) $(@D)

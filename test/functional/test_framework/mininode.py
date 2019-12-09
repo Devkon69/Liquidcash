@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 # Copyright (c) 2017-2018 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Titancoin P2P network half-a-node.
+"""Liquidcash P2P network half-a-node.
 
 This python code was modified from ArtForz' public domain  half-a-node, as
 found in the mini-node branch of http://github.com/jgarzik/pynode.
 
-NodeConn: an object which manages p2p connectivity to a titancoin node
+NodeConn: an object which manages p2p connectivity to a liquidcash node
 NodeConnCB: a base class that describes the interface for receiving
             callbacks with network messages from a NodeConn
 CBlock, CTransaction, CBlockHeader, CTxIn, CTxOut, etc....:
     data structures that should map to corresponding structures in
-    titancoin/primitives
+    liquidcash/primitives
 msg_block, msg_tx, msg_headers, etc.:
     data structures that represent network messages
 ser_*, deser_*: functions that handle serialization/deserialization
@@ -81,7 +81,7 @@ def ripemd160(s):
 def hash256(s):
     return sha256(sha256(s))
 
-x16r_hash_cmd = os.path.dirname(os.path.realpath(__file__)) + "/../../../src/test/test_titancoin_hash"
+x16r_hash_cmd = os.path.dirname(os.path.realpath(__file__)) + "/../../../src/test/test_liquidcash_hash"
 def hash_x16r(s):
     cmd = [x16r_hash_cmd, s]
     hash = subprocess.run(cmd, stdout=subprocess.PIPE, check=True).stdout.decode('ascii')
@@ -225,7 +225,7 @@ def FromHex(obj, hex_string):
 def ToHex(obj):
     return bytes_to_hex_str(obj.serialize())
 
-# Objects that map to titancoind objects, which can be serialized/deserialized
+# Objects that map to liquidcashd objects, which can be serialized/deserialized
 
 class CAddress():
     def __init__(self):
@@ -534,7 +534,7 @@ class CTransaction():
         if len(self.vin) == 0:
             flags = struct.unpack("<B", f.read(1))[0]
             # Not sure why flags can't be zero, but this
-            # matches the implementation in titancoind
+            # matches the implementation in liquidcashd
             if (flags != 0):
                 self.vin = deser_vector(f, CTxIn)
                 self.vout = deser_vector(f, CTxOut)
@@ -1400,7 +1400,7 @@ class msg_headers():
         self.headers = headers if headers is not None else []
 
     def deserialize(self, f):
-        # comment in titancoind indicates these should be deserialized as blocks
+        # comment in liquidcashd indicates these should be deserialized as blocks
         blocks = deser_vector(f, CBlock)
         for x in blocks:
             self.headers.append(CBlockHeader(x))
@@ -1541,7 +1541,7 @@ class msg_witness_blocktxn(msg_blocktxn):
         return r
 
 class NodeConnCB():
-    """Callback and helper functions for P2P connection to a titancoind node.
+    """Callback and helper functions for P2P connection to a liquidcashd node.
 
     Individual testcases should subclass this and override the on_* methods
     if they want to alter message handling behaviour.
@@ -1762,7 +1762,7 @@ class NodeConn(asyncore.dispatcher):
             vt.addrFrom.port = 0
             self.send_message(vt, True)
 
-        logger.info('Connecting to Titancoin Node: %s:%d' % (self.dstaddr, self.dstport))
+        logger.info('Connecting to Liquidcash Node: %s:%d' % (self.dstaddr, self.dstport))
 
         try:
             self.connect((dstaddr, dstport))

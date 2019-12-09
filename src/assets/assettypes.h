@@ -1,13 +1,13 @@
 // Copyright (c) 2018-2019 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 // Created by Jeremy Anderson on 5/15/18.
 
-#ifndef TTNCOIN_NEWASSET_H
-#define TTNCOIN_NEWASSET_H
+#ifndef LCASHCOIN_NEWASSET_H
+#define LCASHCOIN_NEWASSET_H
 
 #include <string>
 #include <sstream>
@@ -463,4 +463,4 @@ private:
     size_t maxSize;
 };
 
-#endif //TTNCOIN_NEWASSET_H
+#endif //LCASHCOIN_NEWASSET_H

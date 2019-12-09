@@ -1,13 +1,13 @@
 // Copyright (c) 2018-2019 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 
-#ifndef TTNCOIN_ASSET_PROTOCOL_H
-#define TTNCOIN_ASSET_PROTOCOL_H
+#ifndef LCASHCOIN_ASSET_PROTOCOL_H
+#define LCASHCOIN_ASSET_PROTOCOL_H
 
 #include "amount.h"
 #include "tinyformat.h"
@@ -19,12 +19,12 @@
 #include <unordered_map>
 #include <list>
 
-#define TTN_R 114
-#define TTN_V 118
-#define TTN_N 110
-#define TTN_Q 113
-#define TTN_T 116
-#define TTN_O 111
+#define LCASH_R 114
+#define LCASH_V 118
+#define LCASH_N 110
+#define LCASH_Q 113
+#define LCASH_T 116
+#define LCASH_O 111
 
 #define DEFAULT_UNITS 0
 #define DEFAULT_REISSUABLE 1
@@ -330,4 +330,4 @@ bool SendAssetTransaction(CWallet* pwallet, CWalletTx& transaction, CReserveKey&
 
 /** Helper method for extracting address bytes, asset name and amount from an asset script */
 bool ParseAssetScript(CScript scriptPubKey, uint160 &hashBytes, std::string &assetName, CAmount &assetAmount);
-#endif //TTNCOIN_ASSET_PROTOCOL_H
+#endif //LCASHCOIN_ASSET_PROTOCOL_H

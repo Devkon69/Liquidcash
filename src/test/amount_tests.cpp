@@ -1,12 +1,12 @@
 // Copyright (c) 2016-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "amount.h"
 #include "policy/feerate.h"
-#include "test/test_titancoin.h"
+#include "test/test_liquidcash.h"
 
 #include <boost/test/unit_test.hpp>
 
@@ -101,7 +101,7 @@ BOOST_FIXTURE_TEST_SUITE(amount_tests, BasicTestingSetup)
         BOOST_CHECK(a <= a);
         BOOST_CHECK(b >= a);
         BOOST_CHECK(b >= b);
-        // a should be 0.00000002 TTN/kB now
+        // a should be 0.00000002 LCASH/kB now
         a += a;
         BOOST_CHECK(a == b);
     }
@@ -112,7 +112,7 @@ BOOST_FIXTURE_TEST_SUITE(amount_tests, BasicTestingSetup)
 
         CFeeRate feeRate;
         feeRate = CFeeRate(1);
-        BOOST_CHECK_EQUAL(feeRate.ToString(), "0.00000001 TTN/kB");
+        BOOST_CHECK_EQUAL(feeRate.ToString(), "0.00000001 LCASH/kB");
     }
 
 BOOST_AUTO_TEST_SUITE_END()

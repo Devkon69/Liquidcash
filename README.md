@@ -1,40 +1,39 @@
-![N|Solid](https://titanprojects.co/images/logo.svg)
 
 * Copyright (c) 2009-2019 The Bitcoin Core developers
 * Copyright (c) 2017-2019 The Raven Core developers
 * Copyright (c) 2018-2019 The Rito Core Developers
-* Copyright (c) 2019 The Titancoin Core Developers
+* Copyright (c) 2019 The Liquidcash Core Developers
 
-What is Titancoin?
+What is Liquidcash?
 ----------------
-https://www.titanprojects.co
 
-Titan Coin is an experimental new digital currency that enables instant payments to anyone, 
-anywhere in the world. Titan Coin uses state of the art scientific ASIC proof "X21s" algorithm. Titancoin's 
+
+Liquidcash is an experimental new digital currency that enables instant payments to anyone, 
+anywhere in the world. Liquidcash uses state of the art scientific ASIC proof "X21s" algorithm. Liquidcash's 
 blockchain can be used to deploy assets within few clicks, easier than ever. 
 
- - 1 minute block target
- - 5 Billion total supply
- - Block Reward: 30 TTN
- - Reward Maturity: 100 blocks
+ - 25 second block target
+ - 1.4 Billion total supply
+ - Block Reward: 10 LCASH
+ - Reward Maturity: 30 blocks
  - Concensus Algorithm: X21s
  - Difficulty Retargeting: Dark Gravity Wave
  - Asset Activation Height: 86400
- - P2P Port: 48144
+ - P2P Port: 36969
  - RPC Port: 42812
 
 
 License
 -------
 
-Titancoin is released under the terms of the MIT license. See `COPYING` for more
+Liquidcash is released under the terms of the MIT license. See `COPYING` for more
 information or see http://opensource.org/licenses/MIT.
 
 
 Get Started
 -----------
 
-1. For Linux: You can use both GUI and CLI version of Titancoin depending upon your needs.
+1. For Linux: You can use both GUI and CLI version of Liquidcash depending upon your needs.
 
 We recommend any stable version of Ubuntu 16.04 or 18.04
 
@@ -69,17 +68,17 @@ sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-d
 sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler
 
 
- 1.2 Cloning titancoin
+ 1.2 Cloning liquidcash
 
-git clone  https://github.com/titancoinproject/Titan
+git clone  https://github.com/liquidcashproject
 
 
 
  1.3 Giving Permissions
 
-Once you have installed all dependencies and cloned the repository, next step is to give read write and execute permissions to Titan folder. For that, go to the directory where Titan folder is located and then run:
+Once you have installed all dependencies and cloned the repository, next step is to give read write and execute permissions to Titan folder. For that, go to the directory where Liquidcash folder is located and then run:
 
-sudo chmod -R 777 Titan/
+sudo chmod -R 777 Liquidcash/
 
 
 
@@ -93,13 +92,13 @@ It will take a while depending upon your system's hardware configuration (RAM an
 
 
 
- 1.5 Running Titancoin CLI
+ 1.5 Running Liquidcash CLI
 
-Once compilation successfully ends, you can run Titancoin daemon with following steps:
+Once compilation successfully ends, you can run Liquidcash daemon with following steps:
 
-a) Make sure you are in src folder of Titan ( your_directory/Titan/src )
-b) Run: ./titancoind -daemon
-h) Run: ./Titancoind getinfo (To check conenction status, blocks and other information)
+a) Make sure you are in src folder of Titan ( your_directory/Liquidcash/src )
+b) Run: ./liquidcashd -daemon
+h) Run: ./Liquidcashd getinfo (To check conenction status, blocks and other information)
 
 You have a running CLI wallet now
 
@@ -109,8 +108,8 @@ You have a running CLI wallet now
 
 If you are using a GNU Linux GUI distribution like ubuntu or debian, you can run the GUI wallet:
 
-a) Make sure you are in src/qt folder of Titan ( your_directory/Titan/src/qt )
-b) Run: ./titancoin-qt
+a) Make sure you are in src/qt folder of Liquidcash( your_directory/Liquidcash/src/qt )
+b) Run: ./liquidcash-qt
 
 
 Enjoy your GUI wallet
@@ -119,9 +118,9 @@ Enjoy your GUI wallet
 
 2. For Windows: GUI client is available.
 
-2.1 Use the QT Executable file (titancoin-qt.exe) to run Titancoin GUI Wallet on your PC.
+2.1 Use the QT Executable file (liquidcash-qt.exe) to run Liquidcash GUI Wallet on your PC.
 
-2.2 Data Directory is located at: Users/your_windows_user/AppData/Roaming/titancoin
+2.2 Data Directory is located at: Users/your_windows_user/AppData/Roaming/liquidcash
 
 
 3. CLI Commands
@@ -246,7 +245,7 @@ issue "asset_name" qty "( to_address )" "( change_address )" ( units ) ( reissua
 - addmultisigaddress nrequired ["key",...] ( "account" )
 - addwitnessaddress "address"
 - backupwallet "destination"
-- bumpfee has been deprecated on the TTN Wallet.
+- bumpfee has been deprecated on the LCASH Wallet.
 - dumpprivkey "address"
 - dumpwallet "filename"
 - encryptwallet "passphrase"

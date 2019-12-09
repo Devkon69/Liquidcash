@@ -1,15 +1,15 @@
 // Copyright (c) 2014-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_COMPAT_BYTESWAP_H
-#define TTN_COMPAT_BYTESWAP_H
+#ifndef LCASH_COMPAT_BYTESWAP_H
+#define LCASH_COMPAT_BYTESWAP_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/titancoin-config.h"
+#include "config/liquidcash-config.h"
 #endif
 
 #include <stdint.h>
@@ -66,4 +66,4 @@ inline uint64_t bswap_64(uint64_t x)
 
 #endif // defined(__APPLE__)
 
-#endif // TTN_COMPAT_BYTESWAP_H
+#endif // LCASH_COMPAT_BYTESWAP_H

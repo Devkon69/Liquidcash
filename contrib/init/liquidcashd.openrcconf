@@ -1,0 +1,33 @@
+# /etc/conf.d/liquidcashd: config file for /etc/init.d/liquidcashd
+
+# Config file location
+#LCASHD_CONFIGFILE="/etc/liquidcash/liquidcash.conf"
+
+# What directory to write pidfile to?  (created and owned by $LCASHD_USER)
+#LCASHD_PIDDIR="/var/run/liquidcashd"
+
+# What filename to give the pidfile
+#LCASHD_PIDFILE="${LCASHD_PIDDIR}/liquidcashd.pid"
+
+# Where to write liquidcashd data (be mindful that the blockchain is large)
+#LCASHD_DATADIR="/var/lib/liquidcashd"
+
+# User and group to own liquidcashd process
+#LCASHD_USER="liquidcash"
+#LCASHD_GROUP="liquidcash"
+
+# Path to liquidcashd executable
+#LCASHD_BIN="/usr/bin/liquidcashd"
+
+# Nice value to run liquidcashd under
+#LCASHD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#LCASHD_OPTS=""
+
+# The timeout in seconds OpenRC will wait for liquidcashd to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+LCASHD_SIGTERM_TIMEOUT=60

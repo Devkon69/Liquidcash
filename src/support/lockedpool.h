@@ -1,11 +1,11 @@
 // Copyright (c) 2016-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_SUPPORT_LOCKEDPOOL_H
-#define TTN_SUPPORT_LOCKEDPOOL_H
+#ifndef LCASH_SUPPORT_LOCKEDPOOL_H
+#define LCASH_SUPPORT_LOCKEDPOOL_H
 
 #include <stdint.h>
 #include <list>
@@ -230,4 +230,4 @@ private:
     static std::once_flag init_flag;
 };
 
-#endif // TTN_SUPPORT_LOCKEDPOOL_H
+#endif // LCASH_SUPPORT_LOCKEDPOOL_H

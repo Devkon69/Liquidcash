@@ -1,14 +1,14 @@
 // Copyright (c) 2013-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_QT_PAYMENTSERVER_H
-#define TTN_QT_PAYMENTSERVER_H
+#ifndef LCASH_QT_PAYMENTSERVER_H
+#define LCASH_QT_PAYMENTSERVER_H
 
 // This class handles payment requests from clicking on
-// titancoin: URIs
+// liquidcash: URIs
 //
 // This is somewhat tricky, because we have to deal with
 // the situation where the user clicks on a link during
@@ -147,4 +147,4 @@ private:
     OptionsModel *optionsModel;
 };
 
-#endif // TTN_QT_PAYMENTSERVER_H
+#endif // LCASH_QT_PAYMENTSERVER_H

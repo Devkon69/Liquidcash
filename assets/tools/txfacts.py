@@ -1,6 +1,6 @@
 # Copyright (c) 2018 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #Shows data from the transactions
@@ -11,13 +11,13 @@ import subprocess
 import json
 
 
-#Set this to your titancoin-cli program
-cli = "titancoin-cli"
+#Set this to your liquidcash-cli program
+cli = "liquidcash-cli"
 
 mode = "-testnet"
 mode = ""
 rpc_port = 18501
-#Set this information in your titancoin.conf file (in datadir, not testnet3)
+#Set this information in your liquidcash.conf file (in datadir, not testnet3)
 rpc_user = 'rpcuser'
 rpc_pass = 'rpcpass555'
 
@@ -112,8 +112,8 @@ for i in range(23500,blockheight):
         for vout in tx_detail.get('vout'):
             #print("vout: " + str(vout.get('value')))
             #print(vout.get('scriptPubKey').get('asm'))
-            if (vout.get('scriptPubKey').get('asm')[86:98] == "OP_TTN_ASSET"):
-                #print("Found OP_TTN_ASSET")
+            if (vout.get('scriptPubKey').get('asm')[86:98] == "OP_LCASH_ASSET"):
+                #print("Found OP_LCASH_ASSET")
                 #print(vout.get('scriptPubKey').get('hex'))
                 asset_script = decode_script(vout.get('scriptPubKey').get('hex'))
                 asset_handler(asset_script)

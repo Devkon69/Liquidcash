@@ -1,11 +1,11 @@
 // Copyright (c) 2015-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_WALLET_DB_H
-#define TTN_WALLET_DB_H
+#ifndef LCASH_WALLET_DB_H
+#define LCASH_WALLET_DB_H
 
 #include "clientversion.h"
 #include "fs.h"
@@ -369,4 +369,4 @@ public:
     bool static Rewrite(CWalletDBWrapper& dbw, const char* pszSkip = nullptr);
 };
 
-#endif // TTN_WALLET_DB_H
+#endif // LCASH_WALLET_DB_H

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Copyright (c) 2018-2019 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 # Script to audit the assets
@@ -13,15 +13,15 @@ import subprocess
 import json
 
 
-#Set this to your titancoin-cli program
-cli = "titancoin-cli"
+#Set this to your liquidcash-cli program
+cli = "liquidcash-cli"
 
 mode = "-testnet"
 rpc_port = 18501
 #mode =  "-regtest"
 #rpc_port = 18443
 
-#Set this information in your titancoin.conf file (in datadir, not testnet3)
+#Set this information in your liquidcash.conf file (in datadir, not testnet3)
 rpc_user = 'rpcuser'
 rpc_pass = 'rpcpass555'
 

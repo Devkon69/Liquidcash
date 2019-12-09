@@ -1,15 +1,15 @@
-Titancoin Core
+Liquidcash Core
 ==============
 
 Setup
 ---------------------
-Titancoin Core is the original Titancoin client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Titancoin transactions; depending on the speed of your computer and network connection, the synchronization process is typically complete in under an hour.
+Liquidcash Core is the original Liquidcash client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Liquidcash transactions; depending on the speed of your computer and network connection, the synchronization process is typically complete in under an hour.
 
-To download compiled binaries of the Titancoin Core and wallet, visit the [GitHub release page](https://github.com/titancoinproject/Titan/releases).
+To download compiled binaries of the Liquidcash Core and wallet, visit the [GitHub release page](https://github.com/liquidcashproject/Titan/releases).
 
 Running
 ---------------------
-The following are some helpful notes on how to run Titancoin on your native platform.
+The following are some helpful notes on how to run Liquidcash on your native platform.
 
 ### Linux
 
@@ -17,15 +17,15 @@ The following are some helpful notes on how to run Titancoin on your native plat
 
 2) Install distribution-specific dependencies listed below.
 
-3) Run the GUI wallet or only the Titancoin core deamon
+3) Run the GUI wallet or only the Liquidcash core deamon
 
    a. GUI wallet:
    
-   `./titancoin-qt`
+   `./liquidcash-qt`
 
    b. Core deamon:
    
-   `./titancoind -deamon`
+   `./liquidcashd -deamon`
 
 #### Ubuntu 16.04, 17.04/17.10 and 18.04
 
@@ -73,15 +73,15 @@ The GUI wallet requires the QR Code encoding library and Google's data interchan
 
 ### OS X
 
-1) Download Titancoin-Qt.dmg.
+1) Download Liquidcash-Qt.dmg.
 
 2) Double click the DMG to mount it. 
 
-3) Drag Titancoin Core icon to the Applications Folder
+3) Drag Liquidcash Core icon to the Applications Folder
 
 ![alt tag](https://i.imgur.com/GLhBFUV.png)
 
-4) Open the Applications folder and Launch Titancoin Core. The client will begin synchronizing with the network.
+4) Open the Applications folder and Launch Liquidcash Core. The client will begin synchronizing with the network.
 
 ![alt tag](https://i.imgur.com/v3962qo.png)
 
@@ -89,69 +89,69 @@ Note: You may get the follow error on first launch:
 ```
 Dyld Error Message:
   Library not loaded: @loader_path/libboost_system-mt.dylib
-  Referenced from: /Applications/Titancoin-Qt.app/Contents/Frameworks/libboost_thread-mt.dylib
+  Referenced from: /Applications/Liquidcash-Qt.app/Contents/Frameworks/libboost_thread-mt.dylib
   Reason: image not found
 ```
-To resolve, you will need to copy libboost_system.dylib to libboost_system-mt.dylib in the /Applications/Titancoin-Qt.app/Contents/Frameworks folder
+To resolve, you will need to copy libboost_system.dylib to libboost_system-mt.dylib in the /Applications/Liquidcash-Qt.app/Contents/Frameworks folder
 
 ### Windows
 
 1) Download windows-x86_64.zip and unpack executables to desired folder.
 
-2) Double click the titancoin-qt.exe to launch it.
+2) Double click the liquidcash-qt.exe to launch it.
 
 ### Need Help?
 
-- See the documentation at the [Titancoin Wiki](https://titancoin.wiki/wiki/Titancoin_Wiki)
+- See the documentation at the [Liquidcash Wiki](https://liquidcash.wiki/wiki/Liquidcash_Wiki)
 for help and more information.
-- Ask for help on [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/TitancoinDev) or [Reddit](https://www.reddit.com/r/Titancoin/).
-- Ask for help on the [TitancoinTalk](https://www.titancointalk.org/) forums, in the [Development and Technical discussion board](https://www.titancointalk.org/?forum=661517).
+- Ask for help on [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/LiquidcashDev) or [Reddit](https://www.reddit.com/r/Liquidcash/).
+- Ask for help on the [LiquidcashTalk](https://www.liquidcashtalk.org/) forums, in the [Development and Technical discussion board](https://www.liquidcashtalk.org/?forum=661517).
 
 Building from source
 ---------------------
-The following are developer notes on how to build the Titancoin core software on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build the Liquidcash core software on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
-- [Dependencies](https://github.com/titancoinproject/Titan/tree/master/doc/dependencies.md)
-- [OS X Build Notes](https://github.com/titancoinproject/Titan/tree/master/doc/build-osx.md)
-- [Unix Build Notes](https://github.com/titancoinproject/Titan/tree/master/doc/build-unix.md)
-- [Windows Build Notes](https://github.com/titancoinproject/Titan/tree/master/doc/build-windows.md)
-- [OpenBSD Build Notes](https://github.com/titancoinproject/Titan/tree/master/doc/build-openbsd.md)
-- [Gitian Building Guide](https://github.com/titancoinproject/Titan/tree/master/doc/gitian-building.md)
+- [Dependencies](https://github.com/liquidcashproject/Titan/tree/master/doc/dependencies.md)
+- [OS X Build Notes](https://github.com/liquidcashproject/Titan/tree/master/doc/build-osx.md)
+- [Unix Build Notes](https://github.com/liquidcashproject/Titan/tree/master/doc/build-unix.md)
+- [Windows Build Notes](https://github.com/liquidcashproject/Titan/tree/master/doc/build-windows.md)
+- [OpenBSD Build Notes](https://github.com/liquidcashproject/Titan/tree/master/doc/build-openbsd.md)
+- [Gitian Building Guide](https://github.com/liquidcashproject/Titan/tree/master/doc/gitian-building.md)
 
 Development
 ---------------------
-Titancoin repo's [root README](https://github.com/titancoinproject/Titan/blob/master/README.md) contains relevant information on the development process and automated testing.
+Liquidcash repo's [root README](https://github.com/liquidcashproject/Titan/blob/master/README.md) contains relevant information on the development process and automated testing.
 
-- [Developer Notes](https://github.com/titancoinproject/Titan/blob/master/doc/developer-notes.md)
-- [Release Notes](https://github.com/titancoinproject/Titan/blob/master/doc/release-notes.md)
-- [Release Process](https://github.com/titancoinproject/Titan/blob/master/doc/release-process.md)
-- [Source Code Documentation (External Link)](https://dev.visucore.com/titancoin/doxygen/) -- 2018-05-11 -- Broken link
-- [Translation Process](https://github.com/titancoinproject/Titan/blob/master/doc/translation_process.md)
-- [Translation Strings Policy](https://github.com/titancoinproject/Titan/blob/master/doc/translation_strings_policy.md)
-- [Travis CI](https://github.com/titancoinproject/Titan/blob/master/doc/travis-ci.md)
-- [Unauthenticated REST Interface](https://github.com/titancoinproject/Titan/blob/master/doc/REST-interface.md)
-- [Shared Libraries](https://github.com/titancoinproject/Titan/blob/master/doc/shared-libraries.md)
-- [BIPS](https://github.com/titancoinproject/Titan/blob/master/doc/bips.md)
-- [Dnsseed Policy](https://github.com/titancoinproject/Titan/blob/master/doc/dnsseed-policy.md)
-- [Benchmarking](https://github.com/titancoinproject/Titan/blob/master/doc/benchmarking.md)
+- [Developer Notes](https://github.com/liquidcashproject/Titan/blob/master/doc/developer-notes.md)
+- [Release Notes](https://github.com/liquidcashproject/Titan/blob/master/doc/release-notes.md)
+- [Release Process](https://github.com/liquidcashproject/Titan/blob/master/doc/release-process.md)
+- [Source Code Documentation (External Link)](https://dev.visucore.com/liquidcash/doxygen/) -- 2018-05-11 -- Broken link
+- [Translation Process](https://github.com/liquidcashproject/Titan/blob/master/doc/translation_process.md)
+- [Translation Strings Policy](https://github.com/liquidcashproject/Titan/blob/master/doc/translation_strings_policy.md)
+- [Travis CI](https://github.com/liquidcashproject/Titan/blob/master/doc/travis-ci.md)
+- [Unauthenticated REST Interface](https://github.com/liquidcashproject/Titan/blob/master/doc/REST-interface.md)
+- [Shared Libraries](https://github.com/liquidcashproject/Titan/blob/master/doc/shared-libraries.md)
+- [BIPS](https://github.com/liquidcashproject/Titan/blob/master/doc/bips.md)
+- [Dnsseed Policy](https://github.com/liquidcashproject/Titan/blob/master/doc/dnsseed-policy.md)
+- [Benchmarking](https://github.com/liquidcashproject/Titan/blob/master/doc/benchmarking.md)
 
 ### Resources
-- Discuss on the [TitancoinTalk](https://www.titancointalk.org/) forums, in the [Development & Technical Discussion board](https://www.titancointalk.org/?forum=661517).
-- Discuss on chat [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/TitancoinDev) or [Reddit](https://www.reddit.com/r/Titancoin/).
-- Find out more on the [Titancoin Wiki](https://titancoin.wiki/wiki/Titancoin_Wiki)
+- Discuss on the [LiquidcashTalk](https://www.liquidcashtalk.org/) forums, in the [Development & Technical Discussion board](https://www.liquidcashtalk.org/?forum=661517).
+- Discuss on chat [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/LiquidcashDev) or [Reddit](https://www.reddit.com/r/Liquidcash/).
+- Find out more on the [Liquidcash Wiki](https://liquidcash.wiki/wiki/Liquidcash_Wiki)
 - Visit the project home [titanprojects.co](https://titanprojects.co)
 
 ### Miscellaneous
-- [Assets Attribution](https://github.com/titancoinproject/Titan/blob/master/doc/assets-attribution.md)
-- [Files](https://github.com/titancoinproject/Titan/blob/master/doc/files.md)
-- [Fuzz-testing](https://github.com/titancoinproject/Titan/blob/master/doc/fuzzing.md)
-- [Reduce Traffic](https://github.com/titancoinproject/Titan/blob/master/doc/reduce-traffic.md)
-- [Tor Support](https://github.com/titancoinproject/Titan/blob/master/doc/tor.md)
-- [Init Scripts (systemd/upstart/openrc)](https://github.com/titancoinproject/Titan/blob/master/doc/init.md)
-- [ZMQ](https://github.com/titancoinproject/Titan/blob/master/doc/zmq.md)
+- [Assets Attribution](https://github.com/liquidcashproject/Titan/blob/master/doc/assets-attribution.md)
+- [Files](https://github.com/liquidcashproject/Titan/blob/master/doc/files.md)
+- [Fuzz-testing](https://github.com/liquidcashproject/Titan/blob/master/doc/fuzzing.md)
+- [Reduce Traffic](https://github.com/liquidcashproject/Titan/blob/master/doc/reduce-traffic.md)
+- [Tor Support](https://github.com/liquidcashproject/Titan/blob/master/doc/tor.md)
+- [Init Scripts (systemd/upstart/openrc)](https://github.com/liquidcashproject/Titan/blob/master/doc/init.md)
+- [ZMQ](https://github.com/liquidcashproject/Titan/blob/master/doc/zmq.md)
 
 License
 ---------------------
-Distributed under the [MIT software license](https://github.com/titancoinproject/Titan/blob/master/COPYING).
+Distributed under the [MIT software license](https://github.com/liquidcashproject/Titan/blob/master/COPYING).
 This product includes software developed by the OpenSSL Project for use in the [OpenSSL Toolkit](https://www.openssl.org/). This product includes
 cryptographic software written by Eric Young ([eay@cryptsoft.com](mailto:eay@cryptsoft.com)), and UPnP software written by Thomas Bernard.

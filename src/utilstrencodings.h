@@ -1,15 +1,15 @@
 // Copyright (c) 2014-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 /**
  * Utilities for converting data from/to strings.
  */
-#ifndef TTN_UTILSTRENCODINGS_H
-#define TTN_UTILSTRENCODINGS_H
+#ifndef LCASH_UTILSTRENCODINGS_H
+#define LCASH_UTILSTRENCODINGS_H
 
 #include <stdint.h>
 #include <string>
@@ -151,4 +151,4 @@ bool TimingResistantEqual(const T& a, const T& b)
  */
 bool ParseFixedPoint(const std::string &val, int decimals, int64_t *amount_out);
 
-#endif // TTN_UTILSTRENCODINGS_H
+#endif // LCASH_UTILSTRENCODINGS_H

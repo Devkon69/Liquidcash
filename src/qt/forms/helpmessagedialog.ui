@@ -52,7 +52,7 @@
         </size>
        </property>
        <property name="pixmap">
-        <pixmap resource="../titancoin.qrc">:/icons/titancoin</pixmap>
+        <pixmap resource="../liquidcash.qrc">:/icons/liquidcash</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -150,7 +150,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../titancoin.qrc"/>
+  <include location="../liquidcash.qrc"/>
  </resources>
  <connections>
   <connection>

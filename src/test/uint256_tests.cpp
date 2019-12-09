@@ -1,12 +1,12 @@
 // Copyright (c) 2011-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include "arith_uint256.h"
 #include "uint256.h"
 #include "version.h"
-#include "test/test_titancoin.h"
+#include "test/test_liquidcash.h"
 
 #include <boost/test/unit_test.hpp>
 #include <stdint.h>

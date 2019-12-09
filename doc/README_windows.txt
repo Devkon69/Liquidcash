@@ -1,31 +1,31 @@
-Copyright (c) 2009-2019 The Bitcoin Core developers
-Copyright (c) 2017-2019 The Raven Core developers
-Copyright (c) 2018-2019 The Rito Core Developers
-Copyright (c) 2019 The Titancoin Core Developers
+* Copyright (c) 2009-2019 The Bitcoin Core developers
+* Copyright (c) 2017-2019 The Raven Core developers
+* Copyright (c) 2018-2019 The Rito Core Developers
+* Copyright (c) 2019 The Liquidcash Core Developers
 
-What is Titancoin?
+What is Liquidcash?
 ----------------
-https://www.titanprojects.co
 
-Titan Coin is an experimental new digital currency that enables instant payments to anyone, 
-anywhere in the world. Titan Coin uses state of the art scientific ASIC proof "X21s" algorithm. Titancoin's 
+
+Liquidcash is an experimental new digital currency that enables instant payments to anyone, 
+anywhere in the world. Liquidcash uses state of the art scientific ASIC proof "X21s" algorithm. Liquidcash's 
 blockchain can be used to deploy assets within few clicks, easier than ever. 
 
- - 1 minute block target
- - 5 Billion total supply
- - Block Reward: 30 TTN
- - Reward Maturity: 100 blocks
+ - 25 second block target
+ - 1.4 Billion total supply
+ - Block Reward: 10 LCASH
+ - Reward Maturity: 30 blocks
  - Concensus Algorithm: X21s
  - Difficulty Retargeting: Dark Gravity Wave
  - Asset Activation Height: 86400
- - P2P Port: 48144
+ - P2P Port: 36969
  - RPC Port: 42812
 
 
 License
 -------
 
-Titancoin is released under the terms of the MIT license. See `COPYING` for more
+Liquidcash is released under the terms of the MIT license. See `COPYING` for more
 information or see http://opensource.org/licenses/MIT.
 
 
@@ -34,13 +34,13 @@ Get Started
 
 1. Both CLI & GUI clients is available for both windows 32 bit and 64 bit platforms.
 
-2. Default location of the Data Directory is: Users/your_windows_user/AppData/Roaming/titancoin
+2. Default location of the Data Directory is: Users/your_windows_user/AppData/Roaming/liquidcash
 
 This can be changed by passing -datadir="path to your custom data directory" flag while starting the QT or CLI wallet from the command prompt.
 
 
 
-3. You can use following commands for interating with titancoin-cli wallet or you run them in the debug window of titancoin-qt
+3. You can use following commands for interating with liquidcash-cli wallet or you run them in the debug window of liquidcash-qt
 
 
 ### Addressindex 
@@ -163,7 +163,7 @@ issue "asset_name" qty "( to_address )" "( change_address )" ( units ) ( reissua
 - addmultisigaddress nrequired ["key",...] ( "account" )
 - addwitnessaddress "address"
 - backupwallet "destination"
-- bumpfee has been deprecated on the TTN Wallet.
+- bumpfee has been deprecated on the LCASH Wallet.
 - dumpprivkey "address"
 - dumpwallet "filename"
 - encryptwallet "passphrase"

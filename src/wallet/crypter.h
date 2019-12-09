@@ -1,11 +1,11 @@
 // Copyright (c) 2015-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_WALLET_CRYPTER_H
-#define TTN_WALLET_CRYPTER_H
+#ifndef LCASH_WALLET_CRYPTER_H
+#define LCASH_WALLET_CRYPTER_H
 
 #include "keystore.h"
 #include "serialize.h"
@@ -195,4 +195,4 @@ public:
     boost::signals2::signal<void (CCryptoKeyStore* wallet)> NotifyStatusChanged;
 };
 
-#endif // TTN_WALLET_CRYPTER_H
+#endif // LCASH_WALLET_CRYPTER_H

@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,11 +9,11 @@
  * Server/client environment: argument handling, config file parsing,
  * logging, thread wrappers, startup time
  */
-#ifndef TTN_UTIL_H
-#define TTN_UTIL_H
+#ifndef LCASH_UTIL_H
+#define LCASH_UTIL_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/titancoin-config.h"
+#include "config/liquidcash-config.h"
 #endif
 
 #include "compat.h"
@@ -55,8 +55,8 @@ extern bool fLogIPs;
 extern std::atomic<bool> fReopenDebugLog;
 extern CTranslationInterface translationInterface;
 
-extern const char *const TTN_CONF_FILENAME;
-extern const char *const TTN_PID_FILENAME;
+extern const char *const LCASH_CONF_FILENAME;
+extern const char *const LCASH_PID_FILENAME;
 
 extern std::atomic<uint32_t> logCategories;
 
@@ -331,7 +331,7 @@ void RenameThread(const char *name);
 template<typename Callable>
 void TraceThread(const char *name, Callable func)
 {
-    std::string s = strprintf("titancoin-%s", name);
+    std::string s = strprintf("liquidcash-%s", name);
     RenameThread(s.c_str());
     try
     {
@@ -360,4 +360,4 @@ std::string CopyrightHolders(const std::string &strPrefix);
 
 void SetThreadPriority(int nPriority);
 
-#endif // TTN_UTIL_H
+#endif // LCASH_UTIL_H

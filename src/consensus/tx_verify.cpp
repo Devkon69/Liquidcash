@@ -1,7 +1,7 @@
 // Copyright (c) 2017-2019 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -187,14 +187,14 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, CAssetsCa
         if (!MoneyRange(nValueOut))
             return state.DoS(100, false, REJECT_INVALID, "bad-txns-txouttotal-toolarge");
 
-        /** TTN START */
+        /** LCASH START */
         bool isAsset = false;
         int nType;
         bool fIsOwner;
         if (txout.scriptPubKey.IsAssetScript(nType, fIsOwner))
             isAsset = true;
 
-        // Make sure that all asset tx have a nValue of zero TTN
+        // Make sure that all asset tx have a nValue of zero LCASH
         if (isAsset && txout.nValue != 0)
             return state.DoS(100, false, REJECT_INVALID, "bad-txns-asset-tx-amount-isn't-zero");
 
@@ -233,7 +233,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, CAssetsCa
             }
         }
     }
-    /** TTN END */
+    /** LCASH END */
 
     if (fCheckDuplicateInputs) {
         std::set<COutPoint> vInOutPoints;
@@ -256,7 +256,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, CAssetsCa
                 return state.DoS(10, false, REJECT_INVALID, "bad-txns-prevout-null");
     }
 
-    /** TTN START */
+    /** LCASH START */
     if (AreAssetsDeployed()) {
         if (assetCache) {
             if (tx.IsNewAsset()) {
@@ -316,7 +316,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, CAssetsCa
                 }
             } else {
                 // Fail if transaction contains any non-transfer asset scripts and hasn't conformed to one of the
-                // above transaction types.  Also fail if it contains OP_TTN_ASSET opcode but wasn't a valid script.
+                // above transaction types.  Also fail if it contains OP_LCASH_ASSET opcode but wasn't a valid script.
                 for (auto out : tx.vout) {
                     int nType;
                     bool _isOwner;
@@ -325,7 +325,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, CAssetsCa
                             return state.DoS(100, false, REJECT_INVALID, "bad-txns-bad-asset-transaction");
                         }
                     } else {
-                        if (out.scriptPubKey.Find(OP_TTN_ASSET) > 0) {
+                        if (out.scriptPubKey.Find(OP_LCASH_ASSET) > 0) {
                             return state.DoS(100, false, REJECT_INVALID, "bad-txns-bad-asset-script");
                         }
                     }
@@ -333,7 +333,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, CAssetsCa
             }
         }
     }
-    /** TTN END */
+    /** LCASH END */
 
     return true;
 }

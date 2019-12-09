@@ -1,11 +1,11 @@
 // Copyright (c) 2013-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_QT_RECEIVECOINSDIALOG_H
-#define TTN_QT_RECEIVECOINSDIALOG_H
+#ifndef LCASH_QT_RECEIVECOINSDIALOG_H
+#define LCASH_QT_RECEIVECOINSDIALOG_H
 
 #include "guiutil.h"
 
@@ -28,7 +28,7 @@ QT_BEGIN_NAMESPACE
 class QModelIndex;
 QT_END_NAMESPACE
 
-/** Dialog for requesting payment of titancoins */
+/** Dialog for requesting payment of liquidcashs */
 class ReceiveCoinsDialog : public QDialog
 {
     Q_OBJECT
@@ -81,4 +81,4 @@ private Q_SLOTS:
     void copyAmount();
 };
 
-#endif // TTN_QT_RECEIVECOINSDIALOG_H
+#endif // LCASH_QT_RECEIVECOINSDIALOG_H

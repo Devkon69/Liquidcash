@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_QT_QVALUECOMBOBOX_H
-#define TTN_QT_QVALUECOMBOBOX_H
+#ifndef LCASH_QT_QVALUECOMBOBOX_H
+#define LCASH_QT_QVALUECOMBOBOX_H
 
 #include <QComboBox>
 #include <QVariant>
@@ -36,4 +36,4 @@ private Q_SLOTS:
     void handleSelectionChanged(int idx);
 };
 
-#endif // TTN_QT_QVALUECOMBOBOX_H
+#endif // LCASH_QT_QVALUECOMBOBOX_H

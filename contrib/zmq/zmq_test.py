@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # Copyright (c) 2018 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 """
     ZMQ example using python3's asyncio
 
-    Titancoin should be started with the command line arguments:
-        titancoind -testnet -daemon \
+    Liquidcash should be started with the command line arguments:
+        liquidcashd -testnet -daemon \
                 -zmqpubhashblock=tcp://127.0.0.1:28501 \
                 -zmqpubrawtx=tcp://127.0.0.1:28501 \
                 -zmqpubhashtx=tcp://127.0.0.1:28501 \
@@ -26,7 +26,7 @@ import codecs
 context = zmq.Context()
 socket = context.socket(zmq.SUB)
 
-print("Getting Titancoin msgs")
+print("Getting Liquidcash msgs")
 socket.connect("tcp://localhost:28501")
 
 socket.setsockopt_string(zmq.SUBSCRIBE, "hashtx")
@@ -59,8 +59,8 @@ while True:
 		while(pos != -1):
 			pos = astr.find('72766e', start)
 			if (pos > -1):
-				print("FOUND TTN issuance at " + str(pos))
-				print("After TTN: " + astr[pos+6:pos+8])
+				print("FOUND LCASH issuance at " + str(pos))
+				print("After LCASH: " + astr[pos+6:pos+8])
 				sizestr = astr[pos+8:pos+10]
 				print("sizestr: " + sizestr)
 				#print(str(astr[pos+8:pos+10]))
@@ -69,7 +69,7 @@ while True:
 				print("Name: " + bytes.fromhex(astr[pos+10:pos+10+size*2]).decode('utf-8'))
 			pos = astr.find('72766e', start)
 			if (pos > -1):
-				print("FOUND TTN something at " + str(pos))
+				print("FOUND LCASH something at " + str(pos))
 			start += pos+8
 			print(astr)
 

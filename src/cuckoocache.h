@@ -1,12 +1,12 @@
 // Copyright (c) 2016-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_CUCKOOCACHE_H
-#define TTN_CUCKOOCACHE_H
+#ifndef LCASH_CUCKOOCACHE_H
+#define LCASH_CUCKOOCACHE_H
 
 #include <array>
 #include <algorithm>
@@ -481,4 +481,4 @@ public:
 };
 } // namespace CuckooCache
 
-#endif // TTN_CUCKOOCACHE_H
+#endif // LCASH_CUCKOOCACHE_H

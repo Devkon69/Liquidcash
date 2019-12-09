@@ -1,7 +1,7 @@
 // Copyright (c) 2012-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -44,7 +44,7 @@
 extern std::vector<CWalletRef> vpwallets;
 //////////////////////////////////////////////////////////////////////////////
 //
-// TitancoinMiner
+// LiquidcashMiner
 //
 
 //
@@ -183,9 +183,9 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     coinbaseTx.vin[0].scriptSig = CScript() << nHeight << OP_0;
 
     if (nHeight <= DEV_FUND_UNTIL) {
-      CTitancoinAddress address(DEV_ADDRESS);
+      CLiquidcashAddress address(DEV_ADDRESS);
       coinbaseTx.vout.resize(2);
-      coinbaseTx.vout[1].scriptPubKey = GetScriptForDestination(CTitancoinAddress(address).Get());
+      coinbaseTx.vout[1].scriptPubKey = GetScriptForDestination(CLiquidcashAddress(address).Get());
       coinbaseTx.vout[1].nValue = GetDevCoin(coinbaseTx.vout[0].nValue);
     }
 
@@ -518,11 +518,11 @@ CWallet *GetFirstWallet() {
     return(vpwallets[0]);
 }
 
-void static TitancoinMiner(const CChainParams& chainparams)
+void static LiquidcashMiner(const CChainParams& chainparams)
 {
-    LogPrintf("TitancoinMiner -- started\n");
+    LogPrintf("LiquidcashMiner -- started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("titancoin-miner");
+    RenameThread("liquidcash-miner");
 
     unsigned int nExtraNonce = 0;
 
@@ -533,7 +533,7 @@ void static TitancoinMiner(const CChainParams& chainparams)
     #endif
 
     if (!EnsureWalletIsAvailable(pWallet, false)) {
-        LogPrintf("TitancoinMiner -- Wallet not available\n");
+        LogPrintf("LiquidcashMiner -- Wallet not available\n");
     }
 
     if (pWallet == NULL)
@@ -575,7 +575,7 @@ void static TitancoinMiner(const CChainParams& chainparams)
                         break;
                     }
 
-                    LogPrintf("TitancoinMiner -- waiting for connections and blocks downloaded\n");
+                    LogPrintf("LiquidcashMiner -- waiting for connections and blocks downloaded\n");
                     MilliSleep(1000);
                 } while (true);
             }
@@ -594,13 +594,13 @@ void static TitancoinMiner(const CChainParams& chainparams)
 
             if (!pblocktemplate.get())
             {
-                LogPrintf("TitancoinMiner -- Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
+                LogPrintf("LiquidcashMiner -- Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
                 return;
             }
             CBlock *pblock = &pblocktemplate->block;
             IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-            LogPrintf("TitancoinMiner -- Running miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
+            LogPrintf("LiquidcashMiner -- Running miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
                 ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
             //
@@ -619,7 +619,7 @@ void static TitancoinMiner(const CChainParams& chainparams)
                     {
                         // Found a solution
                         SetThreadPriority(THREAD_PRIORITY_NORMAL);
-                        LogPrintf("TitancoinMiner:\n  proof-of-work found\n  hash: %s\n  target: %s\n", hash.GetHex(), hashTarget.GetHex());
+                        LogPrintf("LiquidcashMiner:\n  proof-of-work found\n  hash: %s\n  target: %s\n", hash.GetHex(), hashTarget.GetHex());
                         ProcessBlockFound(pblock, chainparams);
                         SetThreadPriority(THREAD_PRIORITY_LOWEST);
                         coinbaseScript->KeepScript();
@@ -666,17 +666,17 @@ void static TitancoinMiner(const CChainParams& chainparams)
     }
     catch (const boost::thread_interrupted&)
     {
-        LogPrintf("TitancoinMiner -- terminated\n");
+        LogPrintf("LiquidcashMiner -- terminated\n");
         throw;
     }
     catch (const std::runtime_error &e)
     {
-        LogPrintf("TitancoinMiner -- runtime error: %s\n", e.what());
+        LogPrintf("LiquidcashMiner -- runtime error: %s\n", e.what());
         return;
     }
 }
 
-int GenerateTitancoins(bool fGenerate, int nThreads, const CChainParams& chainparams)
+int GenerateLiquidcashs(bool fGenerate, int nThreads, const CChainParams& chainparams)
 {
 
     static boost::thread_group* minerThreads = NULL;
@@ -703,7 +703,7 @@ int GenerateTitancoins(bool fGenerate, int nThreads, const CChainParams& chainpa
     nHashesPerSec = 0;
 
     for (int i = 0; i < nThreads; i++){
-        minerThreads->create_thread(boost::bind(&TitancoinMiner, boost::cref(chainparams)));
+        minerThreads->create_thread(boost::bind(&LiquidcashMiner, boost::cref(chainparams)));
     }
 
     return(numCores);

@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,8 +13,8 @@
  * - E-mail usually won't line-break if there's no punctuation to break at.
  * - Double-clicking selects the whole string as one word if it's all alphanumeric.
  */
-#ifndef TTN_BASE58_H
-#define TTN_BASE58_H
+#ifndef LCASH_BASE58_H
+#define LCASH_BASE58_H
 
 #include "chainparams.h"
 #include "key.h"
@@ -95,13 +95,13 @@ public:
     bool operator< (const CBase58Data& b58) const { return CompareTo(b58) <  0; }
     bool operator> (const CBase58Data& b58) const { return CompareTo(b58) >  0; }
 };
-/** base58-encoded Titancoin addresses.
+/** base58-encoded Liquidcash addresses.
  * Public-key-hash-addresses have version 0 (or 111 testnet).
  * The data vector contains RIPEMD160(SHA256(pubkey)), where pubkey is the serialized public key.
  * Script-hash-addresses have version 5 (or 196 testnet).
  * The data vector contains RIPEMD160(SHA256(cscript)), where cscript is the serialized redemption script.
  */
-class CTitancoinAddress : public CBase58Data {
+class CLiquidcashAddress : public CBase58Data {
 public:
     bool Set(const CKeyID &id);
     bool Set(const CScriptID &id);
@@ -109,10 +109,10 @@ public:
     bool IsValid() const;
     bool IsValid(const CChainParams &params) const;
 
-    CTitancoinAddress() {}
-    CTitancoinAddress(const CTxDestination &dest) { Set(dest); }
-    CTitancoinAddress(const std::string& strAddress) { SetString(strAddress); }
-    CTitancoinAddress(const char* pszAddress) { SetString(pszAddress); }
+    CLiquidcashAddress() {}
+    CLiquidcashAddress(const CTxDestination &dest) { Set(dest); }
+    CLiquidcashAddress(const std::string& strAddress) { SetString(strAddress); }
+    CLiquidcashAddress(const char* pszAddress) { SetString(pszAddress); }
 
     CTxDestination Get() const;
     bool GetIndexKey(uint160& hashBytes, int& type) const;
@@ -121,7 +121,7 @@ public:
 /**
  * A base58-encoded secret key
  */
-class CTitancoinSecret : public CBase58Data
+class CLiquidcashSecret : public CBase58Data
 {
 public:
     void SetKey(const CKey& vchSecret);
@@ -130,11 +130,11 @@ public:
     bool SetString(const char* pszSecret);
     bool SetString(const std::string& strSecret);
 
-    CTitancoinSecret(const CKey& vchSecret) { SetKey(vchSecret); }
-    CTitancoinSecret() {}
+    CLiquidcashSecret(const CKey& vchSecret) { SetKey(vchSecret); }
+    CLiquidcashSecret() {}
 };
 
-template<typename K, int Size, CChainParams::Base58Type Type> class CTitancoinExtKeyBase : public CBase58Data
+template<typename K, int Size, CChainParams::Base58Type Type> class CLiquidcashExtKeyBase : public CBase58Data
 {
 public:
     void SetKey(const K &key) {
@@ -152,23 +152,23 @@ public:
         return ret;
     }
 
-    CTitancoinExtKeyBase(const K &key) {
+    CLiquidcashExtKeyBase(const K &key) {
         SetKey(key);
     }
 
-    CTitancoinExtKeyBase(const std::string& strBase58c) {
+    CLiquidcashExtKeyBase(const std::string& strBase58c) {
         SetString(strBase58c.c_str(), Params().Base58Prefix(Type).size());
     }
 
-    CTitancoinExtKeyBase() {}
+    CLiquidcashExtKeyBase() {}
 };
 
-typedef CTitancoinExtKeyBase<CExtKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_SECRET_KEY> CTitancoinExtKey;
-typedef CTitancoinExtKeyBase<CExtPubKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_PUBLIC_KEY> CTitancoinExtPubKey;
+typedef CLiquidcashExtKeyBase<CExtKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_SECRET_KEY> CLiquidcashExtKey;
+typedef CLiquidcashExtKeyBase<CExtPubKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_PUBLIC_KEY> CLiquidcashExtPubKey;
 
 std::string EncodeDestination(const CTxDestination& dest);
 CTxDestination DecodeDestination(const std::string& str);
 bool IsValidDestinationString(const std::string& str);
 bool IsValidDestinationString(const std::string& str, const CChainParams& params);
 
-#endif // TTN_BASE58_H
+#endif // LCASH_BASE58_H

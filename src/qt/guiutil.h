@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_QT_GUIUTIL_H
-#define TTN_QT_GUIUTIL_H
+#ifndef LCASH_QT_GUIUTIL_H
+#define LCASH_QT_GUIUTIL_H
 
 #include "amount.h"
 #include "fs.h"
@@ -32,7 +32,7 @@ class QWidget;
 class QGraphicsDropShadowEffect;
 QT_END_NAMESPACE
 
-/** Utility functions used by the Titancoin Qt UI.
+/** Utility functions used by the Liquidcash Qt UI.
  */
 namespace GUIUtil
 {
@@ -58,10 +58,10 @@ namespace GUIUtil
     void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent);
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
-    // Parse "titancoin:" URI into recipient object, return true on successful parsing
-    bool parseTitancoinURI(const QUrl &uri, SendCoinsRecipient *out);
-    bool parseTitancoinURI(QString uri, SendCoinsRecipient *out);
-    QString formatTitancoinURI(const SendCoinsRecipient &info);
+    // Parse "liquidcash:" URI into recipient object, return true on successful parsing
+    bool parseLiquidcashURI(const QUrl &uri, SendCoinsRecipient *out);
+    bool parseLiquidcashURI(QString uri, SendCoinsRecipient *out);
+    QString formatLiquidcashURI(const SendCoinsRecipient &info);
 
     // Returns true if given address+amount meets "dust" definition
     bool isDust(const QString& address, const CAmount& amount);
@@ -128,7 +128,7 @@ namespace GUIUtil
     void openDebugLogfile();
 
     // Open the config file
-    bool openTitancoinConf();
+    bool openLiquidcashConf();
 
     // Replace invalid default fonts with known good ones
     void SubstituteFonts(const QString& language);
@@ -261,4 +261,4 @@ namespace GUIUtil
 
 } // namespace GUIUtil
 
-#endif // TTN_QT_GUIUTIL_H
+#endif // LCASH_QT_GUIUTIL_H

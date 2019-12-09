@@ -1,12 +1,12 @@
 // Copyright (c) 2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <assets/assets.h>
 
-#include <test/test_titancoin.h>
+#include <test/test_liquidcash.h>
 
 #include <boost/test/unit_test.hpp>
 #include "core_write.cpp"
@@ -55,20 +55,20 @@ BOOST_FIXTURE_TEST_SUITE(asset_tests, BasicTestingSetup)
         BOOST_CHECK(!IsAssetNameValid("A._BC", type));
         BOOST_CHECK(!IsAssetNameValid("AB_.C", type));
 
-        //- Versions of TTNCOIN NOT allowed
-        BOOST_CHECK(!IsAssetNameValid("TTN", type));
-        BOOST_CHECK(!IsAssetNameValid("TTN", type));
-        BOOST_CHECK(!IsAssetNameValid("TTNCOIN", type));
+        //- Versions of LCASHCOIN NOT allowed
+        BOOST_CHECK(!IsAssetNameValid("LCASH", type));
+        BOOST_CHECK(!IsAssetNameValid("LCASH", type));
+        BOOST_CHECK(!IsAssetNameValid("LCASHCOIN", type));
 
-        //- Versions of TTNCOIN ALLOWED
-        BOOST_CHECK(IsAssetNameValid("TTN.COIN", type));
-        BOOST_CHECK(IsAssetNameValid("TTN_COIN", type));
-        BOOST_CHECK(IsAssetNameValid("TTNSPYDER", type));
-        BOOST_CHECK(IsAssetNameValid("SPYDERTTN", type));
-        BOOST_CHECK(IsAssetNameValid("TTNSPYDER", type));
-        BOOST_CHECK(IsAssetNameValid("SPYDETTN", type));
-        BOOST_CHECK(IsAssetNameValid("BLACK_TTNS", type));
-        BOOST_CHECK(IsAssetNameValid("SETTNOT", type));
+        //- Versions of LCASHCOIN ALLOWED
+        BOOST_CHECK(IsAssetNameValid("LCASH.COIN", type));
+        BOOST_CHECK(IsAssetNameValid("LCASH_COIN", type));
+        BOOST_CHECK(IsAssetNameValid("LCASHSPYDER", type));
+        BOOST_CHECK(IsAssetNameValid("SPYDERLCASH", type));
+        BOOST_CHECK(IsAssetNameValid("LCASHSPYDER", type));
+        BOOST_CHECK(IsAssetNameValid("SPYDELCASH", type));
+        BOOST_CHECK(IsAssetNameValid("BLACK_LCASHS", type));
+        BOOST_CHECK(IsAssetNameValid("SELCASHOT", type));
 
         // subs
         BOOST_CHECK(IsAssetNameValid("ABC/A", type));
@@ -185,7 +185,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tests, BasicTestingSetup)
         SelectParams(CBaseChainParams::MAIN);
 
         // Create the asset scriptPubKey
-        CAssetTransfer asset("TTN", 1000);
+        CAssetTransfer asset("LCASH", 1000);
         CScript scriptPubKey = GetScriptForDestination(DecodeDestination(Params().GlobalBurnAddress()));
         asset.ConstructTransaction(scriptPubKey);
 
@@ -206,7 +206,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tests, BasicTestingSetup)
         SelectParams(CBaseChainParams::MAIN);
 
         // Create the asset scriptPubKey
-        CNewAsset asset("TTN", 1000, 8, 1, 0, "");
+        CNewAsset asset("LCASH", 1000, 8, 1, 0, "");
         CScript scriptPubKey = GetScriptForDestination(DecodeDestination(Params().GlobalBurnAddress()));
         asset.ConstructTransaction(scriptPubKey);
 

@@ -1,6 +1,6 @@
 # Copyright (c) 2018 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #Shows data from the first 1000 blocks
@@ -11,13 +11,13 @@ import subprocess
 import json
 
 
-#Set this to your titancoin-cli program
-cli = "titancoin-cli"
+#Set this to your liquidcash-cli program
+cli = "liquidcash-cli"
 
 #mode = "-testnet"
 mode = ""
 rpc_port = 8501
-#Set this information in your titancoin.conf file (in datadir, not testnet3)
+#Set this information in your liquidcash.conf file (in datadir, not testnet3)
 rpc_user = 'rpcuser'
 rpc_pass = 'rpcpass555'
 

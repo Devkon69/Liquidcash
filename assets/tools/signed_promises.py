@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # Copyright (c) 2018 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 # Script to find signed contract_urls
-# Reads from a Titancoin node - make sure its running
+# Reads from a Liquidcash node - make sure its running
 # Runs through the assets looking for ones with meta data
 # Checks the meta data for contract_url
 # Downloads the documents - (named by asset)
@@ -28,7 +28,7 @@ import json
 import hashlib
 
 
-cli = "titancoin-cli"
+cli = "liquidcash-cli"
 mode =  "-testnet"
 rpc_user = 'rpcuser'
 rpc_pass = 'rpcpass555'
@@ -95,7 +95,7 @@ def get_signed_assets(assets):
     list_of_unsigned_assets = []
     print(assets)
     for key,value in assets.iteritems():
-        if key == 'TTN_WITH_METADATA':
+        if key == 'LCASH_WITH_METADATA':
             print("Key " + key)
             #print("Value " + value)
             print("Reading metadata for " + str(key))

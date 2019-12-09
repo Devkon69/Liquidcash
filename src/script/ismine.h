@@ -1,11 +1,11 @@
 // Copyright (c) 2016-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_SCRIPT_ISMINE_H
-#define TTN_SCRIPT_ISMINE_H
+#ifndef LCASH_SCRIPT_ISMINE_H
+#define LCASH_SCRIPT_ISMINE_H
 
 #include "script/standard.h"
 
@@ -39,4 +39,4 @@ isminetype IsMine(const CKeyStore& keystore, const CScript& scriptPubKey, SigVer
 isminetype IsMine(const CKeyStore& keystore, const CTxDestination& dest, bool& isInvalid, SigVersion = SIGVERSION_BASE);
 isminetype IsMine(const CKeyStore& keystore, const CTxDestination& dest, SigVersion = SIGVERSION_BASE);
 
-#endif // TTN_SCRIPT_ISMINE_H
+#endif // LCASH_SCRIPT_ISMINE_H

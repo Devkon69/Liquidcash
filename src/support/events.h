@@ -1,11 +1,11 @@
 // Copyright (c) 2016-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_SUPPORT_EVENTS_H
-#define TTN_SUPPORT_EVENTS_H
+#ifndef LCASH_SUPPORT_EVENTS_H
+#define LCASH_SUPPORT_EVENTS_H
 
 #include <ios>
 #include <memory>
@@ -55,4 +55,4 @@ inline raii_evhttp_connection obtain_evhttp_connection_base(struct event_base* b
     return result;
 }
 
-#endif // TTN_SUPPORT_EVENTS_H
+#endif // LCASH_SUPPORT_EVENTS_H

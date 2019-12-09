@@ -1,13 +1,13 @@
 // Copyright (c) 2011-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "guiutil.h"
 
-#include "titancoinaddressvalidator.h"
-#include "titancoinunits.h"
+#include "liquidcashaddressvalidator.h"
+#include "liquidcashunits.h"
 #include "qvalidatedlineedit.h"
 #include "walletmodel.h"
 
@@ -204,11 +204,11 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Titancoin address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a Liquidcash address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(Params()))));
 #endif
-    widget->setValidator(new TitancoinAddressEntryValidator(parent));
-    widget->setCheckValidator(new TitancoinAddressCheckValidator(parent));
+    widget->setValidator(new LiquidcashAddressEntryValidator(parent));
+    widget->setCheckValidator(new LiquidcashAddressCheckValidator(parent));
 }
 
 void setupAmountWidget(QLineEdit *widget, QWidget *parent)
@@ -220,10 +220,10 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
     widget->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
 }
 
-bool parseTitancoinURI(const QUrl &uri, SendCoinsRecipient *out)
+bool parseLiquidcashURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no titancoin: URI
-    if(!uri.isValid() || uri.scheme() != QString("titancoin"))
+    // return if URI is not valid or is no liquidcash: URI
+    if(!uri.isValid() || uri.scheme() != QString("liquidcash"))
         return false;
 
     SendCoinsRecipient rv;
@@ -263,7 +263,7 @@ bool parseTitancoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!TitancoinUnits::parse(TitancoinUnits::TTN, i->second, &rv.amount))
+                if(!LiquidcashUnits::parse(LiquidcashUnits::LCASH, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -281,28 +281,28 @@ bool parseTitancoinURI(const QUrl &uri, SendCoinsRecipient *out)
     return true;
 }
 
-bool parseTitancoinURI(QString uri, SendCoinsRecipient *out)
+bool parseLiquidcashURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert titancoin:// to titancoin:
+    // Convert liquidcash:// to liquidcash:
     //
-    //    Cannot handle this later, because titancoin:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because liquidcash:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("titancoin://", Qt::CaseInsensitive))
+    if(uri.startsWith("liquidcash://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 10, "titancoin:");
+        uri.replace(0, 10, "liquidcash:");
     }
     QUrl uriInstance(uri);
-    return parseTitancoinURI(uriInstance, out);
+    return parseLiquidcashURI(uriInstance, out);
 }
 
-QString formatTitancoinURI(const SendCoinsRecipient &info)
+QString formatLiquidcashURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("titancoin:%1").arg(info.address);
+    QString ret = QString("liquidcash:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(TitancoinUnits::format(TitancoinUnits::TTN, info.amount, false, TitancoinUnits::separatorNever));
+        ret += QString("?amount=%1").arg(LiquidcashUnits::format(LiquidcashUnits::LCASH, info.amount, false, LiquidcashUnits::separatorNever));
         paramCount++;
     }
 
@@ -492,9 +492,9 @@ void openDebugLogfile()
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathDebug)));
 }
 
-bool openTitancoinConf()
+bool openLiquidcashConf()
 {
-    boost::filesystem::path pathConfig = GetConfigFile(TTN_CONF_FILENAME);
+    boost::filesystem::path pathConfig = GetConfigFile(LCASH_CONF_FILENAME);
 
     /* Create the file */
     boost::filesystem::ofstream configFile(pathConfig, std::ios_base::app);
@@ -504,7 +504,7 @@ bool openTitancoinConf()
     
     configFile.close();
     
-    /* Open titancoin.conf with the associated application */
+    /* Open liquidcash.conf with the associated application */
     return QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 }
 
@@ -693,15 +693,15 @@ fs::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Titancoin.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Liquidcash.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Titancoin (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Titancoin (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Liquidcash (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Liquidcash (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for Titancoin*.lnk
+    // check for Liquidcash*.lnk
     return fs::exists(StartupShortcutPath());
 }
 
@@ -791,8 +791,8 @@ fs::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "titancoin.desktop";
-    return GetAutostartDir() / strprintf("titancoin-%s.lnk", chain);
+        return GetAutostartDir() / "liquidcash.desktop";
+    return GetAutostartDir() / strprintf("liquidcash-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -832,13 +832,13 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a titancoin.desktop file to the autostart directory:
+        // Write a liquidcash.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=Titancoin\n";
+            optionFile << "Name=Liquidcash\n";
         else
-            optionFile << strprintf("Name=Titancoin (%s)\n", chain);
+            optionFile << strprintf("Name=Liquidcash (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", gArgs.GetBoolArg("-testnet", false), gArgs.GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -864,7 +864,7 @@ LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef
         return nullptr;
     }
     
-    // loop through the list of startup items and try to find the titancoin app
+    // loop through the list of startup items and try to find the liquidcash app
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
         UInt32 resolutionFlags = kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes;
@@ -898,38 +898,38 @@ LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef
 
 bool GetStartOnSystemStartup()
 {
-    CFURLRef titancoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
-    if (titancoinAppUrl == nullptr) {
+    CFURLRef liquidcashAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    if (liquidcashAppUrl == nullptr) {
         return false;
     }
     
     LSSharedFileListRef loginItems = LSSharedFileListCreate(nullptr, kLSSharedFileListSessionLoginItems, nullptr);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, titancoinAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, liquidcashAppUrl);
 
-    CFRelease(titancoinAppUrl);
+    CFRelease(liquidcashAppUrl);
     return !!foundItem; // return boolified object
 }
 
 bool SetStartOnSystemStartup(bool fAutoStart)
 {
-    CFURLRef titancoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
-    if (titancoinAppUrl == nullptr) {
+    CFURLRef liquidcashAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    if (liquidcashAppUrl == nullptr) {
         return false;
     }
     
     LSSharedFileListRef loginItems = LSSharedFileListCreate(nullptr, kLSSharedFileListSessionLoginItems, nullptr);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, titancoinAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, liquidcashAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add titancoin app to startup item list
-        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, nullptr, nullptr, titancoinAppUrl, nullptr, nullptr);
+        // add liquidcash app to startup item list
+        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, nullptr, nullptr, liquidcashAppUrl, nullptr, nullptr);
     }
     else if(!fAutoStart && foundItem) {
         // remove item
         LSSharedFileListItemRemove(loginItems, foundItem);
     }
     
-    CFRelease(titancoinAppUrl);
+    CFRelease(liquidcashAppUrl);
     return true;
 }
 #pragma GCC diagnostic pop

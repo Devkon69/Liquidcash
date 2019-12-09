@@ -1,11 +1,11 @@
 // Copyright (c) 2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_QT_SENDASSETSENTRY_H
-#define TTN_QT_SENDASSETSENTRY_H
+#ifndef LCASH_QT_SENDASSETSENTRY_H
+#define LCASH_QT_SENDASSETSENTRY_H
 
 #include "walletmodel.h"
 
@@ -22,7 +22,7 @@ namespace Ui {
 }
 
 /**
- * A single entry in the dialog for sending titancoins.
+ * A single entry in the dialog for sending liquidcashs.
  * Stacked widget, with different UIs for payment requests
  * with a strong payee identity.
  */
@@ -91,4 +91,4 @@ private:
     bool updateLabel(const QString &address);
 };
 
-#endif // TTN_QT_SENDASSETSENTRY_H
+#endif // LCASH_QT_SENDASSETSENTRY_H

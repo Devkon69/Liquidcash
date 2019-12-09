@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,8 +9,8 @@
 #error This header can only be compiled as C++.
 #endif
 
-#ifndef TTN_PROTOCOL_H
-#define TTN_PROTOCOL_H
+#ifndef LCASH_PROTOCOL_H
+#define LCASH_PROTOCOL_H
 
 #include "netaddress.h"
 #include "serialize.h"
@@ -65,7 +65,7 @@ public:
 };
 
 /**
- * Titancoin protocol message types. When adding new message types, don't forget
+ * Liquidcash protocol message types. When adding new message types, don't forget
  * to update allNetMessageTypes in protocol.cpp.
  */
 namespace NetMsgType {
@@ -273,15 +273,15 @@ enum ServiceFlags : uint64_t {
     // Nothing
     NODE_NONE = 0,
     // NODE_NETWORK means that the node is capable of serving the block chain. It is currently
-    // set by all Titancoin Core nodes, and is unset by SPV clients or other peers that just want
+    // set by all Liquidcash Core nodes, and is unset by SPV clients or other peers that just want
     // network services but don't provide them.
     NODE_NETWORK = (1 << 0),
     // NODE_GETUTXO means the node is capable of responding to the getutxo protocol request.
-    // Titancoin Core does not support this but a patch set called Titancoin XT does.
+    // Liquidcash Core does not support this but a patch set called Liquidcash XT does.
     // See BIP 64 for details on how this is implemented.
     NODE_GETUTXO = (1 << 1),
     // NODE_BLOOM means the node is capable and willing to handle bloom-filtered connections.
-    // Titancoin Core nodes used to support this by default, without advertising this bit,
+    // Liquidcash Core nodes used to support this by default, without advertising this bit,
     // but no longer do as of protocol version 70011 (= NO_BLOOM_VERSION)
     NODE_BLOOM = (1 << 2),
     // NODE_WITNESS indicates that a node can be asked for blocks and transactions including
@@ -293,7 +293,7 @@ enum ServiceFlags : uint64_t {
 
     // Bits 24-31 are reserved for temporary experiments. Just pick a bit that
     // isn't getting used, or one not being used much, and notify the
-    // titancoin-development mailing list. Remember that service bits are just
+    // liquidcash-development mailing list. Remember that service bits are just
     // unauthenticated advertisements, so your code must be robust against
     // collisions and other cases where nodes may be advertising a service they
     // do not actually support. Other service bits should be allocated via the
@@ -444,4 +444,4 @@ public:
     std::string name; // block height that asset data should come from
 };
 
-#endif // TTN_PROTOCOL_H
+#endif // LCASH_PROTOCOL_H

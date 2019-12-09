@@ -1,15 +1,15 @@
 // Copyright (c) 2011-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_NETBASE_H
-#define TTN_NETBASE_H
+#ifndef LCASH_NETBASE_H
+#define LCASH_NETBASE_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/titancoin-config.h"
+#include "config/liquidcash-config.h"
 #endif
 
 #include "compat.h"
@@ -70,4 +70,4 @@ bool SetSocketNoDelay(const SOCKET& hSocket);
 struct timeval MillisToTimeval(int64_t nTimeout);
 void InterruptSocks5(bool interrupt);
 
-#endif // TTN_NETBASE_H
+#endif // LCASH_NETBASE_H

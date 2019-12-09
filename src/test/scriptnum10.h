@@ -1,11 +1,11 @@
 // Copyright (c) 2015-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_TEST_SCRIPTNUM10_H
-#define TTN_TEST_SCRIPTNUM10_H
+#ifndef LCASH_TEST_SCRIPTNUM10_H
+#define LCASH_TEST_SCRIPTNUM10_H
 
 #include <algorithm>
 #include <limits>
@@ -25,7 +25,7 @@ public:
 class CScriptNum10
 {
 /**
- * The ScriptNum implementation from Titancoin Core 0.10.0, for cross-comparison.
+ * The ScriptNum implementation from Liquidcash Core 0.10.0, for cross-comparison.
  */
 public:
 
@@ -218,4 +218,4 @@ private:
 };
 
 
-#endif // TTN_TEST_BIGNUM_H
+#endif // LCASH_TEST_BIGNUM_H

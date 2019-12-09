@@ -1,6 +1,6 @@
 // Copyright (c) 2013-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -181,7 +181,7 @@ yk1xG57x++QuASKeR3QHRQJOoAhQaj9JLUhSSv9GQ5PrFLLsOFv7L1tpzXHh2dOB\
 IW92X2yFRW2s39q+Q21yvN+N8uoKdqXhzRA+dDoXh3cavaVeHX1G+IrlAgMBAAGj\
 EDAOMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQELBQADgYEASTwg84cX+1UhOG9s\
 ejFV3m34QuI1hPZ+qhqVJlRYUtego8Wng1BburDSwqVAv4ch2wi3c2s4e8J7AXyL\
-tzSbSQG4RN0oZi0mR8EtTTN+Mix/hBIk79dMZg85+I29uFA6Zj2d9oAhQv2qkHhc\
+tzSbSQG4RN0oZi0mR8EtLCASH+Mix/hBIk79dMZg85+I29uFA6Zj2d9oAhQv2qkHhc\
 6tcaheNvkQRlCyH68k3iF1Fqf+4KiAQwggIEMIIBbaADAgECAgECMA0GCSqGSIb3\
 DQEBCwUAMD8xFDASBgNVBAMMC3Rlc3RjYTEub3JnMScwJQYDVQQKDB5QYXltZW50\
 IFJlcXVlc3QgSW50ZXJtZWRpYXRlIDEwHhcNMTMwMjIzMjI0MjI5WhcNMjMwMjIx\
@@ -289,7 +289,7 @@ TBRRsYnBvb/TSWipvMQaCYuEyk1xG57x++QuASKeR3QHRQJOoAhQaj9JLUhSSv9G\
 Q5PrFLLsOFv7L1tpzXHh2dOBIW92X2yFRW2s39q+Q21yvN+N8uoKdqXhzRA+dDoX\
 h3cavaVeHX1G+IrlAgMBAAGjEDAOMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEL\
 BQADgYEASTwg84cX+1UhOG9sejFV3m34QuI1hPZ+qhqVJlRYUtego8Wng1BburDS\
-wqVAv4ch2wi3c2s4e8J7AXyLtzSbSQG4RN0oZi0mR8EtTTN+Mix/hBIk79dMZg85\
+wqVAv4ch2wi3c2s4e8J7AXyLtzSbSQG4RN0oZi0mR8EtLCASH+Mix/hBIk79dMZg85\
 +I29uFA6Zj2d9oAhQv2qkHhc6tcaheNvkQRlCyH68k3iF1Fqf+4KiAQwggIEMIIB\
 baADAgECAgECMA0GCSqGSIb3DQEBCwUAMD8xFDASBgNVBAMMC3Rlc3RjYTEub3Jn\
 MScwJQYDVQQKDB5QYXltZW50IFJlcXVlc3QgSW50ZXJtZWRpYXRlIDEwHhcNMTMw\
@@ -437,7 +437,7 @@ d2hj739GDLz0b5KuJ2SG6VknMRQM976w/m2qlq0ccVGaaZ2zMIGfpzL3p6adwx/5\
 ";
 
 //
-// Payment request with amount overflow (amount is set to 21000001 TTN)
+// Payment request with amount overflow (amount is set to 21000001 LCASH)
 //
 const char* paymentrequest5_cert2_BASE64 =
 "\

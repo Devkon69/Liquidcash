@@ -1,11 +1,11 @@
 // Copyright (c) 2014-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_ZMQ_ZMQNOTIFICATIONINTERFACE_H
-#define TTN_ZMQ_ZMQNOTIFICATIONINTERFACE_H
+#ifndef LCASH_ZMQ_ZMQNOTIFICATIONINTERFACE_H
+#define LCASH_ZMQ_ZMQNOTIFICATIONINTERFACE_H
 
 #include "validationinterface.h"
 #include <string>
@@ -39,4 +39,4 @@ private:
     std::list<CZMQAbstractNotifier*> notifiers;
 };
 
-#endif // TTN_ZMQ_ZMQNOTIFICATIONINTERFACE_H
+#endif // LCASH_ZMQ_ZMQNOTIFICATIONINTERFACE_H

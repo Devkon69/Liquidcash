@@ -1,12 +1,12 @@
 // Copyright (c) 2015-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_BENCH_BENCH_H
-#define TTN_BENCH_BENCH_H
+#ifndef LCASH_BENCH_BENCH_H
+#define LCASH_BENCH_BENCH_H
 
 #include <functional>
 #include <limits>
@@ -80,4 +80,4 @@ namespace benchmark {
 #define BENCHMARK(n) \
     benchmark::BenchRunner BOOST_PP_CAT(bench_, BOOST_PP_CAT(__LINE__, n))(BOOST_PP_STRINGIZE(n), n);
 
-#endif // TTN_BENCH_BENCH_H
+#endif // LCASH_BENCH_BENCH_H

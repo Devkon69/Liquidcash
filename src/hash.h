@@ -1,12 +1,12 @@
 // Copyright (c) 2012-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
 // Copyright (c) 2018 The Rito Core developers
-// Copyright (c) 2019 The Titancoin Core developers
+// Copyright (c) 2019 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_HASH_H
-#define TTN_HASH_H
+#ifndef LCASH_HASH_H
+#define LCASH_HASH_H
 #include <iostream>
 #include <chrono>
 #include "crypto/ripemd160.h"
@@ -23,7 +23,7 @@ extern "C" {
 
 typedef uint256 ChainCode;
 
-/** A hasher class for Titancoin's 256-bit hash (double SHA-256). */
+/** A hasher class for Liquidcash's 256-bit hash (double SHA-256). */
 class CHash256 {
 private:
     CSHA256 sha;
@@ -47,7 +47,7 @@ public:
     }
 };
 
-/** A hasher class for Titancoin's 160-bit hash (SHA-256 + RIPEMD-160). */
+/** A hasher class for Liquidcash's 160-bit hash (SHA-256 + RIPEMD-160). */
 class CHash160 {
 private:
     CSHA256 sha;
@@ -307,4 +307,4 @@ inline int GetHashSelection(const uint256 PrevBlockHash, int index) {
 extern double algoHashTotal[16];
 extern int algoHashHits[16];
 
-#endif // TTN_HASH_H
+#endif // LCASH_HASH_H

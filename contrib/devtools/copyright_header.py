@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Copyright (c) 2016-2018 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -91,11 +91,11 @@ EXPECTED_HOLDER_NAMES = [
     "the Raven Core developers\n",
     "The Raven developers\n",
     "The LevelDB Authors\. All rights reserved\.\n",
-    "The Titancoin Core developers\n",
-    "The Titancoin Core developers \n",
-    "Titancoin Core Developers\n",
-    "the Titancoin Core developers\n",
-    "The Titancoin developers\n",
+    "The Liquidcash Core developers\n",
+    "The Liquidcash Core developers \n",
+    "Liquidcash Core Developers\n",
+    "the Liquidcash Core developers\n",
+    "The Liquidcash developers\n",
     "BitPay Inc\.\n",
     "BitPay, Inc\.\n",
     "University of Illinois at Urbana-Champaign\.\n",
@@ -347,7 +347,7 @@ def write_file_lines(filename, file_lines):
 COPYRIGHT = 'Copyright \(c\)'
 YEAR = "20[0-9][0-9]"
 YEAR_RANGE = '(%s)(-%s)?' % (YEAR, YEAR)
-HOLDER = 'The Titancoin Core developers'
+HOLDER = 'The Liquidcash Core developers'
 UPDATEABLE_LINE_COMPILED = re.compile(' '.join([COPYRIGHT, YEAR_RANGE, HOLDER]))
 
 def get_updatable_copyright_line(file_lines):
@@ -415,7 +415,7 @@ def exec_update_header_year(base_directory):
 ################################################################################
 
 UPDATE_USAGE = """
-Updates all the copyright headers of "The Titancoin Core developers" which were
+Updates all the copyright headers of "The Liquidcash Core developers" which were
 changed in a year more recent than is listed. For example:
 
 
@@ -531,7 +531,7 @@ def exec_insert_header(filename, style):
 ################################################################################
 
 INSERT_USAGE = """
-Inserts a copyright header for "The Titancoin Core developers" at the top of the
+Inserts a copyright header for "The Liquidcash Core developers" at the top of the
 file in either Python or C++ style as determined by the file extension. If the
 file is a Python file and it has a '#!' starting the first line, the header is
 inserted in the line below it.
@@ -545,7 +545,7 @@ where <year_introduced> is according to the 'git log' history. If
 
 "<current_year>"
 
-If the file already has a copyright for "The Titancoin Core developers", the
+If the file already has a copyright for "The Liquidcash Core developers", the
 script will exit.
 
 Usage:
@@ -577,7 +577,7 @@ def insert_cmd(argv):
 ################################################################################
 
 USAGE = """
-copyright_header.py - utilities for managing copyright headers of 'The Titancoin 
+copyright_header.py - utilities for managing copyright headers of 'The Liquidcash 
 Core developers' in repository source files.
 
 Usage:

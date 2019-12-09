@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Copyright (c) 2018-2019 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test processing of feefilter messages.
@@ -9,7 +9,7 @@
   (Wallet now has DEFAULT_TRANSACTION_MINFEE = 0.00050000"""
 
 from test_framework.mininode import *
-from test_framework.test_framework import TitancoinTestFramework
+from test_framework.test_framework import LiquidcashTestFramework
 from test_framework.util import *
 import time
 
@@ -40,7 +40,7 @@ class TestNode(NodeConnCB):
         with mininode_lock:
             self.txinvs = []
 
-class FeeFilterTest(TitancoinTestFramework):
+class FeeFilterTest(LiquidcashTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
 

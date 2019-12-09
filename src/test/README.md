@@ -5,18 +5,18 @@ and tests weren't explicitly disabled.
 
 After configuring, they can be run with `make check`.
 
-To run the titancoind tests manually, launch `src/test/test_titancoin`. To recompile
+To run the liquidcashd tests manually, launch `src/test/test_liquidcash`. To recompile
 after a test file was modified, run `make` and then run the test again. If you
 modify a non-test file, use `make -C src/test` to recompile only what's needed
-to run the titancoind tests.
+to run the liquidcashd tests.
 
-To add more titancoind tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
+To add more liquidcashd tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
 .cpp files in the `test/` directory or add new .cpp files that
 implement new BOOST_AUTO_TEST_SUITE sections.
 
-To run the titancoin-qt tests manually, launch `src/qt/test/test_titancoin-qt`
+To run the liquidcash-qt tests manually, launch `src/qt/test/test_liquidcash-qt`
 
-To add more titancoin-qt tests, add them to the `src/qt/test/` directory and
+To add more liquidcash-qt tests, add them to the `src/qt/test/` directory and
 the `src/qt/test/test_main.cpp` file.
 
 To display progress information the unit tests should be run as follows:
@@ -32,12 +32,12 @@ Additional optional parameters are available. To display all optional parameters
 To display what individual tests are running (as they are running) use the
 `--log_level=message` parameter.  
 
-By default the log messages from the Titancoin Core application are not echoed 
+By default the log messages from the Liquidcash Core application are not echoed 
 when running the unit tests.  If it is desired to print this log data change 
-the following from 'false' to 'true' in the `test_titancoin.cpp` file and uncomment
+the following from 'false' to 'true' in the `test_liquidcash.cpp` file and uncomment
 three lines in the `script\interpreter.cpp\ VerifyScript` method and recompile:
 
-    src\test\test_titancoin.cpp:
+    src\test\test_liquidcash.cpp:
     fPrintToConsole = false;  <-to->  fPrintToConsole = true;
 
     script\interpreter.cpp\ VerifyScript method, uncomment:
@@ -51,27 +51,27 @@ it appear that the tests were failing.
 
 ### Running individual tests
 
-Run `test_titancoin --list_content` to get a full list of available unit tests.
+Run `test_liquidcash --list_content` to get a full list of available unit tests.
 
 To run just the 'getarg_tests' (verbosely):
 
-    test_titancoin --run_test=getarg_tests
+    test_liquidcash --run_test=getarg_tests
 
 ... or to run just the doubledash test:
 
-    test_titancoin --run_test=getarg_tests/doubledash_test
+    test_liquidcash --run_test=getarg_tests/doubledash_test
 
 ### Note on adding test cases
 
 The sources in this directory are unit test cases.  Boost includes a
-unit testing framework, and since titancoin already uses boost, it makes
+unit testing framework, and since liquidcash already uses boost, it makes
 sense to simply use this framework rather than require developers to
 configure some other framework (we want as few impediments to creating
 unit tests as possible).
 
-The build system is setup to compile an executable called `test_titancoin`
+The build system is setup to compile an executable called `test_liquidcash`
 that runs all of the unit tests.  The main source file is called
-test_titancoin.cpp. To add a new unit test file to our test suite you need 
+test_liquidcash.cpp. To add a new unit test file to our test suite you need 
 to add the file to `src/Makefile.test.include`. The pattern is to create 
 one test file for each class or source file for which you want to create 
 unit tests.  The file naming convention is `<source_filename>_tests.cpp` 

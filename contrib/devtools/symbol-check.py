@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # Copyright (c) 2014-2018 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 '''
@@ -55,7 +55,7 @@ READELF_CMD = os.getenv('READELF', '/usr/bin/readelf')
 CPPFILT_CMD = os.getenv('CPPFILT', '/usr/bin/c++filt')
 # Allowed NEEDED libraries
 ALLOWED_LIBRARIES = {
-# titancoind and titancoin-qt
+# liquidcashd and liquidcash-qt
 b'libgcc_s.so.1', # GCC base support
 b'libc.so.6', # C library
 b'libpthread.so.0', # threading
@@ -64,7 +64,7 @@ b'libm.so.6', # math library
 b'librt.so.1', # real-time (clock)
 b'ld-linux-x86-64.so.2', # 64-bit dynamic linker
 b'ld-linux.so.2', # 32-bit dynamic linker
-# titancoin-qt only
+# liquidcash-qt only
 b'libX11-xcb.so.1', # part of X11
 b'libX11.so.6', # part of X11
 b'libxcb.so.1', # part of X11

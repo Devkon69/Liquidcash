@@ -1,11 +1,11 @@
 // Copyright (c) 2015-2018 The Bitcoin Core developers
 // Copyright (c) 2017 The Raven Core developers
-// Copyright (c) 2018 The Titancoin Core developers
+// Copyright (c) 2018 The Liquidcash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TTN_WALLET_COINCONTROL_H
-#define TTN_WALLET_COINCONTROL_H
+#ifndef LCASH_WALLET_COINCONTROL_H
+#define LCASH_WALLET_COINCONTROL_H
 
 #include "policy/feerate.h"
 #include "policy/fees.h"
@@ -34,10 +34,10 @@ public:
     //! Fee estimation mode to control arguments to estimateSmartFee
     FeeEstimateMode m_fee_mode;
 
-    /** TTN START */
+    /** LCASH START */
     //! Name of the asset that is selected, used when sending assets with coincontrol
     std::string strAssetSelected;
-    /** TTN END */
+    /** LCASH END */
 
     CCoinControl()
     {
@@ -126,4 +126,4 @@ private:
     std::set<COutPoint> setAssetsSelected;
 };
 
-#endif // TTN_WALLET_COINCONTROL_H
+#endif // LCASH_WALLET_COINCONTROL_H

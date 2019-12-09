@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # Copyright (c) 2018 The Bitcoin Core developers
 # Copyright (c) 2017 The Raven Core developers
-# Copyright (c) 2018 The Titancoin Core developers
+# Copyright (c) 2018 The Liquidcash Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the listtransactions API."""
 
 from decimal import Decimal
-from test_framework.test_framework import TitancoinTestFramework
+from test_framework.test_framework import LiquidcashTestFramework
 from test_framework.util import *
 from test_framework.mininode import CTransaction, COIN
 from io import BytesIO
@@ -21,7 +21,7 @@ def txFromHex(hexstring):
     return tx
 
 
-class ListTransactionsTest(TitancoinTestFramework):
+class ListTransactionsTest(LiquidcashTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.enable_mocktime()
