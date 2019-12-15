@@ -148,7 +148,7 @@ public:
 
 
         vSeeds.emplace_back("2.225.249.244", false);
-        vSeeds.emplace_back("onlycash.ddns.net");
+        vSeeds.emplace_back("onlycash.ddns.net", false);
         //vSeeds.emplace_back("68.183.184.125", false);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48);
