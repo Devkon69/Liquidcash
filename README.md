@@ -76,7 +76,7 @@ git clone  https://github.com/liquidcashproject
 
  1.3 Giving Permissions
 
-Once you have installed all dependencies and cloned the repository, next step is to give read write and execute permissions to Titan folder. For that, go to the directory where Liquidcash folder is located and then run:
+Once you have installed all dependencies and cloned the repository, next step is to give read write and execute permissions to  folder. For that, go to the directory where Liquidcash folder is located and then run:
 
 sudo chmod -R 777 Liquidcash/
 
@@ -84,7 +84,7 @@ sudo chmod -R 777 Liquidcash/
 
  1.4 Compilation
 
-After sucessfully giving all permissions, go inside Titan folder and run:
+After sucessfully giving all permissions, go inside  folder and run:
 
 ./autogen.sh && ./configure && make && make install
 
