@@ -96,7 +96,7 @@ It will take a while depending upon your system's hardware configuration (RAM an
 
 Once compilation successfully ends, you can run Liquidcash daemon with following steps:
 
-a) Make sure you are in src folder of Titan ( your_directory/Liquidcash/src )
+a) Make sure you are in src folder of LCASH( your_directory/Liquidcash/src )
 b) Run: ./liquidcashd -daemon
 h) Run: ./Liquidcashd getinfo (To check conenction status, blocks and other information)
 
